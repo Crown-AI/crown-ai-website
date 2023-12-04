@@ -5,7 +5,8 @@ tasks:
   - name: npm install
     init: npm install
     command: npm run dev
-    name: login
-    port: 3000
-    protocol: https
-    onOpen: open-browser
+ports:
+    - name: login
+      port: 1025
+      protocol: https
+
