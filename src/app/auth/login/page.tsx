@@ -2,11 +2,12 @@ import Link from "next/link";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/constants";
 import { EmailLoginForm } from "@/modules/auth/components/email-login-form/email-login-form";
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import {Box, Button, Stack, TextField, Typography, colors } from "@mui/material";
 import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { Duru_Sans, Fira_Sans, Train_One } from "next/font/google";
+import { Duru_Sans, Fira_Sans, Inter, Train_One } from "next/font/google";
+import { green, red } from "@mui/material/colors";
 
 export const metadata: Metadata = {
   title: "Sign In",
@@ -20,21 +21,22 @@ export default async function Login() {
   }
 
   return (
-    <Box width="100%" minHeight="100vh" display="flex" alignItems="center" justifyContent="center">
-      <img src="https://s3-alpha-sig.figma.com/img/ae5f/7f58/8faecdbb231fe63b721f73222fa2c17e?Expires=1702252800&Signature=Di53c0PDb98bDre5sVkZKgUtECnKFzJqB~NDw~UDoExQwPPCkAoEImtQVKT6f80FBG9YgggsKMiAiedshYPeYJHv067hPssKdxXAv8PerXSGcYF7nRZGLCwBx3xnTWvRtiBW9Pmm2rA83DgtlS2aTmMyFQJucT3oYxqHqCzdfXJqXxHOKthvXc7znHLZ7M9lM8r3FVAVFWDIWmo0h5QYkRLQ7oL6je4lU0KSqAVeIS~JQqLfpNBrTgjckgIZQnSlaUrsngJwN0JikWF88UOvmFCaCgTcWuw66ljkHKzm~ORQhRwOqf~g4K1ilIBzPBfstPDuq5YpZ2HSIqNUbxceQw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" height="75px" width="91px" style={{float: "left"}} />
-      <Stack direction={"column"} style={{ width: 220, height: "100vh"}} spacing={4}>
-        <Typography variant="h1" fontFamily="Train_One">AICULTURE</Typography>
-        <Typography variant="h2" fontFamily="cursive">Fill the boxes below to proceed</Typography>
-      <fieldset>
-        <legend>Username or email</legend>
-        <TextField placeholder="Username" />
-      </fieldset>
-      <fieldset>
-        <legend>Password</legend>
-        <TextField type="password" placeholder="Password" />
-      </fieldset>
-      <Button variant="contained" border-radius="50%" style={{fontFamily: "Train_One"}}>Login</Button>
-    </Stack>
+    <Box>
+      <Stack style={{backgroundImage: "linear-gradient(rgba(245, 158, 158, 0.5),rgba(35, 163, 152, 0.5)),url('https://i.pinimg.com/originals/4f/4a/1a/4f4a1a9d7c51499e0f4d28ec5e128022.jpg')", backgroundSize: "cover", backgroundPosition: "center", alignItems: "center", justifyContent: "center", display: "flex"}} width="100%" minHeight="100vh" display={"flex"}>
+        <Stack direction={"column"} style={{height: "30vh"}} spacing={5} borderTop={90} borderColor={"transparent"} >
+          <Typography fontSize={22} fontFamily={"Inter"} fontStyle={"normal"} fontWeight={400} lineHeight="normal" >Sign into your account</Typography>
+        </Stack>
+        <Stack spacing={2} style={{ width: 220, height: "30vh", }} borderBottom={50} borderColor={"transparent"}>
+          <label>Username</label>
+          <TextField placeholder="Username" style={{width: 220, flexDirection: "column", borderRadius: 50,}}></TextField>
+          <legend>Password</legend>
+          <TextField type="password" placeholder="Password" />
+        </Stack>
+        <Stack borderTop={50} borderColor={"transparent"} direction={"column"} display={"flex"} style={{width: 220, position: "relative"}}>
+          <Button variant="contained" style={{fontFamily: "Train_One", borderRadius: 50, backgroundColor: "purple"}}>Login</Button>
+        </Stack>
+        <Typography borderTop={39} borderColor={"transparent"} fontFamily={"Duru_Sans"} width={255} display={"flex"} alignItems={"center"} justifyContent={"center"} flexShrink={0} fontSize={14} fontStyle={"normal"} fontWeight={400} lineHeight={"normal"}>Don't have an account? Sign up</Typography>
+      </Stack>
     </Box>
   )
 }

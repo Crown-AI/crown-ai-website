@@ -5,7 +5,7 @@ import { EmailLoginForm } from "@/modules/auth/components/email-login-form/email
 import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 export const metadata: Metadata = {
   title: "Sign Up",
@@ -19,13 +19,10 @@ export default async function Register() {
   }
 
   return (
-    <Stack spacing={2}>
-      <Typography variant="h2">Get started for free</Typography>
-      <Typography>
-        Already registered? <Link href="/auth/login">Sign in</Link> to your
-        account.
-      </Typography>
-      <EmailLoginForm />
-    </Stack>
+    <Box width={"100%"}>
+      <Stack>
+
+      </Stack>
+    </Box>
   );
 }
