@@ -10,6 +10,7 @@ import { Duru_Sans, Fira_Sans, Inter, Train_One } from "next/font/google";
 import { green, red } from "@mui/material/colors";
 import {Agriculture, Label, RememberMe} from "@mui/icons-material"
 import Image from "next/image"
+import AICulture from "public/Sample.png"
 export const metadata: Metadata = {
   title: "Sign In",
 };
@@ -25,6 +26,9 @@ export default async function Login() {
 
     <Box>
       <Stack style={{backgroundImage: "linear-gradient(rgba(245, 158, 158, 0.5),rgba(35, 163, 152, 0.5)),url('https://i.pinimg.com/originals/4f/4a/1a/4f4a1a9d7c51499e0f4d28ec5e128022.jpg')", backgroundSize: "cover", backgroundPosition: "center", alignItems: "center", justifyContent: "center", display: "flex"}} width="100%" minHeight="100vh" display={"flex"}>
+        <Stack display={"flex"} width={220} height={50} position={"relative"} style={{float: "left"}} left={-500}>
+          <Link href={"https://3000-harrison302-onlineagric-r0ciekpheja.ws-eu106.gitpod.io/"}><Image alt="AICulture" src={AICulture}></Image></Link>
+        </Stack>
         <Stack style={{backgroundColor: "white", width: 310, alignItems: "center", justifyContent: "center"}}>
           <Stack direction={"column"} style={{height: "30vh"}} spacing={5} borderTop={90} borderColor={"transparent"} >
             <Typography fontSize={22} fontFamily={"Inter"} fontStyle={"normal"} fontWeight={400} lineHeight="normal" >Sign into your account</Typography>

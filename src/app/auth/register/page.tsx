@@ -9,6 +9,8 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { CenterFocusStrong, Gradient, Style } from "@mui/icons-material";
 import { red } from "@mui/material/colors";
 import { Train_One } from "next/font/google";
+import Image from "next/image";
+import logo from "public/Sample.png"
 
 export const metadata: Metadata = {
   title: "Sign Up",
@@ -24,6 +26,7 @@ export default async function Register() {
   return (
     <Box>
       <Stack style={{backgroundImage: "linear-gradient(rgba(245, 158, 158, 0.5),rgba(35, 163, 152, 0.5)),url('https://i.pinimg.com/originals/4f/4a/1a/4f4a1a9d7c51499e0f4d28ec5e128022.jpg')", backgroundSize: "cover", backgroundPosition: "center", alignItems: "center", justifyContent: "center", display: "flex"}} width="100%" minHeight="100vh" display={"flex"}>
+        <Link href={"https://3000-harrison302-onlineagric-r0ciekpheja.ws-eu106.gitpod.io/"}><Image alt="Logo" src={logo}></Image></Link>
         <Stack display={"flex"} alignItems={"center"} style={{backgroundColor: "white", height: 450, width: 350}}>
           <Typography variant="h5" color={"black"}>Create an Account</Typography>
           <Stack spacing={2} borderTop={20} borderColor={"transparent"} marginLeft={10}>
