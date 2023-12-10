@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 import { Duru_Sans, Fira_Sans, Inter, Train_One } from "next/font/google";
 import { green, red } from "@mui/material/colors";
 import {Agriculture, Label, RememberMe} from "@mui/icons-material"
-
+import Image from "next/image"
 export const metadata: Metadata = {
   title: "Sign In",
 };
@@ -22,6 +22,7 @@ export default async function Login() {
   }
 
   return (
+
     <Box>
       <Stack style={{backgroundImage: "linear-gradient(rgba(245, 158, 158, 0.5),rgba(35, 163, 152, 0.5)),url('https://i.pinimg.com/originals/4f/4a/1a/4f4a1a9d7c51499e0f4d28ec5e128022.jpg')", backgroundSize: "cover", backgroundPosition: "center", alignItems: "center", justifyContent: "center", display: "flex"}} width="100%" minHeight="100vh" display={"flex"}>
         <Stack style={{backgroundColor: "white", width: 310, alignItems: "center", justifyContent: "center"}}>
@@ -33,7 +34,7 @@ export default async function Login() {
             <TextField label="Password" type="password" required />
           </Stack>
           <Stack borderTop={10} borderColor={"transparent"} direction={"column"} display={"flex"} style={{width: 220, position: "relative"}}>
-            <Button variant="contained" style={{fontFamily: "Train_One", borderRadius: 50, backgroundColor: "purple"}}>Login</Button>
+            <Link href={"/dashboard"}><Button variant="contained" style={{fontFamily: "Train_One", width: 220, borderRadius: 50, backgroundColor: "purple"}}>Login</Button></Link>
           </Stack>
           <Typography marginTop={5} borderColor={"transparent"} fontFamily={"Duru_Sans"} width={255} display={"flex"} alignItems={"center"} justifyContent={"center"} flexShrink={0} fontSize={14} fontStyle={"normal"} fontWeight={400} lineHeight={"normal"}>Don't have an account? Sign up</Typography>
         </Stack>
