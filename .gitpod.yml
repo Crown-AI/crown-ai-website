@@ -4,7 +4,7 @@ tasks:
     command: docker-compose up -d
   - name: npm install
     init: npm install
-    command: npm run devgit
+    command: npm run dev
 ports:
     - name: login
       port: 1025
