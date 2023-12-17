@@ -3,15 +3,16 @@ import { Box, Stack, TextField, filledInputClasses } from "@mui/material";
 import Image from "next/image";
 import Logo from "public/Sample.png";
 import { useEffect, useState } from "react";
-import { GET, Message, POST } from "../api/Messages/route";
+import { GET, MessageInput, POST } from "../api/Messages/route";
+import {Message} from "@prisma/client"
 import { CenterFocusStrong } from "@mui/icons-material";
 
-const emptyMessage: Message = {
+const emptyMessage: MessageInput = {
   id: "",
   content: "",
 };
 export default function HomePage() {
-  const [nmessage, setMessage] = useState<Message>(emptyMessage);
+  const [nmessage, setMessage] = useState<MessageInput>(emptyMessage);
   const [Messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
@@ -47,9 +48,9 @@ export default function HomePage() {
           <Stack
             style={{ position: "relative", width: 100, marginBottom: -100 }}
           >
-            {Messages.map((n) => (
-              <div key={n.content}>
-                <p>{n.content}</p>
+            {Messages.map((m) => (
+              <div key={m.content}>
+                <p>{m.content}</p>
               </div>
             ))}
             <div style={{ height: 100 }} />

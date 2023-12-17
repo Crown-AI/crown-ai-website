@@ -1,3 +1,4 @@
+
 tasks:
   - name: docker-compose 
     init: docker-compose create
@@ -11,3 +12,8 @@ ports:
       protocol: https
 
 
+
+vscode:
+  extensions:
+    - mtxr.sqltools
+    - mtxr.sqltools-driver-pg
