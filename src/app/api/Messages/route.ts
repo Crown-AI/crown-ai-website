@@ -4,17 +4,17 @@ import { NextRequest, NextResponse } from "next/server";
 import { Message } from "@prisma/client";
 
 export interface MessageInput {
-  id: string;
   content: string;
 }
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
-  const nmessage: MessageInput = await req.json();
+  const newMessage: MessageInput = await req.json();
+  console.log("@@ nmessage: ", newMessage);
   const created = await prisma.message.create({
-    data: nmessage,
+    data: newMessage,
   });
   console.log("@@messages: ", created);
-  return NextResponse.json(nmessage);
+  return NextResponse.json(newMessage);
 };
 export const GET = async (req: NextRequest, res: NextResponse) => {
   const Messages = await prisma.message.findMany();

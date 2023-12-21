@@ -8,7 +8,6 @@ import { Message } from "@prisma/client";
 import { CenterFocusStrong } from "@mui/icons-material";
 
 const emptyMessage: MessageInput = {
-  id: "",
   content: "",
 };
 export default function HomePage() {
