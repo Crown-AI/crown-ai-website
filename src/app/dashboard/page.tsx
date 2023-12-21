@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "public/Sample.png";
 import { useEffect, useState } from "react";
 import { GET, MessageInput, POST } from "../api/Messages/route";
-import {Message} from "@prisma/client"
+import { Message } from "@prisma/client";
 import { CenterFocusStrong } from "@mui/icons-material";
 
 const emptyMessage: MessageInput = {
