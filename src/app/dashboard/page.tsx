@@ -80,7 +80,7 @@ export default function HomePage() {
             onSubmit={async (e) => {
               {
                 e.preventDefault();
-                const response = await fetch("/api/Messages", {
+                git const response = await fetch("/api/Messages", {
                   method: "POST",
                   body: JSON.stringify(nmessage),
                 });
