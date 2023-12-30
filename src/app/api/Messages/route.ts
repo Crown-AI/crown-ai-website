@@ -7,6 +7,10 @@ export interface MessageInput {
   content: string;
 }
 
+export interface GetAllMessagesResponse {
+  message: Message[];
+}
+
 export const POST = async (req: NextRequest, res: NextResponse) => {
   const newMessage: MessageInput = await req.json();
   console.log("@@ nmessage: ", newMessage);
@@ -18,5 +22,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 };
 export const GET = async (req: NextRequest, res: NextResponse) => {
   const Messages = await prisma.message.findMany();
-  return NextResponse.json(Messages);
+  return NextResponse.json<GetAllMessagesResponse>({
+    Messages
+  });
 };

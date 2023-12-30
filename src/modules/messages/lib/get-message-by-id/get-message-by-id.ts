@@ -1,3 +1,10 @@
-export function getMessageById(id: string) {
-    return fetch('api/Messages');
+import { GetNoteByIdResponse } from "@/app/api/Messages/[id]/route";
+import { Message } from "@prisma/client";
+
+
+
+export async function getMessageById(id: string) {
+    const response = await fetch(`api/Messages ${id}`);
+    const json: GetNoteByIdResponse = await response.json()
+    return json.message;
 }
