@@ -4,11 +4,10 @@ import Image from "next/image";
 import Logo from "public/Sample.png";
 import { useEffect, useState } from "react";
 import { GET, MessageInput, POST } from "../api/Messages/route";
-import {Message} from "@prisma/client"
+import { Message } from "@prisma/client";
 import { CenterFocusStrong } from "@mui/icons-material";
 
 const emptyMessage: MessageInput = {
-  id: "",
   content: "",
 };
 export default function HomePage() {
@@ -80,7 +79,11 @@ export default function HomePage() {
             onSubmit={async (e) => {
               {
                 e.preventDefault();
+<<<<<<< HEAD
                  const response = await fetch("/api/Messages", {
+=======
+                const response = await fetch("/api/Messages", {
+>>>>>>> origin/main
                   method: "POST",
                   body: JSON.stringify(nmessage),
                 });

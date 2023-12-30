@@ -59,6 +59,6 @@ model Message {
     content   String
     createdAt DateTime @default(now())
     updatedAt DateTime? @updatedAt
-    ownerId   String
-    owner     User     @relation(fields: [ownerId], references: [id])
+    ownerId   String?
+    owner     User?     @relation(fields: [ownerId], references: [id])
 }
