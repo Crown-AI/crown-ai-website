@@ -2,6 +2,7 @@
 import { Box, CircularProgress, Stack, TextField, filledInputClasses } from "@mui/material";
 import Image from "next/image";
 import Logo from "public/Sample.png";
+import background from "public/AI-Chatbot.png";
 import { useEffect, useState } from "react";
 import { GET, MessageInput, POST } from "../api/Messages/route";
 import { Message } from "@prisma/client";
@@ -28,7 +29,7 @@ export default function HomePage() {
       <Stack
         style={{
           backgroundImage:
-            "linear-gradient(rgba(245, 158, 158, 0.5),rgba(35, 163, 152, 0.5)),url('https://i.pinimg.com/originals/4f/4a/1a/4f4a1a9d7c51499e0f4d28ec5e128022.jpg')",
+            "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "100vh",

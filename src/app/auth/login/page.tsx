@@ -25,7 +25,7 @@ export default async function Login() {
   return (
 
     <Box>
-      <Stack style={{backgroundImage: "linear-gradient(rgba(245, 158, 158, 0.5),rgba(35, 163, 152, 0.5)),url('https://i.pinimg.com/originals/4f/4a/1a/4f4a1a9d7c51499e0f4d28ec5e128022.jpg')", backgroundSize: "cover", backgroundPosition: "center", alignItems: "center", justifyContent: "center", display: "flex"}} width="100%" minHeight="100vh" display={"flex"}>
+      <Stack style={{backgroundImage: "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')", backgroundSize: "cover", backgroundPosition: "center", alignItems: "center", justifyContent: "center", display: "flex"}} width="100%" minHeight="100vh" display={"flex"}>
         <Stack display={"flex"} width={220} height={50} position={"relative"} style={{float: "left"}} left={-500}>
           <Link href={"https://3000-harrison302-onlineagric-r0ciekpheja.ws-eu106.gitpod.io/"}><Image alt="AICulture" src={AICulture}></Image></Link>
         </Stack>
