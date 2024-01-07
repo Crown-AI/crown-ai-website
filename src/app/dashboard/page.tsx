@@ -29,7 +29,7 @@ export default function HomePage() {
       <Stack
         style={{
           backgroundImage:
-            "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
+            "url('https://www.energiment.com/wp-content/uploads/2023/01/aot.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "100vh",
