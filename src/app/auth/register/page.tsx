@@ -25,7 +25,7 @@ export default async function Register() {
 
   return (
     <Box>
-      <Stack style={{backgroundImage: "url('https://www.energiment.com/wp-content/uploads/2023/01/aot.jpg')", backgroundSize: "cover", backgroundPosition: "center", alignItems: "center", justifyContent: "center", display: "flex"}} width="100%" minHeight="100vh" display={"flex"}>
+      <Stack style={{backgroundImage: "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')", backgroundSize: "cover", backgroundPosition: "center", alignItems: "center", justifyContent: "center", display: "flex"}} width="100%" minHeight="100vh" display={"flex"}>
         <Link href={"https://3000-harrison302-onlineagric-r0ciekpheja.ws-eu106.gitpod.io/"}><Image alt="Logo" src={logo}></Image></Link>
         <Stack display={"flex"} alignItems={"center"} style={{backgroundColor: "white", height: 450, width: 350}}>
           <Typography variant="h5" color={"black"}>Create an Account</Typography>
