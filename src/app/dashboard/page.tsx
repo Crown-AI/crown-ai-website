@@ -1,14 +1,10 @@
 "use client";
-import { Box, CircularProgress, Stack, TextField, filledInputClasses } from "@mui/material";
+import { useAllMessages } from "@/modules/messages/hooks/use-all-messages/use-all-messages";
+import { Box, CircularProgress, Stack } from "@mui/material";
 import Image from "next/image";
 import Logo from "public/Sample.png";
-import background from "public/AI-Chatbot.png";
-import { useEffect, useState } from "react";
-import { GET, MessageInput, POST } from "../api/Messages/route";
-import { Message } from "@prisma/client";
-import { CenterFocusStrong } from "@mui/icons-material";
-import { getMessageById } from "@/modules/messages/lib/get-message-by-id/get-message-by-id";
-import { useAllMessages } from "@/modules/messages/hooks/use-all-messages/use-all-messages";
+import { useState } from "react";
+import { MessageInput } from "../api/messages/route";
 
 const emptyMessage: MessageInput = {
   content: "",
@@ -16,14 +12,8 @@ const emptyMessage: MessageInput = {
 export default function HomePage() {
   const [nmessage, setMessage] = useState<MessageInput>(emptyMessage);
 
-  const { data: MessagesResponse, mutate, isLoading } = useAllMessages()
+  const { data: MessagesResponse, mutate, isLoading } = useAllMessages();
 
-  useEffect(() => {
-    fetch("/api/Messages").then(async (res) => {
-      const MessagesResponse = await res.json();
-      setMessage(MessagesResponse);
-    });
-  }, []);
   return (
     <Box>
       <Stack
@@ -82,18 +72,16 @@ export default function HomePage() {
               display: "flex",
             }}
             onSubmit={async (e) => {
-              {
-                e.preventDefault();
-                const response = await fetch("/api/Messages", {
-                  method: "POST",
-                  body: JSON.stringify(nmessage),
-                });
-                console.log("@@response: ", response);
-              }
+              e.preventDefault();
+              console.log("@@ message input: ", nmessage);
+              const response = await fetch("/api/messages", {
+                method: "POST",
+                body: JSON.stringify(nmessage),
+              });
+              console.log("@@response: ", response);
               await mutate();
             }}
           >
-
             <input
               onChange={(e) =>
                 setMessage((prev) => ({ ...prev, content: e.target.value }))
@@ -114,9 +102,6 @@ export default function HomePage() {
               }}
             ></input>
           </form>
-
-          
-
         </Stack>
       </Stack>
     </Box>

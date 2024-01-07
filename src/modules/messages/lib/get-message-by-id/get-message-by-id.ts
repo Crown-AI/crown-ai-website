@@ -1,4 +1,4 @@
-import { GetNoteByIdResponse } from "@/app/api/Messages/[id]/route";
+import { GetNoteByIdResponse } from "@/app/api/messages/[id]/route";
 import { Message } from "@prisma/client";
 
 
