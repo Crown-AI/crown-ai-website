@@ -5,7 +5,6 @@ tasks:
     command: docker-compose up -d
   - name: npm install
     init: npm install
-<<<<<<< HEAD
     command: export NEXTAUTH_URL="https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}/" && npm run dev
 ports:
     - name: login
