@@ -93,7 +93,6 @@ export function LoginForm() {
                 onChange={(o) => setEmail(o.target.value)}
                 required
               ></TextField>
-              <TextField label="Password" type="password" />
             </Stack>
             <Stack
               borderTop={10}
