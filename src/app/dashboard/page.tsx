@@ -5,6 +5,8 @@ import Image from "next/image";
 import Logo from "public/Sample.png";
 import { useState } from "react";
 import { MessageInput } from "../api/messages/route";
+import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
+
 
 const emptyMessage: MessageInput = {
   content: "",
@@ -13,6 +15,8 @@ export default function HomePage() {
   const [nmessage, setMessage] = useState<MessageInput>(emptyMessage);
 
   const { data: MessagesResponse, mutate, isLoading } = useAllMessages();
+  
+
 
   return (
     <Box>
