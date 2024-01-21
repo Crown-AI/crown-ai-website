@@ -11,6 +11,14 @@ import { useState } from "react";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const inputStyle = {
+    backgroundImage:
+      "linear-gradient(to bottom right, red, aqua, silver, indigo, blue)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+  };
   return (
     <Box>
       <Stack
@@ -84,6 +92,7 @@ export function LoginForm() {
               <TextField
                 name="email"
                 label="Username or email"
+                inputProps={{ style: inputStyle }}
                 style={{
                   width: 220,
                   flexDirection: "column",

@@ -1,6 +1,6 @@
 "use client";
 import { useAllMessages } from "@/modules/messages/hooks/use-all-messages/use-all-messages";
-import { Box, CircularProgress, Stack } from "@mui/material";
+import { Box, CircularProgress, Stack, TextField } from "@mui/material";
 import Image from "next/image";
 import Logo from "public/Sample.png";
 import { useState } from "react";
@@ -15,6 +15,17 @@ export default function HomePage() {
   const [nmessage, setMessage] = useState<MessageInput>(emptyMessage);
 
   const { data: MessagesResponse, mutate, isLoading } = useAllMessages();
+
+  const inputStyle = {
+    backgroundImage:
+      "linear-gradient(to bottom right, red, aqua, silver, indigo, blue)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+    fontSize: 20,
+    borderBottom: 0,
+  };
 
   return (
     <Box>
@@ -84,7 +95,7 @@ export default function HomePage() {
               await mutate();
             }}
           >
-            <input
+            <TextField
               onChange={(e) =>
                 setMessage((prev) => ({ ...prev, content: e.target.value }))
               }
@@ -92,17 +103,20 @@ export default function HomePage() {
               placeholder="search"
               id="search"
               name="search"
+              variant="standard"
+              inputProps={{ disableUnderline: true, style: inputStyle }}
               style={{
                 borderRadius: 50,
                 width: "95%",
                 height: 51,
-                border: "none",
-                outline: "none",
+                border: "transparent",
+                outline: "transparent",
                 alignItems: "bottom",
                 justifyContent: "bottom",
                 background: "silver",
+                borderBottom: 0,
               }}
-            ></input>
+            ></TextField>
           </form>
         </Stack>
       </Stack>
