@@ -6,7 +6,7 @@ import Logo from "public/Sample.png";
 import { useState } from "react";
 import { MessageInput } from "../api/messages/route";
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
-
+import Link from "next/link";
 
 const emptyMessage: MessageInput = {
   content: "",
@@ -15,8 +15,6 @@ export default function HomePage() {
   const [nmessage, setMessage] = useState<MessageInput>(emptyMessage);
 
   const { data: MessagesResponse, mutate, isLoading } = useAllMessages();
-  
-
 
   return (
     <Box>
@@ -46,9 +44,9 @@ export default function HomePage() {
             style={{ position: "relative", width: 100, marginBottom: -100 }}
           >
             {MessagesResponse?.map((m) => (
-              <a href="#">
+              <Link key={m.id} href={`/dashboard/message/${m.id}`}>
                 <p>{m.content}</p>
-              </a>
+              </Link>
             ))}
             <div style={{ height: 100 }} />
             {isLoading && <CircularProgress />}
