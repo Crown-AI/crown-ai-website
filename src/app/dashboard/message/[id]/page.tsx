@@ -1,3 +1,5 @@
+"use client";
+
 import { useMessageById } from "@/modules/messages/hooks/use-message-by-id/use-message-by-id";
 import { useParams } from "next/navigation";
 
