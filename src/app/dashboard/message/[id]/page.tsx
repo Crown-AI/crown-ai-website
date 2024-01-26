@@ -8,7 +8,7 @@ export default function ReplyPage() {
   const message = useMessageById(params.id as string);
   return (
     <div>
-      <p>{message.data?.content}</p>
+      {message.data?.content.split("\n").map((p) => <p key={p}>{p}</p>)}
     </div>
   );
 }
