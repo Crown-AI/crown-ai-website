@@ -51,17 +51,13 @@ export default function HomePage() {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Stack
-            style={{ position: "relative", width: 100, marginBottom: -100 }}
-          >
-            {MessagesResponse?.map((m) => (
-              <Link key={m.id} href={`/dashboard/message/${m.id}`}>
-                <p>{m.content}</p>
-              </Link>
-            ))}
-            <div style={{ height: 100 }} />
-            {isLoading && <CircularProgress />}
-          </Stack>
+          {MessagesResponse?.map((m) => (
+            <Link key={m.id} href={`/dashboard/message/${m.id}`}>
+              <p>{m.content}</p>
+            </Link>
+          ))}
+          <div style={{ height: 100 }} />
+          {isLoading && <CircularProgress />}
         </Stack>
         <Stack
           width={500}
