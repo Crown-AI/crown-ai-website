@@ -23,7 +23,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       },
       {
         status: 403,
-      }
+      },
     );
   }
   const newMessage: MessageInput = await req.json();
