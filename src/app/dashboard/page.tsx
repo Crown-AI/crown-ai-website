@@ -44,7 +44,12 @@ export default function HomePage() {
           <Image alt="Logo" src={Logo}></Image>
         </Stack>
         <Stack
-          style={{ backgroundColor: "white", overflow: "scroll" }}
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            overflow: "scroll",
+            WebkitBackdropFilter: "blur(5px)",
+            backdropFilter: "blur(5px)",
+          }}
           width={600}
           height={595}
           marginLeft={52}
@@ -52,9 +57,11 @@ export default function HomePage() {
           justifyContent={"center"}
         >
           {MessagesResponse?.map((m) => (
-            <Link key={m.id} href={`/dashboard/message/${m.id}`}>
-              <p>{m.content}</p>
-            </Link>
+            <div key={m.content}>
+              <Link href={`/dashboard/message/${m.id}`}>
+                <p>{m.content}</p>
+              </Link>
+            </div>
           ))}
           <div style={{ height: 100 }} />
           {isLoading && <CircularProgress />}
