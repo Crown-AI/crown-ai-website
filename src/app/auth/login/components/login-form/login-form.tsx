@@ -137,7 +137,7 @@ export function LoginForm() {
               fontWeight={400}
               lineHeight={"normal"}
             >
-              Don't have an account? Sign up
+              Sign up
             </Typography>
           </form>
         </Stack>
