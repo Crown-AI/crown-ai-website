@@ -23,17 +23,25 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       },
       {
         status: 403,
-      },
+      }
     );
   }
   const newMessage: MessageInput = await req.json();
+
+  await prisma.message.create({
+    data: {
+      ownerId: session.user.id,
+      ...newMessage,
+    },
+  });
+
   const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
       {
         role: "system",
         content:
-          "You are an agricultural expert. You are to repeat the user's question, go to a new paragraph, below the question, and then provide an answer to it. You are to provide answers to agriculture-based questions only. If it's not agriculture-based, you are to respond with \"Sorry, I only answer agricultural questions\". For example,\n\nQuestion: What is Agriculture?\n\nAnswer: What is Agriculture? \n\nAgriculture is the science or practice of farming, including cultivation of the soil for the growing of crops and the rearing of animals to provide food, wool, and other products.\n\nQuestion: What is business?\n\nAnswer: What is business?\n\nSorry, I only answer agricultural questions.",
+          "You are an agricultural expert. You are to repeat the user's question, go to a new paragraph, below the question, and then provide an answer to it. You are to provide answers to agriculture-based questions only. If it's not agriculture-based, you are to respond with \"Sorry, I only answer agricultural questions\". For example,\n\nQuestion: What is Agriculture?\n\nAnswer: What is Agriculture? \n\nAgriculture is the science or practice of farming, including cultivation of the soil for the growing of crops and the rearing of animals to provide food, wool, and other products.\n\nQuestion: What is business?\n\nAnswer: What is business?\n\nSorry, I only answer agricultural questions.\n\nDo not ever include the text of the question in your response.",
       },
       {
         role: "user",
@@ -46,9 +54,9 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     frequency_penalty: 0,
     presence_penalty: 0,
   });
-  await prisma.message.create({
-    data: newMessage,
-  });
+
+  console.log("@@ response: ", response.choices?.[0]?.message?.content);
+
   const aiResponse = await prisma.message.create({
     data: {
       ownerId: session.user.id,
