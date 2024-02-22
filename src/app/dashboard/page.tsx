@@ -7,6 +7,7 @@ import { useState } from "react";
 import { MessageInput } from "../api/messages/route";
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
 import Link from "next/link";
+import { Train_One } from "next/font/google";
 
 const emptyMessage: MessageInput = {
   content: "",
@@ -122,6 +123,31 @@ export default function HomePage() {
             ></TextField>
           </form>
         </Stack>
+        <footer style={{ borderTop: 500 }}>
+          <p
+            style={{
+              color: "gold",
+              fontFamily: "Train_One",
+              fontStyle: "italic",
+            }}
+          >
+            Powered by{" "}
+            <a
+              style={{
+                backgroundImage:
+                  "linear-gradient(to bottom right, red, indigo, gold, silver, blue, aqua)",
+                MozBackgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+                fontStyle: "normal",
+              }}
+            >
+              Prime Cobra
+            </a>
+            <a style={{ color: "black" }}>&reg;</a>
+          </p>
+        </footer>
       </Stack>
     </Box>
   );
