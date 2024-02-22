@@ -15,7 +15,9 @@ const emptyMessage: MessageInput = {
 export default function HomePage() {
   const [nmessage, setMessage] = useState<MessageInput>(emptyMessage);
 
-  const { data: MessagesResponse, mutate, isLoading } = useAllMessages();
+  const { data: messagesResponse, mutate, isLoading } = useAllMessages();
+
+  console.log("@@ ", messagesResponse);
 
   const inputStyle = {
     backgroundImage:
@@ -54,10 +56,11 @@ export default function HomePage() {
           width={600}
           height={595}
           marginLeft={52}
-          alignItems={"center"}
+          alignItems={"flex-start"}
           justifyContent={"center"}
+          p={4}
         >
-          {MessagesResponse?.map((m) => (
+          {messagesResponse?.map((m) => (
             <div key={m.content}>
               <Link href={`/dashboard/message/${m.id}`}>
                 <p>{m.content}</p>
@@ -108,7 +111,7 @@ export default function HomePage() {
               id="search"
               name="search"
               variant="standard"
-              inputProps={{ disableUnderline: true, style: inputStyle }}
+              inputProps={{ style: inputStyle }}
               style={{
                 borderRadius: 50,
                 width: "95%",
