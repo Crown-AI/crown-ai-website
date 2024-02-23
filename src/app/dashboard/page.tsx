@@ -8,6 +8,8 @@ import { MessageInput } from "../api/messages/route";
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
 import Link from "next/link";
 import { Train_One } from "next/font/google";
+import "../globalicons.css";
+import { useRouter } from "next/navigation";
 
 const emptyMessage: MessageInput = {
   content: "",
@@ -29,6 +31,7 @@ export default function HomePage() {
     fontSize: 20,
     borderBottom: 0,
   };
+  const router = useRouter();
 
   return (
     <Box>
@@ -43,6 +46,55 @@ export default function HomePage() {
         }}
         display={"flex"}
       >
+        <nav
+          style={{
+            display: "flex",
+            position: "relative",
+            alignItems: "center",
+            justifyContent: "center",
+            wordSpacing: 2,
+            gap: 5,
+          }}
+        >
+          <span className="material-symbols-outlined">home</span>
+          <p
+            style={{
+              fontFamily: "monospace",
+              color: "gray",
+              cursor: "pointer",
+            }}
+            id="home"
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("#");
+            }}
+          >
+            Home
+          </p>
+          <span
+            className="material-symbols-outlined"
+            id="contacts"
+            style={{ marginLeft: 40 }}
+          >
+            contacts_product
+          </span>
+          <p
+            style={{ fontFamily: "monospace", color: "gray" }}
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "page.tsx";
+            }}
+          >
+            Contact us
+          </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 30 }}
+          >
+            local_library
+          </span>
+          <p style={{ fontFamily: "monospace", color: "gray" }}>About us</p>
+        </nav>
         <Stack display={"flex"} width={220} height={50}>
           <Image alt="Logo" src={Logo}></Image>
         </Stack>
