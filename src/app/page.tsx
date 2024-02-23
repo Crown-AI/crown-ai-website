@@ -65,7 +65,13 @@ export default function Home() {
         </span>
         <p style={{ fontFamily: "monospace", color: "gray" }}>About us</p>
       </nav>
-      <Image alt="Logo" src={logo} width={123} height={123}></Image>
+      <Image
+        alt="Logo"
+        src={logo}
+        width={123}
+        height={123}
+        draggable="false"
+      ></Image>
       <Typography
         style={{
           backgroundImage:

@@ -96,7 +96,13 @@ export default function HomePage() {
           <p style={{ fontFamily: "monospace", color: "gray" }}>About us</p>
         </nav>
         <Stack display={"flex"} width={200} height={30}>
-          <Image alt="Logo" src={Logo} width={123} height={123}></Image>
+          <Image
+            alt="Logo"
+            src={Logo}
+            width={123}
+            height={123}
+            draggable="false"
+          ></Image>
         </Stack>
         <Stack
           style={{
