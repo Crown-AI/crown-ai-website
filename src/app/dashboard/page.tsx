@@ -126,7 +126,16 @@ export default function HomePage() {
             ></TextField>
           </form>
         </Stack>
-        <footer style={{ borderTop: 500 }}>
+        <footer
+          style={{
+            borderTop: 9,
+            marginTop: 290,
+            position: "relative",
+            display: "flex",
+            flexDirection: "row",
+            float: "right",
+          }}
+        >
           <p
             style={{
               color: "gold",
