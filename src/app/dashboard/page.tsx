@@ -21,7 +21,7 @@ export default function HomePage() {
 
   const inputStyle = {
     backgroundImage:
-      "linear-gradient(to bottom right, red, aqua, silver, indigo, blue)",
+      "linear-gradient(to bottom right, red, blue, gold, indigo, blue)",
     WebkitBackgroundClip: "text",
     MozBackgroundClip: "text",
     backgroundClip: "text",
