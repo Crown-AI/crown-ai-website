@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import background from "public/AI-Chatbot.jpg";
-import logo from "public/Sample.png";
+import logo from "public/Samp.png";
 import "./globalicons.css";
 
 export default function Home() {
@@ -65,7 +65,7 @@ export default function Home() {
         </span>
         <p style={{ fontFamily: "monospace", color: "gray" }}>About us</p>
       </nav>
-      <Image alt="Logo" src={logo}></Image>
+      <Image alt="Logo" src={logo} width={123} height={123}></Image>
       <Typography
         style={{
           backgroundImage:

@@ -2,7 +2,7 @@
 import { useAllMessages } from "@/modules/messages/hooks/use-all-messages/use-all-messages";
 import { Box, CircularProgress, Stack, TextField } from "@mui/material";
 import Image from "next/image";
-import Logo from "public/Sample.png";
+import Logo from "public/Samp.png";
 import { useState } from "react";
 import { MessageInput } from "../api/messages/route";
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
@@ -95,8 +95,8 @@ export default function HomePage() {
           </span>
           <p style={{ fontFamily: "monospace", color: "gray" }}>About us</p>
         </nav>
-        <Stack display={"flex"} width={220} height={50}>
-          <Image alt="Logo" src={Logo}></Image>
+        <Stack display={"flex"} width={200} height={30}>
+          <Image alt="Logo" src={Logo} width={123} height={123}></Image>
         </Stack>
         <Stack
           style={{
