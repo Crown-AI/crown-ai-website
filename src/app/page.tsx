@@ -55,7 +55,7 @@ export default function Home() {
           style={{ fontFamily: "monospace", color: "gray" }}
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = "page.tsx";
+            router.push("/contact");
           }}
         >
           Contact us
