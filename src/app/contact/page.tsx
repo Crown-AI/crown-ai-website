@@ -20,12 +20,12 @@ export default function Contact() {
             fontFamily: "monospace",
           }}
         >
-          <h1>Contact us</h1>
           <Stack
             style={{
               backgroundColor: "rgba(128, 128, 128, 0.4)",
               width: 1000,
               height: 500,
+              marginTop: 50,
             }}
           >
             <h1
@@ -52,6 +52,34 @@ export default function Contact() {
                 required
                 style={{ left: 150, top: 50 }}
               ></TextField>
+              <input
+                type="date"
+                name="dob"
+                id="dob"
+                style={{
+                  height: 50,
+                  width: 130,
+                  backgroundColor: "rgba(128, 128, 128, 0.4)",
+                  marginTop: 50,
+                  marginLeft: 170,
+                }}
+              />
+              <select
+                id="Country"
+                name="Country"
+                style={{
+                  backgroundColor: "rgba(128, 128, 128, 0.4)",
+                  width: 200,
+                  height: 50,
+                  marginTop: 50,
+                  marginLeft: 100,
+                }}
+              >
+                <option>--Please-select-a-country--</option>
+                <option value={"USA"}>USA</option>
+                <option value={"Canada"}>Canada</option>
+                <option value={"Nigeria"}>Nigeria</option>
+              </select>
             </form>
           </Stack>
         </Stack>

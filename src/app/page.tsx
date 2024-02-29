@@ -52,7 +52,7 @@ export default function Home() {
           contacts_product
         </span>
         <p
-          style={{ fontFamily: "monospace", color: "gray" }}
+          style={{ fontFamily: "monospace", color: "gray", cursor: "pointer" }}
           onClick={(e) => {
             e.preventDefault();
             router.push("/contact");
