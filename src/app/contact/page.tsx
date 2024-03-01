@@ -52,6 +52,13 @@ export default function Contact() {
                 required
                 style={{ left: 150, top: 50 }}
               ></TextField>
+              <TextField
+                label="Email"
+                id="email"
+                name="email"
+                required
+                style={{ marginLeft: 190, marginTop: 50 }}
+              ></TextField>
               <input
                 type="date"
                 name="dob"
@@ -69,16 +76,20 @@ export default function Contact() {
                 name="Country"
                 style={{
                   backgroundColor: "rgba(128, 128, 128, 0.4)",
-                  width: 200,
+                  width: 250,
                   height: 50,
                   marginTop: 50,
-                  marginLeft: 100,
+                  marginLeft: 50,
                 }}
               >
-                <option>--Please-select-a-country--</option>
-                <option value={"USA"}>USA</option>
+                <option value={""} selected disabled>
+                  --Please-select-a-country--
+                </option>
+                <option value={"Afghaistan"}>Afghanistan</option>
+                <option value={"USA"}>United States of America</option>
                 <option value={"Canada"}>Canada</option>
                 <option value={"Nigeria"}>Nigeria</option>
+                <option value={"Malaysia"}>Malaysia</option>
               </select>
             </form>
           </Stack>
