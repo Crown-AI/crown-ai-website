@@ -13,7 +13,7 @@ const pusher = new Pusher({
 });
 
 // Endpoint to trigger a Pusher event
-app.post("/trigger-event", (req, res) => {
+app.post("/trigger-event", (res) => {
   try {
     pusher.trigger("my-channel", "my-event", {
       message: "Hello world!",
