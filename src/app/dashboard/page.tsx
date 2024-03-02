@@ -121,8 +121,8 @@ export default function HomePage() {
           <Image
             alt="Logo"
             src={Logo}
-            width={123}
-            height={123}
+            width={100}
+            height={100}
             draggable="false"
           ></Image>
         </Stack>

@@ -4,7 +4,7 @@ import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import email from "next-auth/providers/email";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import AICulture from "/public/Sample.png";
+import AICulture from "/public/Samp.png";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -48,7 +48,12 @@ export function LoginForm() {
               "https://3000-harrison302-onlineagric-r0ciekpheja.ws-eu106.gitpod.io/"
             }
           >
-            <Image alt="AICulture" src={AICulture}></Image>
+            <Image
+              alt="AICulture"
+              src={AICulture}
+              height={100}
+              width={100}
+            ></Image>
           </Link>
         </Stack>
         <Stack

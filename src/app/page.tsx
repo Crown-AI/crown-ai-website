@@ -68,8 +68,8 @@ export default function Home() {
       <Image
         alt="Logo"
         src={logo}
-        width={123}
-        height={123}
+        width={100}
+        height={100}
         draggable="false"
       ></Image>
       <Typography
