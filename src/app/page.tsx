@@ -74,8 +74,21 @@ export default function Home() {
         draggable="false"
       ></Image>
       <Stack>
-        <video width={"100%"} height={"100%"} controls>
-          <source src="/vid/ai-behind.mp4"></source>
+        <video
+          style={{
+            position: "absolute",
+            right: 0,
+            bottom: 0,
+            minHeight: "100%",
+            minWidth: "100%",
+          }}
+          autoPlay
+          muted
+          onContextMenu={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <source src="/ai-behind.mp4" type="video/mp4" />
         </video>
       </Stack>
       <Typography
