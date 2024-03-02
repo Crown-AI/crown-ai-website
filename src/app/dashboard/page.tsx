@@ -1,6 +1,6 @@
 "use client";
 import { useAllMessages } from "@/modules/messages/hooks/use-all-messages/use-all-messages";
-import { Box, CircularProgress, Stack, TextField } from "@mui/material";
+import { Box, Button, CircularProgress, Stack, TextField } from "@mui/material";
 import Image from "next/image";
 import Logo from "public/Samp.png";
 import { useState } from "react";
@@ -74,10 +74,14 @@ export default function HomePage() {
             contacts_product
           </span>
           <p
-            style={{ fontFamily: "monospace", color: "gray" }}
+            style={{
+              fontFamily: "monospace",
+              color: "gray",
+              cursor: "pointer",
+            }}
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = "page.tsx";
+              router.push("/contact");
             }}
           >
             Contact us
@@ -102,6 +106,16 @@ export default function HomePage() {
               outline: "transparent",
             }}
           ></select>
+          <Stack direction="row" justifyContent="flex-end">
+            <Link href={"/auth/logout"}>
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "black", left: 130 }}
+              >
+                Logout
+              </Button>
+            </Link>
+          </Stack>
         </nav>
         <Stack display={"flex"} width={200} height={30}>
           <Image
