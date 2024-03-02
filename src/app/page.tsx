@@ -7,8 +7,9 @@ import { DM_Serif_Text, Train_One } from "next/font/google";
 import { useRouter } from "next/navigation";
 import React from "react";
 import Image from "next/image";
-import background from "public/AI-Chatbot.jpg";
+import background from "public/Sample.png";
 import logo from "public/Samp.png";
+import ReactPlayer from "react-player";
 import "./globalicons.css";
 
 export default function Home() {
@@ -72,6 +73,11 @@ export default function Home() {
         height={100}
         draggable="false"
       ></Image>
+      <Stack>
+        <video width={"100%"} height={"100%"} controls>
+          <source src="/vid/ai-behind.mp4"></source>
+        </video>
+      </Stack>
       <Typography
         style={{
           backgroundImage:
