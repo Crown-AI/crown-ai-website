@@ -57,7 +57,15 @@ export default function Contact() {
                 id="email"
                 name="email"
                 required
-                style={{ marginLeft: 190, marginTop: 50 }}
+                style={{ marginLeft: 200, marginTop: 50, width: 200 }}
+              ></TextField>
+              <TextField
+                type="password"
+                label="password"
+                id="password"
+                name="password"
+                required
+                style={{ marginLeft: 50, marginTop: 50 }}
               ></TextField>
               <input
                 type="date"
@@ -67,8 +75,8 @@ export default function Contact() {
                   height: 50,
                   width: 130,
                   backgroundColor: "rgba(128, 128, 128, 0.4)",
-                  marginTop: 50,
-                  marginLeft: 170,
+                  top: -90,
+                  marginLeft: 590,
                 }}
               />
               <select
