@@ -1,25 +1,25 @@
 "use client";
-require("dotenv").config();
+
 import React, { useEffect, useState } from "react";
 import Pusher from "pusher-js";
 
 interface MessageData {
   message: string;
 }
-const Chat: React.FC = () => {
+
+const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
+  cluster: "mt1",
+});
+
+export default function Chat() {
   const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState<string>("");
-  const Port = process.env.REACT_APP_PUSHER_KEY!;
 
   useEffect(() => {
-    const pusher = new Pusher("a2a52ceae8e4bed5a902", {
-      cluster: "mt1",
-      encrypted: "true",
-    } as any);
+    const channel = pusher.subscribe("chat");
 
-    const channel = pusher.subscribe("my-channel");
-
-    channel.bind("my-event", (data: MessageData) => {
+    channel.bind("message", (data: MessageData) => {
+      console.log("@@ message: ", data);
       setMessages((prevMessages) => [...prevMessages, data.message]);
     });
 
@@ -28,30 +28,6 @@ const Chat: React.FC = () => {
       channel.unsubscribe();
     };
   }, []);
-  console.log("@@ process", Port);
-
-  const sendMessage = () => {
-    if (input.trim() !== "") {
-      fetch("http://localhost:46399/trigger-event", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: input }),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setInput("");
-        })
-        .catch((error) => console.error("Error:", error));
-    }
-  };
 
   return (
     <div>
@@ -63,9 +39,19 @@ const Chat: React.FC = () => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button onClick={sendMessage}>Send</button>
+      <button
+        onClick={() => {
+          fetch("/api/chat", {
+            method: "POST",
+            body: JSON.stringify({
+              message: input,
+            }),
+          });
+          setInput("");
+        }}
+      >
+        Send
+      </button>
     </div>
   );
-};
-
-export default Chat;
+}

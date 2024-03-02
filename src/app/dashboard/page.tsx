@@ -1,6 +1,12 @@
 "use client";
 import { useAllMessages } from "@/modules/messages/hooks/use-all-messages/use-all-messages";
-import { Box, CircularProgress, Stack, TextField } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
 import Logo from "public/Samp.png";
 import { useState } from "react";
@@ -34,13 +40,78 @@ export default function HomePage() {
         style={{
           backgroundImage:
             "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
-          backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundSize: "cover",
           height: "100vh",
-          marginTop: 10,
         }}
-        display={"flex"}
       >
+        <nav
+          style={{
+            display: "flex",
+            position: "relative",
+            alignItems: "center",
+            justifyContent: "center",
+            wordSpacing: 2,
+            gap: 5,
+          }}
+        >
+          <span className="material-symbols-outlined">home</span>
+          <p
+            style={{
+              fontFamily: "monospace",
+              color: "gray",
+              cursor: "pointer",
+            }}
+            id="home"
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/dashboard");
+            }}
+          >
+            Home
+          </p>
+          <span
+            className="material-symbols-outlined"
+            id="contacts"
+            style={{ marginLeft: 40 }}
+          >
+            contacts_product
+          </span>
+          <p
+            style={{ fontFamily: "monospace", color: "gray" }}
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "page.tsx";
+            }}
+          >
+            Contact us
+          </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 30 }}
+          >
+            local_library
+          </span>
+          <p style={{ fontFamily: "monospace", color: "gray" }}>About us</p>
+        </nav>
+        <Image
+          alt="Logo"
+          src={Logo}
+          width={123}
+          height={123}
+          draggable="false"
+        ></Image>
+        <Typography
+          style={{
+            backgroundImage:
+              "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            height: "100vh",
+            marginTop: 10,
+          }}
+          display={"flex"}
+        ></Typography>
         <nav
           style={{
             display: "flex",
