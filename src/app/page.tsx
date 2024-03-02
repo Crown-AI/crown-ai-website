@@ -88,7 +88,7 @@ export default function Home() {
             e.preventDefault();
           }}
         >
-          <source src="/ai-frontier.mp4" type="video/mp4" />
+          <source src="/ai-upfront.mp4" type="video/mp4" />
         </video>
       </Stack>
       <Typography
