@@ -23,12 +23,15 @@ export default function Logout() {
           "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        display: "flex",
         height: "100vh",
         marginTop: 10,
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Typography
-        variant="h1"
+        variant="h2"
         style={{
           backgroundImage:
             "linear-gradient(to bottom right, red, gold, silver, aqua, purple)",
