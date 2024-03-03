@@ -150,6 +150,7 @@ export default function HomePage() {
                 e.preventDefault();
                 router.push("/chat");
               }}
+              style={{ cursor: "pointer" }}
             >
               Chat with other users
             </a>
