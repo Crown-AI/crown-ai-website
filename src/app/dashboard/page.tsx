@@ -99,13 +99,62 @@ export default function HomePage() {
           >
             chat
           </span>
-          <select
-            style={{
-              border: "transparent",
-              width: 300,
-              outline: "transparent",
+          <p
+            style={{ color: "gray" }}
+            onMouseEnter={(e) => {
+              e.preventDefault();
+              var toChange = document.getElementById("span");
+              if (
+                toChange?.style.display === "block" ||
+                toChange?.style.display === "none"
+              ) {
+                toChange.style.display = "flex";
+              }
             }}
-          ></select>
+            onMouseOut={(m) => {
+              m.preventDefault();
+              var changer = document.getElementById("span");
+              if (changer?.style.display === "flex") {
+                changer.style.display = "none";
+              }
+            }}
+          >
+            Other options
+          </p>
+          <div
+            style={{
+              display: "none",
+              position: "relative",
+              flexDirection: "column",
+              top: 36,
+              left: -139,
+              wordSpacing: 5,
+              backgroundColor: "rgba(0, 0, 0, 0.4)",
+              color: "rgba(255, 215, 0, 0.5)",
+            }}
+            id="span"
+          >
+            <a
+              onMouseOver={(e) => {
+                e.preventDefault();
+                var con = document.getElementById("span");
+                if (
+                  con?.style.display === "block" ||
+                  con?.style.display === "none" ||
+                  con?.style.display === "flex"
+                ) {
+                  con.style.display = "flex";
+                }
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                router.push("/chat");
+              }}
+            >
+              Chat with other users
+            </a>
+            <a>Chat with chatbot</a>
+          </div>
           <Stack direction="row" justifyContent="flex-end">
             <Link href={"/auth/logout"}>
               <Button
