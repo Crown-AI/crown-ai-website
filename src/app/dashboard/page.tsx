@@ -182,7 +182,7 @@ export default function HomePage() {
               await mutate();
             }}
           >
-            <TextField
+            <input
               onChange={(e) =>
                 setMessage((prev) => ({ ...prev, content: e.target.value }))
               }
@@ -190,8 +190,6 @@ export default function HomePage() {
               placeholder="search"
               id="search"
               name="search"
-              variant="standard"
-              inputProps={{ style: inputStyle }}
               style={{
                 borderRadius: 50,
                 width: "95%",
@@ -202,8 +200,9 @@ export default function HomePage() {
                 justifyContent: "bottom",
                 background: "silver",
                 borderBottom: 0,
+                overflow: "scroll",
               }}
-            ></TextField>
+            />
           </form>
         </Stack>
         <footer
