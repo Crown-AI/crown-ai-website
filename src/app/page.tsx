@@ -64,7 +64,7 @@ export default function Home() {
             </span>
             <p
               style={{
-                fontFamily: "monospace",
+                fontFamily: "'Indie Flower', cursive",
                 color: "gray",
                 cursor: "pointer",
                 position: "relative",
@@ -86,8 +86,8 @@ export default function Home() {
             </span>
             <p
               style={{
-                fontFamily: "monospace",
                 color: "gray",
+                fontFamily: "'Indie Flower', cursive",
                 cursor: "pointer",
               }}
               onClick={(e) => {
@@ -103,7 +103,29 @@ export default function Home() {
             >
               local_library
             </span>
-            <p style={{ fontFamily: "monospace", color: "gray" }}>About us</p>
+            <p style={{ color: "gray", fontFamily: "'Indie Flower', cursive" }}>
+              About us
+            </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ marginLeft: 50 }}
+            >
+              chat
+            </span>
+            <p
+              id="chats"
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "pointer",
+              }}
+              onClick={(c) => {
+                c.preventDefault();
+                router.push("/chat");
+              }}
+            >
+              Chats & Privacy
+            </p>
           </nav>
         </Stack>
         <Image
@@ -125,6 +147,7 @@ export default function Home() {
             MozBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
+            fontFamily: "'Dancing Script', cursive",
           }}
           variant="h1"
           position={"absolute"}
@@ -197,7 +220,7 @@ export default function Home() {
           <p
             style={{
               color: "gold",
-              fontFamily: "Train_One",
+              fontFamily: "'Indie Flower', cursive",
               fontStyle: "italic",
             }}
           >
@@ -215,7 +238,7 @@ export default function Home() {
             >
               Prime Cobra
             </a>
-            <a style={{ color: "black" }}>&reg;</a>
+            <sup style={{ color: "black" }}>&reg;</sup>
           </p>
         </footer>
       </Stack>
