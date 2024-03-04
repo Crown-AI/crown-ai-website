@@ -42,7 +42,7 @@ export default function Home() {
               e.preventDefault();
             }}
           >
-            <source src="/ai-upfront.mp4" type="video/mp4" />
+            <source src="/AI-intro.mp4" type="video/mp4" />
           </video>
         </Stack>
         <Stack style={{ position: "relative", display: "flex" }}>
@@ -72,7 +72,7 @@ export default function Home() {
               id="home"
               onClick={(e) => {
                 e.preventDefault();
-                router.push("/dashboard");
+                router.push("/");
               }}
             >
               Home

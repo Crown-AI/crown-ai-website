@@ -54,14 +54,14 @@ export default function HomePage() {
           <span className="material-symbols-outlined">home</span>
           <p
             style={{
-              fontFamily: "monospace",
               color: "gray",
+              fontFamily: "'Indie Flower', cursive",
               cursor: "pointer",
             }}
             id="home"
             onClick={(e) => {
               e.preventDefault();
-              router.push("#");
+              router.push("/");
             }}
           >
             Home
@@ -75,8 +75,8 @@ export default function HomePage() {
           </span>
           <p
             style={{
-              fontFamily: "monospace",
               color: "gray",
+              fontFamily: "'Indie Flower', cursive",
               cursor: "pointer",
             }}
             onClick={(e) => {
@@ -92,7 +92,9 @@ export default function HomePage() {
           >
             local_library
           </span>
-          <p style={{ fontFamily: "monospace", color: "gray" }}>About us</p>
+          <p style={{ color: "gray", fontFamily: "'Indie Flower', cursive" }}>
+            About us
+          </p>
           <span
             className="material-symbols-outlined"
             style={{ marginLeft: 50 }}
@@ -235,7 +237,7 @@ export default function HomePage() {
           <p
             style={{
               color: "gold",
-              fontFamily: "Train_One",
+              fontFamily: "'Indie Flower', cursive",
               fontStyle: "italic",
             }}
           >
@@ -253,7 +255,7 @@ export default function HomePage() {
             >
               Prime Cobra
             </a>
-            <a style={{ color: "black" }}>&reg;</a>
+            <sup style={{ color: "black" }}>&reg;</sup>
           </p>
         </footer>
       </Stack>
