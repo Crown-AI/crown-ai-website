@@ -1,7 +1,14 @@
+"use client";
 import { Box, LinearProgress, Stack, Typography } from "@mui/material";
+import { useNavigation } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import "../../globalicons.css";
 
 export default function VerifyContact() {
+  const router = useRouter();
+  setTimeout(() => {
+    router.push("/contact");
+  }, 10000);
   return (
     <Box>
       <Stack
@@ -51,7 +58,7 @@ export default function VerifyContact() {
               color: "transparent",
             }}
           >
-            Process Information
+            Processing Information
           </p>
           <div
             style={{

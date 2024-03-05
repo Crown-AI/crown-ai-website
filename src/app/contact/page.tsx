@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import "../globalicons.css";
 
-export var rant = "hello";
 export default function Contact() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -313,6 +312,10 @@ export default function Contact() {
                     backgroundColor: "silver",
                     width: 220,
                     borderRadius: "50px",
+                  }}
+                  onClick={(b) => {
+                    b.preventDefault();
+                    router.push("/contact/verification");
                   }}
                 >
                   Submit
