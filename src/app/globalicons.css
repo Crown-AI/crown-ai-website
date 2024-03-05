@@ -14,4 +14,48 @@
     'opsz' 24
   }
 
-   
+   #prime {
+    animation: amazon 5s ease-in-out infinite;
+   }
+
+   @keyframes amazon {
+    0% {
+      background-image: linear-gradient(to bottom right, red, aqua, silver, indigo, blue);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    25% {
+      background-image: linear-gradient(to left, red, blue, green, silver, yellow, brown);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: 5s ease-in-out;
+    }
+    50% {
+      background-image: linear-gradient(to bottom right, pink, gray, silver, black, gold, blue);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: 5s ease-in-out;
+    }
+    75% {
+      background-image: linear-gradient(to bottom left, silver, dodgerblue, rgba(0, 255, 213, 0.712) rgba(240, 152, 210, 0.726) rgba(146, 125, 125, 0.479));
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: 5s ease-in-out;
+    }
+    100% {
+      background-image: linear-gradient(to bottom right, red, aqua, silver, indigo, blue);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent; 
+      transition: 5s ease-in-out;
+    }
+   }
