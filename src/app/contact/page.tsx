@@ -180,7 +180,7 @@ export default function Contact() {
                 style={{ left: -320, top: 130 }}
               ></TextField>
               <TextField
-                label="Username"
+                label="Other Name"
                 style={{ top: 130, left: -270 }}
                 required
               ></TextField>
