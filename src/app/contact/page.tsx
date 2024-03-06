@@ -164,7 +164,7 @@ export default function Contact() {
                 href="tel: +2348138075114"
                 style={{ color: "aqua", textDecoration: "none" }}
               >
-                +234##########
+                +2348209765129
               </a>
             </div>
             <form action="#" method="post">
