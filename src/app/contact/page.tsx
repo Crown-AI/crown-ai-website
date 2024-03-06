@@ -145,8 +145,8 @@ export default function Contact() {
             >
               <span className="material-symbols-outlined">location_on</span>
               <p style={{ color: "aqua" }}>
-                Address: No. ###, Grande Street, ##### #### #######, Prime
-                Escardo, LG, NG
+                Address: No. 3, Grande Street, AI Rd CHV, Prime Escalardo, Lg.,
+                NG
               </p>
             </div>
             <div
