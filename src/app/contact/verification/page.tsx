@@ -7,8 +7,22 @@ import "../../globalicons.css";
 export default function VerifyContact() {
   const router = useRouter();
   setTimeout(() => {
-    router.push("/contact");
+    router.push("/contact/verified");
   }, 10000);
+  setTimeout(() => {
+    var hider = document.getElementById("process") as HTMLElement;
+    var show = document.getElementById("pipe") as HTMLElement;
+    hider.style.display = "none";
+    show.style.display = "flex";
+  }, 4000);
+  setTimeout(() => {
+    var hider = document.getElementById("process") as HTMLElement;
+    var show = document.getElementById("pipe") as HTMLElement;
+    const pipe = document.getElementById("initialize") as HTMLElement;
+    pipe.style.display = "flex";
+    show.style.display = "none";
+    hider.style.display = "none";
+  }, 7000);
   return (
     <Box>
       <Stack
@@ -42,24 +56,65 @@ export default function VerifyContact() {
           >
             AICULTURE
           </p>
-          <p
-            style={{
-              display: "flex",
-              position: "relative",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 30,
-              top: 100,
-              backgroundImage:
-                "linear-gradient(to bottom left, gold, aqua, silver, purple, red)",
-              WebkitBackgroundClip: "text",
-              MozBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
-          >
-            Processing Information
-          </p>
+          <div>
+            <p
+              id="process"
+              style={{
+                display: "flex",
+                position: "relative",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 30,
+                top: 100,
+                backgroundImage:
+                  "linear-gradient(to bottom left, gold, aqua, silver, purple, red)",
+                WebkitBackgroundClip: "text",
+                MozBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Processing Information
+            </p>
+            <p
+              id="pipe"
+              style={{
+                display: "none",
+                position: "relative",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 30,
+                top: 100,
+                backgroundImage:
+                  "linear-gradient(to bottom left, gold, aqua, silver, purple, red)",
+                WebkitBackgroundClip: "text",
+                MozBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Checking connection pipes
+            </p>
+            <p
+              id="initialize"
+              style={{
+                display: "none",
+                position: "relative",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 30,
+                top: 100,
+                backgroundImage:
+                  "linear-gradient(to bottom left, gold, aqua, silver, purple, red)",
+                WebkitBackgroundClip: "text",
+                MozBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Initializing...
+            </p>
+          </div>
           <div
             style={{
               width: 250,

@@ -199,24 +199,13 @@ export default function Contact() {
                 required
               ></TextField>
               <TextField
-                label="Message"
-                style={{
-                  marginTop: 150,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-                required
-              >
-                Message
-              </TextField>
-              <TextField
                 type="date"
                 name="dob"
                 id="dob"
                 style={{
                   height: 50,
                   width: 150,
-                  left: 430,
+                  left: 630,
                   top: -5,
                 }}
               ></TextField>
@@ -228,7 +217,7 @@ export default function Contact() {
                   width: 300,
                   height: 50,
                   marginTop: 80,
-                  marginLeft: 60,
+                  marginLeft: 270,
                 }}
                 onChange={(e) => {
                   const selectedCountry = e.target.value;
@@ -298,6 +287,20 @@ export default function Contact() {
                 <option value={"Anguilla"}>Anguilla</option>
                 <option value={"Antarctica"}>Antarctica</option>
               </select>
+              <textarea
+                style={{
+                  marginTop: 20,
+                  marginLeft: 360,
+                  backgroundColor: "rgba(128, 128, 128, 0.3)",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: 200,
+                  height: 50,
+                }}
+                required
+              >
+                Message
+              </textarea>
               <div
                 style={{
                   display: "flex",

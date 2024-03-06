@@ -180,6 +180,8 @@ export default function Home() {
               marginLeft: 350,
               marginRight: -380,
               borderRadius: 50,
+              fontFamily: "'Indie Flower', cursive",
+              fontSize: 20,
             }}
           >
             Sign up
@@ -202,6 +204,8 @@ export default function Home() {
               alignItems: "center",
               flexShrink: 0,
               borderRadius: 50,
+              fontFamily: "'Indie Flower', cursive",
+              fontSize: 20,
             }}
           >
             Login
