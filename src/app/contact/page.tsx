@@ -74,7 +74,17 @@ export default function Contact() {
           >
             local_library
           </span>
-          <p style={{ color: "gray", fontFamily: "'Indie Flower', cursive" }}>
+          <p
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "pointer",
+            }}
+            onClick={(t) => {
+              t.preventDefault();
+              router.push("/about");
+            }}
+          >
             About us
           </p>
           <span

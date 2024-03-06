@@ -103,7 +103,17 @@ export default function Home() {
             >
               local_library
             </span>
-            <p style={{ color: "gray", fontFamily: "'Indie Flower', cursive" }}>
+            <p
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "pointer",
+              }}
+              onClick={(y) => {
+                y.preventDefault();
+                router.push("/about");
+              }}
+            >
               About us
             </p>
             <span
