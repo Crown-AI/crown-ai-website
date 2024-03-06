@@ -2,6 +2,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import "../../globalicons.css";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Returned() {
   const router = useRouter();
@@ -79,7 +80,10 @@ export default function Returned() {
               color: "transparent",
             }}
           >
-            You will be redirected in a few seconds
+            You will be redirected in a few seconds. If you are not redirected{" "}
+            <Link href={"/contact"} style={{ color: "rebeccapurple" }}>
+              Click here
+            </Link>
           </Typography>
         </Stack>
       </Stack>
