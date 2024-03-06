@@ -72,12 +72,7 @@ export default function Returned() {
           <Typography
             variant="h6"
             style={{
-              backgroundImage:
-                "linear-gradient(to bottom right, red, gold, brown, aqua, purple, blue)",
-              WebkitBackgroundClip: "text",
-              MozBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
+              color: "ivory",
             }}
           >
             You will be redirected in a few seconds. If you are not redirected{" "}
