@@ -125,16 +125,26 @@ export default function HomePage() {
           >
             Chats & Privacy
           </p>
-          <Stack direction="row" justifyContent="flex-end">
-            <Link href={"/auth/logout"}>
-              <Button
-                variant="contained"
-                style={{ backgroundColor: "black", left: 130 }}
-              >
-                Logout
-              </Button>
-            </Link>
-          </Stack>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 50 }}
+          >
+            forum
+          </span>
+          <p
+            id="p2b"
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "pointer",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/dashboard");
+            }}
+          >
+            Chats With AI Bot
+          </p>
         </nav>
         <Stack display={"flex"} width={200} height={30}>
           <Image

@@ -75,8 +75,8 @@ export default function About() {
               fontFamily: "'Indie Flower', cursive",
               cursor: "pointer",
             }}
-            onClick={(l) => {
-              l.preventDefault();
+            onClick={(t) => {
+              t.preventDefault();
               router.push("/about");
             }}
           >
@@ -101,6 +101,26 @@ export default function About() {
             }}
           >
             Chats & Privacy
+          </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 50 }}
+          >
+            forum
+          </span>
+          <p
+            id="p2b"
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "pointer",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/dashboard");
+            }}
+          >
+            Chats With AI Bot
           </p>
         </nav>
         <Stack

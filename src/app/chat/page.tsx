@@ -135,6 +135,26 @@ export default function Chat() {
           >
             Chats & Privacy
           </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 50, color: "gray" }}
+          >
+            forum
+          </span>
+          <p
+            id="p2b"
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "pointer",
+            }}
+            onClick={(c) => {
+              c.preventDefault();
+              router.push("/dashboard");
+            }}
+          >
+            Chat with AI bot
+          </p>
         </nav>
         <Stack
           style={{

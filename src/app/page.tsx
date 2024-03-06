@@ -56,18 +56,12 @@ export default function Home() {
               gap: 5,
             }}
           >
-            <span
-              className="material-symbols-outlined"
-              style={{ position: "relative" }}
-            >
-              home
-            </span>
+            <span className="material-symbols-outlined">home</span>
             <p
               style={{
-                fontFamily: "'Indie Flower', cursive",
                 color: "gray",
+                fontFamily: "'Indie Flower', cursive",
                 cursor: "pointer",
-                position: "relative",
               }}
               id="home"
               onClick={(e) => {
@@ -109,8 +103,8 @@ export default function Home() {
                 fontFamily: "'Indie Flower', cursive",
                 cursor: "pointer",
               }}
-              onClick={(y) => {
-                y.preventDefault();
+              onClick={(t) => {
+                t.preventDefault();
                 router.push("/about");
               }}
             >
@@ -129,12 +123,32 @@ export default function Home() {
                 fontFamily: "'Indie Flower', cursive",
                 cursor: "pointer",
               }}
-              onClick={(c) => {
-                c.preventDefault();
+              onClick={(e) => {
+                e.preventDefault();
                 router.push("/chat");
               }}
             >
               Chats & Privacy
+            </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ marginLeft: 50 }}
+            >
+              forum
+            </span>
+            <p
+              id="p2b"
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "pointer",
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                router.push("/dashboard");
+              }}
+            >
+              Chats With AI Bot
             </p>
           </nav>
         </Stack>
