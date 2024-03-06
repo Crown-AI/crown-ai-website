@@ -1,7 +1,13 @@
+"use client";
 import { Box, Stack, Typography } from "@mui/material";
 import "../../globalicons.css";
+import { useRouter } from "next/navigation";
 
-export default function returned() {
+export default function Returned() {
+  const router = useRouter();
+  setTimeout(() => {
+    router.push("/contact");
+  }, 5000);
   return (
     <Box>
       <Stack
@@ -50,6 +56,30 @@ export default function returned() {
             }}
           >
             Verified
+          </Typography>
+        </Stack>
+        <Stack
+          style={{
+            display: "flex",
+            position: "relative",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            top: 260,
+          }}
+        >
+          <Typography
+            variant="h6"
+            style={{
+              backgroundImage:
+                "linear-gradient(to bottom right, red, gold, brown, aqua, purple, blue)",
+              WebkitBackgroundClip: "text",
+              MozBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            You will be redirected in a few seconds
           </Typography>
         </Stack>
       </Stack>
