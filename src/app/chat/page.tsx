@@ -1,7 +1,7 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Pusher from "pusher-js";
+import { Box, Stack } from "@mui/material";
 
 interface MessageData {
   message: string;
@@ -30,28 +30,65 @@ export default function Chat() {
   }, []);
 
   return (
-    <div>
-      {messages.map((message, index) => (
-        <p key={index}>{message}</p>
-      ))}
-      <input
-        placeholder="Message"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          fetch("/api/chat", {
-            method: "POST",
-            body: JSON.stringify({
-              message: input,
-            }),
-          });
-          setInput("");
+    <Box>
+      <Stack
+        style={{
+          backgroundImage: "url('/Cht.jpg')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        Send
-      </button>
-    </div>
+        <Stack
+          style={{
+            flexGrow: 1,
+            overflowY: "auto",
+            backgroundColor: "rgba(128, 128, 128, 0.3)",
+            width: 1000,
+            marginLeft: 150,
+            padding: "20px 0",
+          }}
+        >
+          {messages.map((message, index) => (
+            <p
+              key={index}
+              style={{
+                backgroundColor: "green",
+                display: "flex",
+                position: "relative",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 50,
+                height: 50,
+              }}
+            >
+              {message}
+            </p>
+          ))}
+        </Stack>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <input
+            placeholder="Message"
+            style={{ flexGrow: 1, marginRight: 10 }}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              fetch("/api/chat", {
+                method: "POST",
+                body: JSON.stringify({ message: input }),
+              });
+              setInput("");
+            }}
+          >
+            Send
+          </button>
+        </div>
+      </Stack>
+    </Box>
   );
 }
