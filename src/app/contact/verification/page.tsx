@@ -8,13 +8,13 @@ export default function VerifyContact() {
   const router = useRouter();
   setTimeout(() => {
     router.push("/contact/verified");
-  }, 10000);
+  }, 15000);
   setTimeout(() => {
     var hider = document.getElementById("process") as HTMLElement;
     var show = document.getElementById("pipe") as HTMLElement;
     hider.style.display = "none";
     show.style.display = "flex";
-  }, 4000);
+  }, 5000);
   setTimeout(() => {
     var hider = document.getElementById("process") as HTMLElement;
     var show = document.getElementById("pipe") as HTMLElement;
@@ -22,7 +22,7 @@ export default function VerifyContact() {
     pipe.style.display = "flex";
     show.style.display = "none";
     hider.style.display = "none";
-  }, 7000);
+  }, 5000);
   return (
     <Box>
       <Stack
