@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Pusher from "pusher-js";
 import { Box, Stack } from "@mui/material";
 import "../globalicons.css";
+import { useRouter } from "next/navigation";
 
 interface MessageData {
   message: string;
@@ -15,6 +16,7 @@ const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
 export default function Chat() {
   const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState<string>("");
+  const router = useRouter();
 
   useEffect(() => {
     const channel = pusher.subscribe("chat");
@@ -43,6 +45,97 @@ export default function Chat() {
           flexDirection: "column",
         }}
       >
+        <nav
+          style={{
+            display: "flex",
+            position: "relative",
+            alignItems: "center",
+            justifyContent: "center",
+            wordSpacing: 2,
+            gap: 5,
+          }}
+        >
+          <span
+            className="material-symbols-outlined"
+            style={{ position: "relative", color: "gray" }}
+          >
+            home
+          </span>
+          <p
+            style={{
+              fontFamily: "'Indie Flower', cursive",
+              color: "gray",
+              cursor: "pointer",
+              position: "relative",
+            }}
+            id="home"
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/");
+            }}
+          >
+            Home
+          </p>
+          <span
+            className="material-symbols-outlined"
+            id="contacts"
+            style={{ marginLeft: 40, color: "gray" }}
+          >
+            contacts_product
+          </span>
+          <p
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "pointer",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/contact");
+            }}
+          >
+            Contact us
+          </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 30, color: "gray" }}
+          >
+            local_library
+          </span>
+          <p
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "pointer",
+            }}
+            onClick={(y) => {
+              y.preventDefault();
+              router.push("/about");
+            }}
+          >
+            About us
+          </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 50, color: "gray" }}
+          >
+            chat
+          </span>
+          <p
+            id="chats"
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "pointer",
+            }}
+            onClick={(c) => {
+              c.preventDefault();
+              router.push("/chat");
+            }}
+          >
+            Chats & Privacy
+          </p>
+        </nav>
         <Stack
           style={{
             flexGrow: 1,
@@ -73,7 +166,14 @@ export default function Chat() {
         <div style={{ display: "flex", alignItems: "center" }}>
           <input
             placeholder="Message"
-            style={{ flexGrow: 1, marginRight: 10 }}
+            style={{
+              flexGrow: 1,
+              marginRight: 10,
+              backgroundColor: "rgba(128, 128, 128, 0.3)",
+              height: 50,
+              outline: "none",
+              border: "none",
+            }}
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
