@@ -120,7 +120,7 @@ export default function About() {
               router.push("/dashboard");
             }}
           >
-            Chats With AI Bot
+            PrimeAI
           </p>
         </nav>
         <Stack

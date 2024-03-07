@@ -153,7 +153,7 @@ export default function Chat() {
               router.push("/dashboard");
             }}
           >
-            Chat with AI bot
+            PrimeAI
           </p>
         </nav>
         <Stack

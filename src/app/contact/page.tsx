@@ -125,7 +125,7 @@ export default function Contact() {
               router.push("/dashboard");
             }}
           >
-            Chats With AI Bot
+            PrimeAI
           </p>
         </nav>
         <Stack

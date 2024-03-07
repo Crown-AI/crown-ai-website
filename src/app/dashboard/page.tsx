@@ -143,8 +143,18 @@ export default function HomePage() {
               router.push("/dashboard");
             }}
           >
-            Chats With AI Bot
+            PrimeAI
           </p>
+          <Stack direction="row" justifyContent="flex-end">
+            <Link href={"/auth/logout"}>
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "black", left: 130 }}
+              >
+                Logout
+              </Button>
+            </Link>
+          </Stack>
         </nav>
         <Stack display={"flex"} width={200} height={30}>
           <Image
