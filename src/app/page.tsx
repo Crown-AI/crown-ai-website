@@ -211,9 +211,13 @@ export default function Home() {
           <Stack display={"flex"} flexDirection={"row"} gap={3}>
             <div
               style={{
-                WebkitBackdropFilter: "blur(1px)",
-                backdropFilter: "blur(1px)",
-                width: 150,
+                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                border: "1px transparent",
+                padding: "10px",
+                width: 170,
+                boxSizing: "border-box",
+                boxShadow: "0 15px 30px 0 #888888",
+                margin: "8px",
               }}
             >
               <Image
