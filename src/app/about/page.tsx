@@ -1,5 +1,5 @@
 "use client";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "../globalicons.css";
@@ -199,6 +199,64 @@ export default function About() {
               innovation meets cultivation, and together, we sow the seeds of
               progress in the fields of tomorrow.
             </p>
+            <Stack>
+              <div
+                style={{
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  width: 400,
+                  border: "1px solid rgb(128, 128, 128)",
+                  padding: "10px",
+                  boxSizing: "border-box",
+                  boxShadow: "10 15px 30px 10 rgb(128, 128, 128)",
+                }}
+              >
+                <Image
+                  alt="HJ"
+                  src={"/ig.jpg"}
+                  width={100}
+                  height={100}
+                  style={{ borderRadius: "50px" }}
+                ></Image>
+                <Typography
+                  variant="h3"
+                  style={{ fontFamily: "'Indie Flower', cursive" }}
+                >
+                  Harrison U. John
+                </Typography>
+                <Typography
+                  variant="h5"
+                  style={{
+                    fontFamily: "'Tillana', system-ui",
+                    color: "black",
+                  }}
+                >
+                  Though being one of the major players in this project, the
+                  truth remains that&#44; without the help of some significant
+                  people, this project wouldn&apos;t have been possible. But
+                  then again&#44; he still contributed even if it wasn&apos;t
+                  fully. One thing that can be said about him that he&apos;s
+                  really creative. He has come up with a lot of different ways
+                  to resolve a problem in prohramming. Sometimes he doesn&apos;t
+                  think his brain is ready to understand or memorize how to do a
+                  particular thing&#44; but instead of giving up&#44; he finds
+                  his own way to do it based on what he has seen. So to
+                  summarize all this&#44; he&apos;s a really good programmer who
+                  as an open mind and is willing to learn anything.
+                </Typography>
+                <a href="tel:+2348032065752">
+                  {" "}
+                  <Button
+                    variant="contained"
+                    style={{ backgroundColor: "black", width: 220 }}
+                  >
+                    Contact
+                  </Button>
+                </a>
+              </div>
+              <div>
+                <Image alt="RTM" src={"#"} width={100} height={100}></Image>
+              </div>
+            </Stack>
           </Typography>
         </Stack>
       </Stack>
