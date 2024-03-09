@@ -42,7 +42,7 @@ export default function Home() {
               e.preventDefault();
             }}
           >
-            <source src="/AI-intro.mp4" type="video/mp4" />
+            <source src="/AICulture-dream-of-the-future.mp4" type="video/mp4" />
           </video>
         </Stack>
         <Stack style={{ position: "relative", display: "flex" }}>
@@ -171,7 +171,7 @@ export default function Home() {
             MozBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
-            fontFamily: "'Dancing Script', cursive",
+            fontFamily: "'Tilt Prism', sans-serif",
           }}
           variant="h1"
           position={"absolute"}
@@ -180,61 +180,74 @@ export default function Home() {
           display={"flex"}
           alignItems={"center"}
           justifyContent={"center"}
-          fontFamily={"Cinzel"}
           color={"silver"}
         >
           AICulture
         </Typography>
-        <Link href={"/auth/register"}>
-          <Button
+        <Stack
+          style={{
+            display: "flex",
+            position: "relative",
+            top: 50,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Typography
+            variant="h2"
             style={{
-              backgroundColor: "purple",
-              top: 260,
-              left: 150,
-              color: "silver",
-              width: 363,
               display: "flex",
-              position: "absolute",
-              flexDirection: "column",
-              padding: 8,
-              justifyContent: "center",
-              height: 70,
+              position: "relative",
               alignItems: "center",
-              flexShrink: 0,
-              marginLeft: 350,
-              marginRight: -380,
-              borderRadius: 50,
-              fontFamily: "'Indie Flower', cursive",
-              fontSize: 20,
+              justifyContent: "center",
+              WebkitBackdropFilter: "blur(1px)",
+              backdropFilter: "blur(1px)",
+              fontFamily: "'Hanalei', system-ui",
+              color: "rebeccapurple",
             }}
           >
-            Sign up
-          </Button>
-        </Link>
-        <Link href="/auth/login">
-          <Button
-            style={{
-              backgroundColor: "silver",
-              borderColor: "green",
-              color: "gold",
-              top: 380,
-              left: 500,
-              display: "flex",
-              position: "absolute",
-              width: 363,
-              height: 70,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              flexShrink: 0,
-              borderRadius: 50,
-              fontFamily: "'Indie Flower', cursive",
-              fontSize: 20,
-            }}
-          >
-            Login
-          </Button>
-        </Link>
+            Latest Updates
+          </Typography>
+          <Stack display={"flex"} flexDirection={"row"} gap={3}>
+            <div
+              style={{
+                WebkitBackdropFilter: "blur(1px)",
+                backdropFilter: "blur(1px)",
+                width: 150,
+              }}
+            >
+              <Image
+                alt="Update"
+                src={"/Agri-drone.jpg"}
+                width={150}
+                height={150}
+                draggable="false"
+              ></Image>
+              <Typography variant="h6" style={{ color: "lightpink" }}>
+                Improved the Chatbot to respond to &quot;hi&quot;
+              </Typography>
+            </div>
+            <div
+              style={{
+                WebkitBackdropFilter: "blur(5px)",
+                backdropFilter: "blur(5px)",
+                width: 150,
+                color: "gray",
+              }}
+            >
+              <Image
+                alt="upd2"
+                src={"/aic.jpg"}
+                width={150}
+                height={150}
+              ></Image>
+              <Typography variant="h6" style={{ color: "lightpink" }}>
+                Improved the chatbot to respond with a definition to it&apos;s
+                name
+              </Typography>
+            </div>
+          </Stack>
+        </Stack>
         <footer
           style={{
             marginTop: "auto",

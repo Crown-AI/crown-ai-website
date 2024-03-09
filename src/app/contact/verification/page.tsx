@@ -35,6 +35,19 @@ export default function VerifyContact() {
           width: "100%",
         }}
       >
+        <video
+          style={{
+            position: "absolute",
+            minHeight: "100%",
+            minWidth: "100%",
+            right: 0,
+            bottom: 0,
+          }}
+          autoPlay
+          muted
+        >
+          <source src="/loader.mp4"></source>
+        </video>
         <Stack>
           <p
             style={{
@@ -43,6 +56,8 @@ export default function VerifyContact() {
               WebkitBackgroundClip: "text",
               MozBackgroundClip: "text",
               backgroundClip: "text",
+              WebkitBackdropFilter: "blur(1px)",
+              backdropFilter: "blur(1px)",
               color: "transparent",
               fontFamily: "'Dancing Script', cursive",
               fontSize: 70,
@@ -56,7 +71,12 @@ export default function VerifyContact() {
           >
             AICULTURE
           </p>
-          <div>
+          <div
+            style={{
+              WebkitBackdropFilter: "blur(1px)",
+              backdropFilter: "blur(1px)",
+            }}
+          >
             <p
               id="process"
               style={{
@@ -124,6 +144,8 @@ export default function VerifyContact() {
               justifyContent: "center",
               marginTop: "8%",
               marginLeft: "40%",
+              WebkitBackdropFilter: "blur(1px)",
+              backdropFilter: "blur(1px)",
             }}
           >
             <LinearProgress />
