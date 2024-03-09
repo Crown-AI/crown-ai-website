@@ -237,8 +237,7 @@ export default function Home() {
         </Link>
         <footer
           style={{
-            borderTop: 9,
-            marginTop: 370,
+            marginTop: "auto",
             position: "relative",
             display: "flex",
             flexDirection: "row",
