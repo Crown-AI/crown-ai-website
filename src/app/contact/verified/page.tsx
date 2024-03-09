@@ -56,7 +56,7 @@ export default function Returned() {
               color: "transparent",
             }}
           >
-            Verified
+            Sent
           </Typography>
         </Stack>
         <Stack
