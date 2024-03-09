@@ -165,7 +165,7 @@ export default function Contact() {
             >
               <span className="material-symbols-outlined">location_on</span>
               <p style={{ color: "aqua" }}>
-                Address: No. 3, Grande Street, AI Rd CHV, Prime Escalardo, Lg.,
+                Address: No. 3, Grande Street, Lktv Rd CHV, Zen Escalardo, Lg.,
                 NG
               </p>
             </div>
@@ -314,8 +314,37 @@ export default function Contact() {
                 </option>
                 <option value={"Andorra"}>Andorra</option>
                 <option value={"Angola"}>Angola</option>
-                <option value={"Anguilla"}>Anguilla</option>
-                <option value={"Antarctica"}>Antarctica</option>
+                <option value={"Antigua"}>Antigua</option>
+                <option value={"Argentina"}>Argentina</option>
+                <option value={"Armenia"}>Armenia</option>
+                <option value={"Australia"}>Australia</option>
+                <option value={"Austria"}>Austria</option>
+                <option value={"Azerbaijan"}>Azerbaijan</option>
+                <option value={"Bahamas"}>Bahamas</option>
+                <option value={"Bahrain"}>Bahrain</option>
+                <option value={"Bangladesh"}>Bangladesh</option>
+                <option value={"Barbados"}>Barbados</option>
+                <option value={"Belarus"}>Belarus</option>
+                <option value={"Belgium"}>Belgium</option>
+                <option value={"Belize"}>Belize</option>
+                <option value={"Benin"}>Benin</option>
+                <option value={"Bhutan"}>Bhutan</option>
+                <option value={"Bolivia"}>Bolivia</option>
+                <option value={"Bosnia"}>Bosnia</option>
+                <option value={"Botswana"}>Botswana</option>
+                <option value={"Brazil"}>Brazil</option>
+                <option value={"Brunei"}>Brunei</option>
+                <option value={"Bulgaria"}>Bulgaria</option>
+                <option value={"Burkina Faso"}>Burkina Faso</option>
+                <option value={"Burundi"}>Burundi</option>
+                <option value={"Côte d'Ivoire"}>Côte d&apos;Ivoire</option>
+                <option value={"Cabo Verde"}>Cabo verde</option>
+                <option value={"Cambodia"}>Cambodia</option>
+                <option value={"Cameroon"}>Cameroon</option>
+                <option value={"Canada"}>Canada</option>
+                <option value={"Central African Republic"}>
+                  Central African Republic
+                </option>
               </select>
               <textarea
                 style={{
@@ -329,7 +358,7 @@ export default function Contact() {
                 }}
                 required
               >
-                Message
+                Hello
               </textarea>
               <div
                 style={{
