@@ -152,17 +152,6 @@ export default function Home() {
             </p>
           </nav>
         </Stack>
-        <Image
-          alt="Logo"
-          src={logo}
-          width={100}
-          height={100}
-          draggable="false"
-          style={{
-            WebkitBackdropFilter: "blur(1px)",
-            backdropFilter: "blur(1px)",
-          }}
-        ></Image>
         <span
           className="material-symbols-outlined"
           style={{
@@ -170,6 +159,7 @@ export default function Home() {
             position: "absolute",
             WebkitBackdropFilter: "blur(1px)",
             backdropFilter: "blur(1px)",
+            cursor: "pointer",
           }}
           id="menu"
           onClick={(m) => {
@@ -183,11 +173,12 @@ export default function Home() {
             health.style.transition = "2s ease-in-out";
             safety.style.color = "red";
             safety.style.transition = "2s ease-in-out";
-            end.style.width = "200px";
+            end.style.width = "260px";
             end.style.transition = "2s ease-in-out";
-            times.style.display = "block";
-            times.style.width = "20";
-            times.style.transition = "5s ease-in-out";
+            times.style.display = "flex";
+            times.style.color = "gray";
+            times.style.fontSize = "20px";
+            times.style.transition = "3s ease-in-out";
             menu.style.display = "none";
           }}
         >
@@ -197,10 +188,11 @@ export default function Home() {
           <div
             style={{
               display: "flex",
-              position: "fixed",
+              position: "absolute",
               alignItems: "center",
               justifyContent: "center",
-              height: "72vh",
+              top: 0,
+              height: "100vh",
               backgroundColor: "black",
               width: 0,
             }}
@@ -209,24 +201,26 @@ export default function Home() {
             <span
               className="material-symbols-outlined"
               style={{
-                display: "none",
+                display: "flex",
                 position: "relative",
                 fontSize: 0,
                 top: -330,
-                left: 120,
+                left: 150,
                 cursor: "pointer",
-                color: "gray",
+                color: "transparent",
               }}
               id="x"
               onMouseEnter={(r) => {
                 r.preventDefault();
                 var times = document.getElementById("x") as HTMLElement;
                 times.style.color = "red";
+                times.style.transition = "0s";
               }}
               onMouseOut={(b) => {
                 b.preventDefault();
                 var times = document.getElementById("x") as HTMLElement;
                 times.style.color = "grey";
+                times.style.transition = "0s";
               }}
               onClick={(h) => {
                 h.preventDefault();
@@ -241,7 +235,9 @@ export default function Home() {
                 safety.style.transition = "1s ease-in-out";
                 end.style.width = "0";
                 end.style.transition = "2s ease-in-out";
-                times.style.display = "none";
+                times.style.fontSize = "0";
+                times.style.color = "transparent";
+                times.style.transition = "1s ease-in-out";
                 menu.style.display = "flex";
               }}
             >
@@ -250,12 +246,12 @@ export default function Home() {
             <span
               className="material-symbols-outlined"
               id="health"
-              style={{ color: "transparent", position: "relative", top: -320 }}
+              style={{ color: "transparent", position: "relative", top: -220 }}
             >
               health_and_safety
             </span>
             <h5
-              style={{ color: "transparent", position: "relative", top: -320 }}
+              style={{ color: "transparent", position: "relative", top: -220 }}
               id="safety"
             >
               Safety
@@ -287,7 +283,7 @@ export default function Home() {
           style={{
             display: "flex",
             position: "relative",
-            top: 50,
+            top: 170,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -425,6 +421,7 @@ export default function Home() {
         <footer
           style={{
             marginTop: "auto",
+            marginLeft: "auto",
             position: "relative",
             display: "flex",
             flexDirection: "row",
@@ -436,6 +433,7 @@ export default function Home() {
               color: "gold",
               fontFamily: "'Indie Flower', cursive",
               fontStyle: "italic",
+              float: "right",
             }}
           >
             Powered by{" "}
