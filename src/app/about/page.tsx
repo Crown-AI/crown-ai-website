@@ -258,12 +258,11 @@ export default function About() {
                 again&#44; he still contributed even if it wasn&apos;t fully.
                 One thing that can be said about him that he&apos;s really
                 creative. He has come up with a lot of different ways to resolve
-                a problem in prohramming. Sometimes he doesn&apos;t think his
-                brain is ready to understand or memorize how to do a particular
-                thing&#44; but instead of giving up&#44; he finds his own way to
-                do it based on what he has seen. So to summarize all this&#44;
-                he&apos;s a really good programmer who as an open mind and is
-                willing to learn anything.
+                a problem in programming. Whenever he&apos; stuck on something
+                and doesn&apos;t know how to get around it&#44; instead of
+                giving up&#44; he finds his own way to do it based on what he
+                has seen. So to summarize all this&#44; he&apos;s a really good
+                programmer who as an open mind and is willing to learn anything.
               </Typography>
               <a href="tel:+2348032065752">
                 {" "}

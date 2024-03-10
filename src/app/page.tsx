@@ -163,6 +163,15 @@ export default function Home() {
             backdropFilter: "blur(1px)",
           }}
         ></Image>
+        <span
+          className="material-symbols-outlined"
+          style={{
+            WebkitBackdropFilter: "blur(1px)",
+            backdropFilter: "blur(1px)",
+          }}
+        >
+          menu
+        </span>
         <Typography
           style={{
             backgroundImage:
