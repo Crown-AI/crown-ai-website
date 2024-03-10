@@ -234,7 +234,7 @@ export default function About() {
             >
               <Image
                 alt="HJ"
-                src={"/xeng.jpg"}
+                src={"/bw.jpg"}
                 width={200}
                 height={200}
                 style={{ borderRadius: "100px" }}
