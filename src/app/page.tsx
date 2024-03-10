@@ -11,6 +11,7 @@ import background from "public/Sample.png";
 import logo from "public/Samp.png";
 import ReactPlayer from "react-player";
 import "./globalicons.css";
+import { HtmlContext } from "next/dist/server/future/route-modules/app-page/vendored/contexts/entrypoints";
 
 export default function Home() {
   const router = useRouter();
@@ -162,6 +163,20 @@ export default function Home() {
             cursor: "pointer",
           }}
           id="menu"
+          onMouseEnter={(m) => {
+            m.preventDefault();
+            var menu = document.getElementById("menu") as HTMLElement;
+            menu.style.backgroundColor = "black";
+            menu.style.color = "white";
+            menu.style.borderRadius = "20px";
+          }}
+          onMouseOut={(u) => {
+            u.preventDefault();
+            var menu = document.getElementById("menu") as HTMLElement;
+            menu.style.backgroundColor = "transparent";
+            menu.style.color = "black";
+            menu.style.borderRadius = "10px";
+          }}
           onClick={(m) => {
             m.preventDefault();
             var health = document.getElementById("health") as HTMLElement;
