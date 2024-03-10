@@ -202,7 +202,7 @@ export default function Home() {
               justifyContent: "center",
               WebkitBackdropFilter: "blur(1px)",
               backdropFilter: "blur(1px)",
-              fontFamily: "'Hanalei', system-ui",
+              fontFamily: "'Italiana', sans-serif",
               color: "rebeccapurple",
             }}
           >
@@ -211,6 +211,10 @@ export default function Home() {
           <Stack display={"flex"} flexDirection={"row"} gap={3}>
             <div
               style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
                 backgroundColor: "rgba(0, 0, 0, 0.3)",
                 border: "1px transparent",
                 padding: "10px",
@@ -226,17 +230,37 @@ export default function Home() {
                 width={150}
                 height={150}
                 draggable="false"
+                style={{ position: "relative", top: -15 }}
               ></Image>
-              <Typography variant="h6" style={{ color: "lightpink" }}>
-                Improved the Chatbot to respond to &quot;hi&quot;
+              <Typography
+                variant="h6"
+                style={{
+                  color: "lightpink",
+                  fontFamily: "'Rajdhani', sans-serif",
+                  fontWeight: 500,
+                  fontStyle: "normal",
+                }}
+              >
+                Improved the Chatbot to respond to &quot;hi&quot; and
+                &quot;hello&quot;
               </Typography>
             </div>
             <div
               style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
                 WebkitBackdropFilter: "blur(5px)",
                 backdropFilter: "blur(5px)",
-                width: 150,
+                width: 170,
                 color: "gray",
+                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                border: "1px transparent",
+                padding: "10px",
+                boxSizing: "border-box",
+                boxShadow: "0 15px 30px 0 #888888",
+                margin: "8px",
               }}
             >
               <Image
@@ -244,8 +268,17 @@ export default function Home() {
                 src={"/aic.jpg"}
                 width={150}
                 height={150}
+                draggable={"false"}
               ></Image>
-              <Typography variant="h6" style={{ color: "lightpink" }}>
+              <Typography
+                variant="h6"
+                style={{
+                  color: "lightpink",
+                  fontFamily: "'Rajdhani', sans-serif",
+                  fontWeight: 500,
+                  fontStyle: "normal",
+                }}
+              >
                 Improved the chatbot to respond with a definition to it&apos;s
                 name
               </Typography>
