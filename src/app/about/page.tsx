@@ -270,6 +270,25 @@ export default function About() {
                 <Button
                   variant="contained"
                   style={{ backgroundColor: "black", width: 220 }}
+                  onMouseEnter={(o) => {
+                    o.preventDefault();
+                    var contact = document.getElementById(
+                      "contact",
+                    ) as HTMLButtonElement;
+                    contact.style.backgroundColor = "red";
+                    contact.style.color = "black";
+                    contact.style.transition = "1s ease-in-out";
+                  }}
+                  onMouseOut={(y) => {
+                    y.preventDefault();
+                    var contact = document.getElementById(
+                      "contact",
+                    ) as HTMLButtonElement;
+                    contact.style.backgroundColor = "black";
+                    contact.style.color = "white";
+                    contact.style.transition = "1s ease-in-out";
+                  }}
+                  id="contact"
                 >
                   Contact
                 </Button>
