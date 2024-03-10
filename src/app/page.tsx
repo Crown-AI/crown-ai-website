@@ -325,7 +325,7 @@ export default function Home() {
                 width={150}
                 height={150}
                 draggable="false"
-                style={{ position: "relative", top: -15 }}
+                style={{ position: "relative", top: -2 }}
               ></Image>
               <Typography
                 variant="h6"
@@ -364,6 +364,7 @@ export default function Home() {
                 width={150}
                 height={150}
                 draggable={"false"}
+                style={{ position: "relative", top: -35 }}
               ></Image>
               <Typography
                 variant="h6"
@@ -374,8 +375,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Improved the chatbot to respond with a definition to it&apos;s
-                name
+                Added a slideable menu bar
               </Typography>
             </div>
             <div
@@ -414,6 +414,44 @@ export default function Home() {
                 }}
               >
                 Added profiles to the &quot;About us&quot; page
+              </Typography>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                WebkitBackdropFilter: "blur(5px)",
+                backdropFilter: "blur(5px)",
+                width: 170,
+                color: "gray",
+                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                border: "1px transparent",
+                padding: "10px",
+                boxSizing: "border-box",
+                boxShadow: "0 15px 30px 0 #888888",
+                margin: "8px",
+              }}
+            >
+              <Image
+                alt="upd3"
+                src={logo}
+                width={150}
+                height={150}
+                draggable={"false"}
+                style={{ position: "relative", top: -35 }}
+              ></Image>
+              <Typography
+                variant="h6"
+                style={{
+                  color: "lightpink",
+                  fontFamily: "'Rajdhani', sans-serif",
+                  fontWeight: 500,
+                  fontStyle: "normal",
+                }}
+              >
+                Gave the homepage a new look
               </Typography>
             </div>
           </Stack>
