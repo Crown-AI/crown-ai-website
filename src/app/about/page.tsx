@@ -234,10 +234,10 @@ export default function About() {
             >
               <Image
                 alt="HJ"
-                src={"/ig.jpg"}
-                width={100}
-                height={100}
-                style={{ borderRadius: "50px" }}
+                src={"/xeng.jpg"}
+                width={200}
+                height={200}
+                style={{ borderRadius: "100px" }}
               ></Image>
               <Typography
                 variant="h3"
