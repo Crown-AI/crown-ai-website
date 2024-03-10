@@ -166,12 +166,102 @@ export default function Home() {
         <span
           className="material-symbols-outlined"
           style={{
+            display: "flex",
+            position: "absolute",
             WebkitBackdropFilter: "blur(1px)",
             backdropFilter: "blur(1px)",
+          }}
+          id="menu"
+          onClick={(m) => {
+            m.preventDefault();
+            var health = document.getElementById("health") as HTMLElement;
+            var safety = document.getElementById("safety") as HTMLElement;
+            var end = document.getElementById("back") as HTMLElement;
+            var times = document.getElementById("x") as HTMLElement;
+            var menu = document.getElementById("menu") as HTMLElement;
+            health.style.color = "red";
+            health.style.transition = "2s ease-in-out";
+            safety.style.color = "red";
+            safety.style.transition = "2s ease-in-out";
+            end.style.width = "200px";
+            end.style.transition = "2s ease-in-out";
+            times.style.display = "block";
+            times.style.width = "20";
+            times.style.transition = "5s ease-in-out";
+            menu.style.display = "none";
           }}
         >
           menu
         </span>
+        <div>
+          <div
+            style={{
+              display: "flex",
+              position: "fixed",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "72vh",
+              backgroundColor: "black",
+              width: 0,
+            }}
+            id="back"
+          >
+            <span
+              className="material-symbols-outlined"
+              style={{
+                display: "none",
+                position: "relative",
+                fontSize: 0,
+                top: -330,
+                left: 120,
+                cursor: "pointer",
+                color: "gray",
+              }}
+              id="x"
+              onMouseEnter={(r) => {
+                r.preventDefault();
+                var times = document.getElementById("x") as HTMLElement;
+                times.style.color = "red";
+              }}
+              onMouseOut={(b) => {
+                b.preventDefault();
+                var times = document.getElementById("x") as HTMLElement;
+                times.style.color = "grey";
+              }}
+              onClick={(h) => {
+                h.preventDefault();
+                var health = document.getElementById("health") as HTMLElement;
+                var safety = document.getElementById("safety") as HTMLElement;
+                var end = document.getElementById("back") as HTMLElement;
+                var times = document.getElementById("x") as HTMLElement;
+                var menu = document.getElementById("menu") as HTMLElement;
+                health.style.color = "transparent";
+                health.style.transition = "1s ease-in-out";
+                safety.style.color = "transparent";
+                safety.style.transition = "1s ease-in-out";
+                end.style.width = "0";
+                end.style.transition = "2s ease-in-out";
+                times.style.display = "none";
+                menu.style.display = "flex";
+              }}
+            >
+              close
+            </span>
+            <span
+              className="material-symbols-outlined"
+              id="health"
+              style={{ color: "transparent", position: "relative", top: -320 }}
+            >
+              health_and_safety
+            </span>
+            <h5
+              style={{ color: "transparent", position: "relative", top: -320 }}
+              id="safety"
+            >
+              Safety
+            </h5>
+          </div>
+        </div>
         <Typography
           style={{
             backgroundImage:
@@ -290,6 +380,44 @@ export default function Home() {
               >
                 Improved the chatbot to respond with a definition to it&apos;s
                 name
+              </Typography>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                WebkitBackdropFilter: "blur(5px)",
+                backdropFilter: "blur(5px)",
+                width: 170,
+                color: "gray",
+                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                border: "1px transparent",
+                padding: "10px",
+                boxSizing: "border-box",
+                boxShadow: "0 15px 30px 0 #888888",
+                margin: "8px",
+              }}
+            >
+              <Image
+                alt="upd3"
+                src={logo}
+                width={150}
+                height={150}
+                draggable={"false"}
+                style={{ position: "relative", top: -35 }}
+              ></Image>
+              <Typography
+                variant="h6"
+                style={{
+                  color: "lightpink",
+                  fontFamily: "'Rajdhani', sans-serif",
+                  fontWeight: 500,
+                  fontStyle: "normal",
+                }}
+              >
+                Added profiles to the &quot;About us&quot; page
               </Typography>
             </div>
           </Stack>
