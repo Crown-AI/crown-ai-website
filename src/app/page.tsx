@@ -184,12 +184,18 @@ export default function Home() {
             var end = document.getElementById("back") as HTMLElement;
             var times = document.getElementById("x") as HTMLElement;
             var menu = document.getElementById("menu") as HTMLElement;
+            var support = document.getElementById("support") as HTMLElement;
+            var help = document.getElementById("help") as HTMLElement;
             health.style.color = "red";
             health.style.transition = "2s ease-in-out";
             safety.style.color = "red";
             safety.style.transition = "2s ease-in-out";
-            end.style.width = "260px";
+            end.style.width = "230px";
             end.style.transition = "2s ease-in-out";
+            support.style.color = "red";
+            support.style.transition = "2s ease-in-out";
+            help.style.color = "red";
+            help.style.transition = "2s ease-in-out";
             times.style.display = "flex";
             times.style.color = "gray";
             times.style.fontSize = "20px";
@@ -220,7 +226,7 @@ export default function Home() {
                 position: "relative",
                 fontSize: 0,
                 top: -330,
-                left: 150,
+                left: 173,
                 cursor: "pointer",
                 color: "transparent",
               }}
@@ -242,6 +248,8 @@ export default function Home() {
                 var health = document.getElementById("health") as HTMLElement;
                 var safety = document.getElementById("safety") as HTMLElement;
                 var end = document.getElementById("back") as HTMLElement;
+                var support = document.getElementById("support") as HTMLElement;
+                var help = document.getElementById("help") as HTMLElement;
                 var times = document.getElementById("x") as HTMLElement;
                 var menu = document.getElementById("menu") as HTMLElement;
                 health.style.color = "transparent";
@@ -250,6 +258,10 @@ export default function Home() {
                 safety.style.transition = "1s ease-in-out";
                 end.style.width = "0";
                 end.style.transition = "2s ease-in-out";
+                support.style.color = "transparent";
+                support.style.transition = "1s ease-in-out";
+                help.style.color = "transparent";
+                help.style.transition = "1s ease-in-out";
                 times.style.fontSize = "0";
                 times.style.color = "transparent";
                 times.style.transition = "1s ease-in-out";
@@ -266,10 +278,39 @@ export default function Home() {
               health_and_safety
             </span>
             <h5
-              style={{ color: "transparent", position: "relative", top: -220 }}
+              style={{
+                color: "transparent",
+                position: "relative",
+                top: -220,
+                cursor: "pointer",
+              }}
               id="safety"
             >
               Safety
+            </h5>
+            <span
+              className="material-symbols-outlined"
+              id="support"
+              style={{
+                color: "transparent",
+                position: "relative",
+                top: -160,
+                left: -65,
+              }}
+            >
+              help
+            </span>
+            <h5
+              style={{
+                color: "transparent",
+                position: "relative",
+                top: -160,
+                left: -63,
+                cursor: "pointer",
+              }}
+              id="help"
+            >
+              Support
             </h5>
           </div>
         </div>
