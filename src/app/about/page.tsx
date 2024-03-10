@@ -238,6 +238,7 @@ export default function About() {
                 width={200}
                 height={200}
                 style={{ borderRadius: "100px" }}
+                draggable={"false"}
               ></Image>
               <Typography
                 variant="h3"
