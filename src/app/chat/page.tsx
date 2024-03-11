@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Pusher from "pusher-js";
 import { Box, Stack } from "@mui/material";
@@ -41,8 +42,6 @@ export default function Chat() {
           backgroundSize: "cover",
           height: "100vh",
           width: "100%",
-          display: "flex",
-          flexDirection: "column",
         }}
       >
         <nav
@@ -156,68 +155,120 @@ export default function Chat() {
             PrimeAI
           </p>
         </nav>
-        <Stack
-          style={{
-            flexGrow: 1,
-            overflowY: "auto",
-            backgroundColor: "rgba(128, 128, 128, 0.3)",
-            width: 1000,
-            marginLeft: 150,
-            padding: "20px 0",
-          }}
-        >
-          {messages.map((message, index) => (
-            <p
-              key={index}
-              style={{
-                backgroundColor: "gray",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 50,
-                height: 50,
-                marginBottom: 10,
-              }}
-            >
-              {message}
-            </p>
-          ))}
-        </Stack>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <input
-            placeholder="Message"
+        <Stack>
+          <div
             style={{
-              flexGrow: 1,
-              marginRight: 10,
               backgroundColor: "rgba(128, 128, 128, 0.3)",
-              height: 50,
-              outline: "none",
-              border: "none",
-            }}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <span
-            className="material-symbols-outlined"
-            style={{
-              backgroundColor: "green",
-              width: 30,
               display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-            }}
-            onClick={() => {
-              fetch("/api/chat", {
-                method: "POST",
-                body: JSON.stringify({ message: input }),
-              });
-              setInput("");
+              alignItems: "flex-end",
+              justifyContent: "flex-end",
+              flexDirection: "column",
+              position: "relative",
+              height: 500,
+              width: 1000,
+              left: 150,
+              top: 50,
+              overflow: "scroll",
             }}
           >
-            send
-          </span>
-        </div>
+            {messages.map((message, index) => (
+              <p
+                key={index}
+                style={{
+                  backgroundColor: "green",
+                  display: "flex",
+                  position: "relative",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 50,
+                  width: 250,
+                  height: 50,
+                }}
+              >
+                {message}
+              </p>
+            ))}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              position: "absolute",
+              flexDirection: "row",
+              top: 500,
+            }}
+          >
+            <input
+              placeholder="Message"
+              style={{
+                display: "flex",
+                position: "fixed",
+                top: 640,
+                marginTop: "auto",
+                alignItems: "bottom",
+                justifyContent: "bottom",
+                borderBottom: 0,
+                flexGrow: 1,
+                marginRight: 10,
+                backgroundColor: "rgba(128, 128, 128, 0.3)",
+                height: 50,
+                width: 1250,
+                outline: "none",
+                border: "none",
+              }}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <button
+              style={{
+                display: "flex",
+                position: "fixed",
+                top: 645,
+                background: "transparent",
+                border: "transparent",
+                left: 1255,
+              }}
+            >
+              <span
+                className="material-symbols-outlined"
+                id="text"
+                style={{
+                  backgroundColor: "green",
+                  width: 30,
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  fetch("/api/chat", {
+                    method: "POST",
+                    body: JSON.stringify({
+                      message: input,
+                    }),
+                  });
+                  setInput("");
+                }}
+                onMouseEnter={(u) => {
+                  u.preventDefault();
+                  var button = document.getElementById(
+                    "text",
+                  ) as HTMLSpanElement;
+                  button.style.backgroundColor = "aqua";
+                  button.style.color = "white";
+                  button.style.transition = "1s ease-in-out";
+                }}
+                onMouseOut={(j) => {
+                  j.preventDefault();
+                  var button = document.getElementById(
+                    "text",
+                  ) as HTMLSpanElement;
+                  button.style.backgroundColor = "green";
+                  button.style.color = "black";
+                  button.style.transition = "1s ease-in-out";
+                }}
+              >
+                send
+              </span>
+            </button>
+          </div>
+        </Stack>
       </Stack>
     </Box>
   );
