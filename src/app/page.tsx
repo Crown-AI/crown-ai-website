@@ -469,7 +469,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Added profiles to the &quot;About us&quot; page
+                Fixed the scroll on the &quot;chat&quot; page
               </Typography>
             </div>
             <div
