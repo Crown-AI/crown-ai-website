@@ -1,3 +1,5 @@
+import { prisma } from "@/modules/prisma/lib/prisma-client/prisma-client";
+import { ChatMessage } from "@prisma/client";
 import { NextResponse } from "next/server";
 import Pusher from "pusher";
 
@@ -14,5 +16,6 @@ export const POST = async (req: Request) => {
 
   await pusher.trigger("chat", "message", messageInput);
 
+  const messages = await prisma.chatMessage.findMany();
   return NextResponse.json(messageInput);
 };
