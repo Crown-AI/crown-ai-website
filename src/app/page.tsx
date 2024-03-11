@@ -469,7 +469,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Fixed the scroll on the &quot;chat&quot; page
+                Fixed the scroll on the chat page
               </Typography>
             </div>
             <div
