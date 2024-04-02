@@ -15,17 +15,16 @@ export async function POST(req: Request) {
 
   // Extract SMTP details from the URL
   const smtpHost = emailServerUrlObject.hostname;
-  const smtpPort = emailServerUrlObject.port || 587; // Default SMTP port
+  const smtpPort = emailServerUrlObject.port || 587;
   const smtpUser = emailServerUrlObject.username;
   const smtpPass = emailServerUrlObject.password;
 
-  // Configure the Nodemailer transporter
   const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com",
+    host: process.env.BREVO_HOST,
     port: 587,
     auth: {
-      user: "harrisjohnu@gmail.com",
-      pass: "EN80AgUMcajtsmn7",
+      user: process.env.BREVO_USER,
+      pass: process.env.BREVO_PASSWORD,
     },
   } as SMTPTransport.Options);
 
