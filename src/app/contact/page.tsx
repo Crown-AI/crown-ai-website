@@ -110,6 +110,7 @@ export default function Contact() {
                   },
                   body: JSON.stringify(values),
                 });
+                router.push("/contact/verification");
               }}
             >
               <TextField
