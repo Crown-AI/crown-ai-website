@@ -35,22 +35,26 @@ export async function POST(req: Request) {
     replyTo: email,
     subject: "Contact Form Message", // Subject line
     text: `
-Message from: ${email}
-
-Message: 
-${message}    
-
-    `,
+ Message from: ${email}
+ 
+ Message: 
+ ${message}    
+ 
+     `,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    console.log("Email sent: " + info.response);
-    // Return a success response
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully");
     return new Response(
-      JSON.stringify({
-        status: "success",
-        message: "Email sent successfully",
-      }),
+      JSON.stringify({ status: "success", message: "Email sent successfully" }),
+      { status: 200 },
     );
-  });
+  } catch (error) {
+    console.error("Failed to send email:", error);
+    return new Response(
+      JSON.stringify({ status: "error", message: "Failed to send email" }),
+      { status: 500 },
+    );
+  }
 }
