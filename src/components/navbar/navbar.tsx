@@ -1,6 +1,22 @@
 import router from "next/router";
+import { useEffect } from "react";
 
 export function NavBar() {
+  const Home = () => {
+    window.location.href = "/";
+  };
+  const Contact = () => {
+    window.location.href = "/contact";
+  };
+  const About = () => {
+    window.location.href = "/about";
+  };
+  const Chat = () => {
+    window.location.href = "/chat";
+  };
+  const Bot = () => {
+    window.location.href = "/dashboard";
+  };
   return (
     <nav
       style={{
@@ -20,10 +36,7 @@ export function NavBar() {
           cursor: "pointer",
         }}
         id="home"
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/");
-        }}
+        onClick={Home}
       >
         Home
       </p>
@@ -40,10 +53,7 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "pointer",
         }}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/contact");
-        }}
+        onClick={Contact}
       >
         Contact us
       </p>
@@ -56,10 +66,7 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "pointer",
         }}
-        onClick={(t) => {
-          t.preventDefault();
-          router.push("/about");
-        }}
+        onClick={About}
       >
         About us
       </p>
@@ -73,10 +80,7 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "pointer",
         }}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/chat");
-        }}
+        onClick={Chat}
       >
         Chats & Privacy
       </p>
@@ -90,10 +94,7 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "pointer",
         }}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/dashboard");
-        }}
+        onClick={Bot}
       >
         PrimeAI
       </p>

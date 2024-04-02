@@ -49,6 +49,44 @@ export default function Home() {
         </Stack>
         <Stack style={{ position: "relative", display: "flex" }}>
           <NavBar />
+          <Stack>
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "purple",
+                width: 110,
+                display: "flex",
+                position: "absolute",
+                left: 1050,
+                top: 4,
+              }}
+              onClick={(a) => {
+                a.preventDefault();
+                router.push("/auth/login");
+              }}
+            >
+              Login
+            </Button>
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "plum",
+                width: 110,
+                display: "flex",
+                position: "absolute",
+                right: 0,
+                top: 4,
+                WebkitBackdropFilter: "blur(5px)",
+                backdropFilter: "blur(5px)",
+              }}
+              onClick={(l) => {
+                l.preventDefault();
+                router.push("/auth/register");
+              }}
+            >
+              Signup
+            </Button>
+          </Stack>
         </Stack>
         <span
           className="material-symbols-outlined"

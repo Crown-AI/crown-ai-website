@@ -4,12 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import "../globalicons.css";
+import { NavBar } from "@/components/navbar/navbar";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const router = useRouter();
+  const Code = () => {};
   let code = "Phone Number";
   return (
     <Box>
@@ -33,100 +35,7 @@ export default function Contact() {
             gap: 5,
           }}
         >
-          <span className="material-symbols-outlined">home</span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            id="home"
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/");
-            }}
-          >
-            Home
-          </p>
-          <span
-            className="material-symbols-outlined"
-            id="contacts"
-            style={{ marginLeft: 40 }}
-          >
-            contacts_product
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/contact");
-            }}
-          >
-            Contact us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 30 }}
-          >
-            local_library
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(t) => {
-              t.preventDefault();
-              router.push("/about");
-            }}
-          >
-            About us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50 }}
-          >
-            chat
-          </span>
-          <p
-            id="chats"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/chat");
-            }}
-          >
-            Chats & Privacy
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50 }}
-          >
-            forum
-          </span>
-          <p
-            id="p2b"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/dashboard");
-            }}
-          >
-            PrimeAI
-          </p>
+          <NavBar />
         </nav>
         <Stack
           style={{
@@ -210,7 +119,7 @@ export default function Contact() {
                 style={{ left: -320, top: 130 }}
               ></TextField>
               <TextField
-                label="Other Name"
+                label="Username"
                 style={{ top: 130, left: -270 }}
                 required
               ></TextField>
@@ -251,67 +160,29 @@ export default function Contact() {
                 }}
                 onChange={(e) => {
                   const selectedCountry = e.target.value;
-                  let telephonePrefix = "";
-                  switch (selectedCountry) {
-                    case "Afghaistan":
-                      telephonePrefix = "+93";
-                      break;
-                    case "Angola":
-                      telephonePrefix = "+355";
-                    case "Algeria":
-                      telephonePrefix = "+213";
-                    case "Andorra":
-                      telephonePrefix = "+376";
-                    default:
-                      telephonePrefix = "";
-                  }
+
                   const tele = document.getElementById(
                     "tel",
                   ) as HTMLInputElement;
-                  tele.value = telephonePrefix;
+                  if (selectedCountry === "Afghanistan") {
+                    tele.value = "+93 ";
+                  } else if (selectedCountry === "Albania") {
+                    tele.value = "+355 ";
+                  } else if (selectedCountry === "Algeria") {
+                    tele.value = "+213 ";
+                  } else if (selectedCountry === "Andorra") {
+                    tele.value = "+376 ";
+                  } else if (selectedCountry === "Angola") {
+                    tele.value = "+244";
+                  }
                 }}
               >
                 <option value={""} selected disabled>
                   --Please-select-a-country--
                 </option>
-                <option
-                  value={"Afghanistan"}
-                  onSelect={(e) => {
-                    e.preventDefault();
-                    var cast = "+93";
-                    const tele = document.getElementById(
-                      "tel",
-                    ) as HTMLInputElement;
-                    tele.value = cast;
-                  }}
-                >
-                  Afghanistan
-                </option>
-                <option
-                  value={"Albania"}
-                  onClick={(b) => {
-                    b.preventDefault();
-                    const teller = document.getElementById(
-                      "tel",
-                    ) as HTMLInputElement;
-                    const no2dc = "+355";
-                    teller.value = no2dc;
-                  }}
-                >
-                  Albania
-                </option>
-                <option
-                  value={"Algeria"}
-                  onClick={(c) => {
-                    c.preventDefault();
-                    const teller = document.getElementById(
-                      "tel",
-                    ) as HTMLInputElement;
-                    const no3dc = "+213";
-                  }}
-                >
-                  Algeria
-                </option>
+                <option value={"Afghanistan"}>Afghanistan</option>
+                <option value={"Albania"}>Albania</option>
+                <option value={"Algeria"}>Algeria</option>
                 <option value={"Andorra"}>Andorra</option>
                 <option value={"Angola"}>Angola</option>
                 <option value={"Antigua"}>Antigua</option>
@@ -360,6 +231,7 @@ export default function Contact() {
               >
                 Hello
               </textarea>
+              <TextField maxRows={50} multiline></TextField>
               <div
                 style={{
                   display: "flex",
