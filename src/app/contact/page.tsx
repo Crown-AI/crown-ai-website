@@ -93,7 +93,7 @@ export default function Contact() {
                 href="tel: +2348138075114"
                 style={{ color: "aqua", textDecoration: "none" }}
               >
-                +2348209765129
+                +2348138075114
               </a>
             </div>
             <form action="#" method="post">
@@ -110,6 +110,21 @@ export default function Contact() {
                 className="lname"
                 required
                 style={{ left: 150, top: 50 }}
+                onChange={(g) => {
+                  g.preventDefault();
+                  var lname = g.target.value;
+                  var fname = document.getElementById(
+                    "fname",
+                  ) as HTMLInputElement;
+                  var uname = document.getElementById(
+                    "uname",
+                  ) as HTMLInputElement;
+                  uname.value = `${fname.value.toLowerCase()}${lname.substring(
+                    0,
+                    1,
+                  )}`;
+                  console.log(uname.value);
+                }}
               ></TextField>
               <TextField
                 label="Email"
@@ -120,6 +135,7 @@ export default function Contact() {
               ></TextField>
               <TextField
                 label="Username"
+                id="uname"
                 style={{ top: 130, left: -270 }}
                 required
               ></TextField>
@@ -217,21 +233,14 @@ export default function Contact() {
                   Central African Republic
                 </option>
               </select>
-              <textarea
-                style={{
-                  marginTop: 20,
-                  marginLeft: 360,
-                  backgroundColor: "rgba(128, 128, 128, 0.3)",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: 200,
-                  height: 50,
-                }}
+              <TextField
+                label="Message"
+                maxRows={10}
+                rows={3}
+                multiline
+                style={{ width: 800, marginTop: 20, marginLeft: 100 }}
                 required
-              >
-                Hello
-              </textarea>
-              <TextField maxRows={50} multiline></TextField>
+              ></TextField>
               <div
                 style={{
                   display: "flex",
