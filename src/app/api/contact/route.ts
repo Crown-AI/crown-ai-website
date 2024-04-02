@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 export async function POST(req: Request) {
-  const { email, message } = await req.json();
+  const { email, message, name } = await req.json();
 
   const emailServerUrl = process.env.EMAIL_SERVER;
 
@@ -13,7 +13,6 @@ export async function POST(req: Request) {
 
   const emailServerUrlObject = new URL(emailServerUrl);
 
-  // Extract SMTP details from the URL
   const smtpHost = emailServerUrlObject.hostname;
   const smtpPort = emailServerUrlObject.port || 587;
   const smtpUser = emailServerUrlObject.username;
@@ -29,13 +28,13 @@ export async function POST(req: Request) {
   } as SMTPTransport.Options);
 
   const mailOptions = {
-    from: process.env.EMAIL_FROM, // Sender address
-    to: process.env.CONTACT_EMAIL, // Receiver address
+    from: process.env.EMAIL_FROM,
+    to: process.env.CONTACT_EMAIL,
     replyTo: email,
-    subject: "Contact Form Message", // Subject line
+    subject: "Contact Form Message",
     text: `
  Message from: ${email}
- 
+ Name: ${name}
  Message: 
  ${message}    
  

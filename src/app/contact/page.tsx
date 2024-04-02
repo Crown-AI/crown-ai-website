@@ -14,6 +14,7 @@ export default function Contact() {
   const [values, setValues] = useState({
     email: "",
     message: "",
+    name: "",
   });
   let code = "Phone Number";
   return (
@@ -117,6 +118,10 @@ export default function Contact() {
                 className="fname"
                 required
                 style={{ left: 100, top: 50 }}
+                value={values.name}
+                onChange={(i) => {
+                  setValues({ ...values, name: i.target.value });
+                }}
               ></TextField>
               <TextField
                 label="Last Name"
