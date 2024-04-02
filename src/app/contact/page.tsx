@@ -11,7 +11,10 @@ export default function Contact() {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const router = useRouter();
-  const Code = () => {};
+  const [values, setValues] = useState({
+    email: "",
+    message: "",
+  });
   let code = "Phone Number";
   return (
     <Box>
@@ -96,7 +99,20 @@ export default function Contact() {
                 +2348138075114
               </a>
             </div>
-            <form action="#" method="post">
+            <form
+              action="#"
+              method="post"
+              onSubmit={async (s) => {
+                s.preventDefault();
+                const response = await fetch("/api/contact", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(values),
+                });
+              }}
+            >
               <TextField
                 label="First Name"
                 id="fname"
@@ -132,6 +148,10 @@ export default function Contact() {
                 name="email"
                 required
                 style={{ left: -320, top: 130 }}
+                value={values.email}
+                onChange={(e) => {
+                  setValues({ ...values, email: e.target.value });
+                }}
               ></TextField>
               <TextField
                 label="Username"
@@ -163,6 +183,7 @@ export default function Contact() {
                   left: 630,
                   top: -5,
                 }}
+                required
               ></TextField>
               <select
                 id="Country"
@@ -238,6 +259,10 @@ export default function Contact() {
                 maxRows={10}
                 rows={3}
                 multiline
+                value={values.message}
+                onChange={(e) => {
+                  setValues({ ...values, message: e.target.value });
+                }}
                 style={{ width: 800, marginTop: 20, marginLeft: 100 }}
                 required
               ></TextField>
@@ -251,14 +276,11 @@ export default function Contact() {
               >
                 <Button
                   variant="contained"
+                  type="submit"
                   style={{
                     backgroundColor: "silver",
                     width: 220,
                     borderRadius: "50px",
-                  }}
-                  onClick={(b) => {
-                    b.preventDefault();
-                    router.push("/contact/verification");
                   }}
                 >
                   Submit
