@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 export async function POST(req: Request) {
-  const { email, Message } = await req.json();
+  const { email, message } = await req.json();
 
   const emailServerUrl = process.env.EMAIL_SERVER;
 
@@ -35,30 +35,22 @@ export async function POST(req: Request) {
     replyTo: email,
     subject: "Contact Form Message", // Subject line
     text: `
-  Message from: ${email}
-  
-  Message: 
-  ${Message}    
-  
-      `, // Plain text body
+Message from: ${email}
+
+Message: 
+${message}    
+
+    `,
   };
 
-  // Send the email
   transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      return NextResponse.json(
-        {
-          status: "error",
-          message: "Failed to send email",
-        },
-        { status: 500 },
-      );
-    }
     console.log("Email sent: " + info.response);
-    return NextResponse.json({
-      status: "success",
-      message: "Email sent successfully",
-    });
+    // Return a success response
+    return new Response(
+      JSON.stringify({
+        status: "success",
+        message: "Email sent successfully",
+      }),
+    );
   });
 }

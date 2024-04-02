@@ -100,8 +100,6 @@ export default function Contact() {
               </a>
             </div>
             <form
-              action="#"
-              method="post"
               onSubmit={async (s) => {
                 s.preventDefault();
                 const response = await fetch("/api/contact", {
