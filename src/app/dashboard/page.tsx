@@ -143,7 +143,7 @@ export default function HomePage() {
               router.push("/dashboard");
             }}
           >
-            PrimeAI
+            P2P Chat
           </p>
           <Stack direction="row" justifyContent="flex-end">
             <Link href={"/auth/logout"}>

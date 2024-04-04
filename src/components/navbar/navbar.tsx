@@ -96,7 +96,7 @@ export function NavBar() {
         }}
         onClick={Bot}
       >
-        PrimeAI
+        P2P Chat
       </p>
     </nav>
   );

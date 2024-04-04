@@ -5,9 +5,12 @@ import Pusher from "pusher-js";
 import { Box, Stack } from "@mui/material";
 import "../globalicons.css";
 import { useRouter } from "next/navigation";
+import { NavBar } from "@/components/navbar/navbar";
 
 interface MessageData {
   message: string;
+  username?: string;
+  email?: string;
 }
 
 const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
@@ -15,7 +18,8 @@ const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
 });
 
 export default function Chat() {
-  const [messages, setMessages] = useState<string[]>([]);
+  const [messages, setMessages] = useState<MessageData[]>([]);
+
   const [input, setInput] = useState<string>("");
   const router = useRouter();
 
@@ -24,7 +28,10 @@ export default function Chat() {
 
     channel.bind("message", (data: MessageData) => {
       console.log("@@ message: ", data);
-      setMessages((prevMessages) => [...prevMessages, data.message]);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { message: "Your message has been sent" },
+      ]);
     });
 
     return () => {
@@ -54,106 +61,7 @@ export default function Chat() {
             gap: 5,
           }}
         >
-          <span
-            className="material-symbols-outlined"
-            style={{ position: "relative", color: "gray" }}
-          >
-            home
-          </span>
-          <p
-            style={{
-              fontFamily: "'Indie Flower', cursive",
-              color: "gray",
-              cursor: "pointer",
-              position: "relative",
-            }}
-            id="home"
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/");
-            }}
-          >
-            Home
-          </p>
-          <span
-            className="material-symbols-outlined"
-            id="contacts"
-            style={{ marginLeft: 40, color: "gray" }}
-          >
-            contacts_product
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/contact");
-            }}
-          >
-            Contact us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 30, color: "gray" }}
-          >
-            local_library
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(y) => {
-              y.preventDefault();
-              router.push("/about");
-            }}
-          >
-            About us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50, color: "gray" }}
-          >
-            chat
-          </span>
-          <p
-            id="chats"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(c) => {
-              c.preventDefault();
-              router.push("/chat");
-            }}
-          >
-            Chats & Privacy
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50, color: "gray" }}
-          >
-            forum
-          </span>
-          <p
-            id="p2b"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(c) => {
-              c.preventDefault();
-              router.push("/dashboard");
-            }}
-          >
-            PrimeAI
-          </p>
+          <NavBar />
         </nav>
         <Stack>
           <div
@@ -172,21 +80,25 @@ export default function Chat() {
             }}
           >
             {messages.map((message, index) => (
-              <p
-                key={index}
-                style={{
-                  backgroundColor: "green",
-                  display: "flex",
-                  position: "relative",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 50,
-                  width: 250,
-                  height: 50,
-                }}
-              >
-                {message}
-              </p>
+              <div key={index}>
+                <p style={{ fontWeight: "bold" }}>
+                  {message.username || message.email}
+                </p>
+                <p
+                  style={{
+                    backgroundColor: "green",
+                    display: "flex",
+                    position: "relative",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 50,
+                    width: 250,
+                    height: 50,
+                  }}
+                >
+                  {message.message}
+                </p>
+              </div>
             ))}
           </div>
           <div
@@ -239,8 +151,13 @@ export default function Chat() {
                 onClick={() => {
                   fetch("/api/chat", {
                     method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
                     body: JSON.stringify({
                       message: input,
+                      username: "TJ", // Replace with actual username
+                      email: "harrisjohnu@gmail.com", // Replace with actual email
                     }),
                   });
                   setInput("");

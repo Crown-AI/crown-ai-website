@@ -3,6 +3,7 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "../globalicons.css";
+import { NavBar } from "@/components/navbar/navbar";
 
 export default function About() {
   const router = useRouter();
@@ -28,100 +29,7 @@ export default function About() {
             gap: 5,
           }}
         >
-          <span className="material-symbols-outlined">home</span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            id="home"
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/");
-            }}
-          >
-            Home
-          </p>
-          <span
-            className="material-symbols-outlined"
-            id="contacts"
-            style={{ marginLeft: 40 }}
-          >
-            contacts_product
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/contact");
-            }}
-          >
-            Contact us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 30 }}
-          >
-            local_library
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(t) => {
-              t.preventDefault();
-              router.push("/about");
-            }}
-          >
-            About us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50 }}
-          >
-            chat
-          </span>
-          <p
-            id="chats"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/chat");
-            }}
-          >
-            Chats & Privacy
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50 }}
-          >
-            forum
-          </span>
-          <p
-            id="p2b"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/dashboard");
-            }}
-          >
-            PrimeAI
-          </p>
+          <NavBar />
         </nav>
         <Stack
           style={{
@@ -229,7 +137,7 @@ export default function About() {
                 border: "1px solid rgb(128, 128, 128)",
                 padding: "10px",
                 boxSizing: "border-box",
-                boxShadow: "10 15px 30px 10 rgb(128, 128, 128)",
+                boxShadow: "0 0 50px rgb(128, 128, 128)",
               }}
             >
               <Image
@@ -253,46 +161,71 @@ export default function About() {
                   color: "black",
                 }}
               >
-                Though being one of the major players in this project, the truth
-                remains that&#44; without the help of some significant people,
-                this project wouldn&apos;t have been possible. But then
-                again&#44; he still contributed even if it wasn&apos;t fully.
-                One thing that can be said about him that he&apos;s really
-                creative. He has come up with a lot of different ways to resolve
-                a problem in programming. Whenever he&apos; stuck on something
-                and doesn&apos;t know how to get around it&#44; instead of
-                giving up&#44; he finds his own way to do it based on what he
-                has seen. So to summarize all this&#44; he&apos;s a really good
-                programmer who as an open mind and is willing to learn anything.
+                Meet Harrison, a student with a passion for technology and
+                agriculture. With a keen interest in problem-solving and a
+                desire to make a difference, Harrison embarked on an exciting
+                journey to develop an agricultural chatbot project. The project
+                aimed to create a chatbot that would provide agricultural
+                information, answer frequently asked questions, guide users
+                through procedures and processes, and offer evaluation
+                instruments for students and farmers. By combining their love
+                for technology and agriculture, Harrison sought to develop a
+                tool that would help farmers, students, and anyone interested in
+                agriculture. Throughout the project, He learned about chatbot
+                development, artificial intelligence, and agricultural
+                practices. They researched existing chatbots and their features,
+                identified gaps, and designed a chatbot that would cater to the
+                unique needs of the agricultural community. Along the way, He
+                gained valuable skills in programming, problem-solving, and
+                project management. The agricultural chatbot project has the
+                potential to make a significant impact on the agricultural
+                community. By providing easy access to information, answering
+                frequently asked questions, and offering evaluation instruments,
+                the chatbot can help farmers and students improve their
+                agricultural practices and make more informed decisions. The
+                project also highlights the potential of young people to make a
+                difference in their communities through innovation and
+                technology. He plans to continue developing the agricultural
+                chatbot project, adding more features and expanding its reach.
+                They also hope to inspire other young people to explore the
+                intersection of technology and agriculture and to use their
+                skills to make a positive impact on their communities. In
+                conclusion, Harrison&apos;s agricultural chatbot project is a
+                testament to the power of innovation, technology, and a passion
+                for making a difference. By combining their interests and
+                skills, He has created a project that has the potential to
+                transform the agricultural community and inspire other young
+                people to do the same.
               </Typography>
-              <a href="tel:+2348032065752">
-                {" "}
-                <Button
-                  variant="contained"
-                  style={{ backgroundColor: "black", width: 220 }}
-                  onMouseEnter={(o) => {
-                    o.preventDefault();
-                    var contact = document.getElementById(
-                      "contact",
-                    ) as HTMLButtonElement;
-                    contact.style.backgroundColor = "red";
-                    contact.style.color = "black";
-                    contact.style.transition = "1s ease-in-out";
-                  }}
-                  onMouseOut={(y) => {
-                    y.preventDefault();
-                    var contact = document.getElementById(
-                      "contact",
-                    ) as HTMLButtonElement;
-                    contact.style.backgroundColor = "black";
-                    contact.style.color = "white";
-                    contact.style.transition = "1s ease-in-out";
-                  }}
-                  id="contact"
-                >
-                  Contact
-                </Button>
-              </a>
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "black", width: 220 }}
+                onMouseEnter={(o) => {
+                  o.preventDefault();
+                  var contact = document.getElementById(
+                    "contact",
+                  ) as HTMLButtonElement;
+                  contact.style.backgroundColor = "red";
+                  contact.style.color = "black";
+                  contact.style.transition = "1s ease-in-out";
+                }}
+                onMouseOut={(y) => {
+                  y.preventDefault();
+                  var contact = document.getElementById(
+                    "contact",
+                  ) as HTMLButtonElement;
+                  contact.style.backgroundColor = "black";
+                  contact.style.color = "white";
+                  contact.style.transition = "1s ease-in-out";
+                }}
+                id="contact"
+                onClick={(u) => {
+                  u.preventDefault();
+                  router.push("/contact");
+                }}
+              >
+                Contact
+              </Button>
             </div>
             <div
               style={{
@@ -301,18 +234,91 @@ export default function About() {
                 border: "1px solid rgb(128, 128, 128)",
                 padding: "10px",
                 boxSizing: "border-box",
-                boxShadow: "10 15px 30px 10 rgb(128, 128, 128)",
+                boxShadow: "0 0 50px rgb(128, 128, 128)",
                 gap: 50,
                 marginLeft: 70,
               }}
             >
-              <Image alt="RTM" src={"/"} width={100} height={100}></Image>
+              <Image
+                alt="RTM"
+                src={"/rtm.jpg"}
+                width={200}
+                height={200}
+                style={{ borderRadius: "100px" }}
+                draggable={"false"}
+              ></Image>
               <Typography
                 variant="h3"
                 style={{ fontFamily: "'Indie Flower', cursive" }}
               >
                 Raphael TM
               </Typography>
+              <Typography
+                variant="h5"
+                style={{ fontFamily: "'Tillana', system-ui", color: "black" }}
+              >
+                As a mentee, I had the privilege of working with a dedicated and
+                experienced mentor through TTV on a programming project. Our
+                mentor, with a rich background in the tech industry and
+                expertise in various programming languages such as JavaScript,
+                TypeScript, C#, and SQL, provided invaluable guidance and
+                support throughout the project. Our mentor&apos;s approach was
+                structured and well-designed, with a focus on creating a
+                productive learning environment. We established a regular
+                meeting schedule, planned topics in advance, and kept track of
+                our discussions. This framework allowed us to make the most of
+                our mentoring sessions, addressing specific questions,
+                overcoming blockers, and engaging in pair programming sessions.
+                The mentor&apos;s guidance was instrumental in helping me
+                understand complex concepts and improve my problem-solving
+                skills. They introduced me to valuable resources and tools, such
+                as VS code extensions for pair programming, which significantly
+                enhanced my learning experience. Moreover, our mentor fostered a
+                sense of community and support, encouraging open discussions and
+                the exchange of ideas. This collaborative approach not only
+                helped me grow as a programmer but also instilled in me a deeper
+                appreciation for the power of mentorship in personal and
+                professional development. In conclusion, our mentor&apos;s
+                expertise, dedication, and thoughtful mentoring approach played
+                a crucial role in the success of our programming project. Their
+                guidance has left a lasting impact on my learning journey, and I
+                am grateful for the opportunity to have worked with such an
+                inspiring mentor through TTV.
+              </Typography>
+              <Button
+                variant="contained"
+                style={{
+                  position: "relative",
+                  backgroundColor: "black",
+                  width: 220,
+                  top: 50,
+                }}
+                onMouseEnter={(o) => {
+                  o.preventDefault();
+                  var contact = document.getElementById(
+                    "rtc",
+                  ) as HTMLButtonElement;
+                  contact.style.backgroundColor = "red";
+                  contact.style.color = "black";
+                  contact.style.transition = "1s ease-in-out";
+                }}
+                onMouseOut={(y) => {
+                  y.preventDefault();
+                  var contact = document.getElementById(
+                    "rtc",
+                  ) as HTMLButtonElement;
+                  contact.style.backgroundColor = "black";
+                  contact.style.color = "white";
+                  contact.style.transition = "1s ease-in-out";
+                }}
+                id="rtc"
+                onClick={(u) => {
+                  u.preventDefault();
+                  router.push("/contact");
+                }}
+              >
+                Contact
+              </Button>
             </div>
           </Stack>
         </Stack>

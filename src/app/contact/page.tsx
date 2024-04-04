@@ -214,7 +214,7 @@ export default function Contact() {
                   } else if (selectedCountry === "Andorra") {
                     tele.value = "+376 ";
                   } else if (selectedCountry === "Angola") {
-                    tele.value = "+244";
+                    tele.value = "+244 ";
                   }
                 }}
               >

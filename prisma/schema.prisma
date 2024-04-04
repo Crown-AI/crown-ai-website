@@ -43,7 +43,6 @@ model User {
     accounts      Account[]
     sessions      Session[]
     Message       Message[]
-    ChatMessage   ChatMessage[]
 }
 
 model VerificationToken {
@@ -54,15 +53,6 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
-model ChatMessage {
-    id        String   @id @default(cuid())
-    content   String
-    createdAt DateTime @default(now())
-    senderId  String
-    sender    User     @relation(fields: [senderId], references: [id])
-    Message   Message? @relation(fields: [messageId], references: [id])
-    messageId String?
-}
 
 // Application models
 model Message {
@@ -72,5 +62,13 @@ model Message {
     updatedAt DateTime?     @updatedAt
     ownerId   String?
     owner     User?         @relation(fields: [ownerId], references: [id])
-    messages  ChatMessage[]
+}
+
+model ChatMessage {
+    id Int @id @default(autoincrement())
+    message String
+    username String
+    email String
+    createdAt DateTime @default(now())
+
 }

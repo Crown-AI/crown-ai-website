@@ -14,8 +14,15 @@ const pusher = new Pusher({
 export const POST = async (req: Request) => {
   const messageInput = await req.json();
 
+  const savedMessage = await prisma.chatMessage.create({
+    data: {
+      message: messageInput.message,
+      username: messageInput.username,
+      email: messageInput.email,
+    },
+  });
+
   await pusher.trigger("chat", "message", messageInput);
 
-  const messages = await prisma.chatMessage.findMany();
-  return NextResponse.json(messageInput);
+  return NextResponse.json(savedMessage);
 };
