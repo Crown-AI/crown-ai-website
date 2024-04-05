@@ -81,35 +81,53 @@ export default function Chat() {
             style={{
               backgroundColor: "rgba(128, 128, 128, 0.3)",
               display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "flex-end",
               flexDirection: "column",
               position: "relative",
               height: 500,
               width: 1000,
               left: 150,
               top: 50,
-              overflow: "scroll",
+              overflowY: "scroll",
             }}
           >
             {[...(databaseChatMessages || []), ...messages].map(
               (message, index) => (
                 <div key={index}>
-                  <p style={{ fontWeight: "bold" }}>{message.email}</p>
-                  <p
+                  <div
                     style={{
-                      backgroundColor: "green",
-                      display: "flex",
-                      position: "relative",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: 50,
-                      width: 250,
-                      height: 50,
+                      backgroundColor: "rgba(255, 255, 255, 0.5)",
+                      borderRadius: 20,
+                      width: 300,
                     }}
                   >
-                    {message.message}
-                  </p>
+                    <h6
+                      style={{
+                        display: "flex",
+                        position: "relative",
+                        top: 10,
+                        left: 20,
+                        fontWeight: "bold",
+                        backgroundColor: "transparent",
+                      }}
+                    >
+                      {message.email}
+                    </h6>
+                    <h4
+                      style={{
+                        backgroundColor: "transparent",
+                        display: "flex",
+                        position: "relative",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: 50,
+                        width: 250,
+                        height: 50,
+                        fontFamily: "'Indie Flower', cursive",
+                      }}
+                    >
+                      {message.message}
+                    </h4>
+                  </div>
                 </div>
               ),
             )}
