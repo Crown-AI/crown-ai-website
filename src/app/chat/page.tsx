@@ -28,7 +28,7 @@ export default function Chat() {
 
   const { data: databaseChatMessages } = useAllChatMessages();
 
-  console.log('@@ databaseChatMessages', databaseChatMessages);
+  console.log("@@ databaseChatMessages", databaseChatMessages);
 
   useEffect(() => {
     if (session.status === "unauthenticated") {
@@ -110,7 +110,7 @@ export default function Chat() {
                     {message.message}
                   </p>
                 </div>
-              )
+              ),
             )}
           </div>
           <div
@@ -177,7 +177,7 @@ export default function Chat() {
                 onMouseEnter={(u) => {
                   u.preventDefault();
                   var button = document.getElementById(
-                    "text"
+                    "text",
                   ) as HTMLSpanElement;
                   button.style.backgroundColor = "aqua";
                   button.style.color = "white";
@@ -186,7 +186,7 @@ export default function Chat() {
                 onMouseOut={(j) => {
                   j.preventDefault();
                   var button = document.getElementById(
-                    "text"
+                    "text",
                   ) as HTMLSpanElement;
                   button.style.backgroundColor = "green";
                   button.style.color = "black";
