@@ -15,6 +15,7 @@ interface MessageData {
   message: string;
   username?: string;
   email: string;
+  createdAt: Date;
 }
 
 const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
@@ -111,6 +112,18 @@ export default function Chat() {
                       }}
                     >
                       {message.email}
+                    </h6>
+                    <h6
+                      style={{
+                        display: "flex",
+                        position: "relative",
+                        top: -30,
+                        right: -170,
+                        color: "rgba(50.2, 50.2, 50.2, 0.5)",
+                        height: 2,
+                      }}
+                    >
+                      {new Date(message.createdAt).toLocaleString()}
                     </h6>
                     <h4
                       style={{

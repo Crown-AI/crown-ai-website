@@ -32,8 +32,7 @@ export default function HomePage() {
     <Box>
       <Stack
         style={{
-          backgroundImage:
-            "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
+          backgroundImage: "url('D108.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "100vh",

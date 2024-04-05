@@ -36,7 +36,10 @@ export const POST = async (req: Request) => {
     },
   });
 
-  await pusher.trigger("chat", "message", messageInput);
+  await pusher.trigger("chat", "message", {
+    ...messageInput,
+    createdAt: savedMessage.createdAt,
+  });
 
   return NextResponse.json(savedMessage);
 };
