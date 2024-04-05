@@ -123,7 +123,7 @@ export default function HomePage() {
               router.push("/chat");
             }}
           >
-            Chats & Privacy
+            P2P Chat
           </p>
           <span
             className="material-symbols-outlined"
@@ -143,7 +143,7 @@ export default function HomePage() {
               router.push("/dashboard");
             }}
           >
-            P2P Chat
+            Chats & Privacy
           </p>
           <Stack direction="row" justifyContent="flex-end">
             <Link href={"/auth/logout"}>

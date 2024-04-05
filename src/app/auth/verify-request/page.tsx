@@ -7,8 +7,7 @@ export default function VerifyRequest() {
         width={"100%"}
         height={"100vh"}
         style={{
-          backgroundImage:
-            "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
+          backgroundImage: "url('/email.jpg')",
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}

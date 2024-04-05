@@ -260,7 +260,6 @@ export default function Contact() {
               </select>
               <TextField
                 label="Message"
-                maxRows={10}
                 rows={3}
                 multiline
                 value={values.message}

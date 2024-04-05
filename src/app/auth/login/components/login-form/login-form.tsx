@@ -7,6 +7,8 @@ import Image from "next/image";
 import AICulture from "/public/Samp.png";
 import Link from "next/link";
 import { useState } from "react";
+import { NavBar } from "@/components/navbar/navbar";
+import "../../../../globalicons.css";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
@@ -18,13 +20,13 @@ export function LoginForm() {
     MozBackgroundClip: "text",
     backgroundClip: "text",
     color: "transparent",
+    fontFamily: "'Indie Flower', cursive",
   };
   return (
     <Box>
       <Stack
         style={{
-          backgroundImage:
-            "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
+          backgroundImage: "url('/Login.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           alignItems: "center",
@@ -35,30 +37,22 @@ export function LoginForm() {
         minHeight="100vh"
         display={"flex"}
       >
-        <Stack
-          display={"flex"}
-          width={220}
-          height={50}
-          position={"relative"}
-          style={{ float: "left" }}
-          left={-500}
+        <nav
+          style={{
+            display: "flex",
+            position: "relative",
+            top: 0,
+            alignItems: "center",
+            justifyContent: "center",
+            wordSpacing: 2,
+            gap: 5,
+          }}
         >
-          <Link
-            href={
-              "https://3000-harrison302-onlineagric-r0ciekpheja.ws-eu106.gitpod.io/"
-            }
-          >
-            <Image
-              alt="AICulture"
-              src={AICulture}
-              height={100}
-              width={100}
-            ></Image>
-          </Link>
-        </Stack>
+          <NavBar />
+        </nav>
         <Stack
           style={{
-            backgroundColor: "white",
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
             width: 410,
             alignItems: "center",
             justifyContent: "center",
@@ -80,7 +74,7 @@ export function LoginForm() {
             >
               <Typography
                 fontSize={22}
-                fontFamily={"Inter"}
+                style={{ fontFamily: "'Indie Flower', cursive" }}
                 fontStyle={"normal"}
                 fontWeight={400}
                 lineHeight="normal"

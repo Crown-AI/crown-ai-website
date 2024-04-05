@@ -82,7 +82,7 @@ export function NavBar() {
         }}
         onClick={Chat}
       >
-        Chats & Privacy
+        P2P Chat
       </p>
       <span className="material-symbols-outlined" style={{ marginLeft: 50 }}>
         forum
@@ -96,7 +96,7 @@ export function NavBar() {
         }}
         onClick={Bot}
       >
-        P2P Chat
+        Chats & Privacy
       </p>
     </nav>
   );
