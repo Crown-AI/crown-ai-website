@@ -251,7 +251,7 @@ export default function About() {
                 variant="h3"
                 style={{ fontFamily: "'Indie Flower', cursive" }}
               >
-                Raphael TM
+                Raphaël TM
               </Typography>
               <Typography
                 variant="h5"

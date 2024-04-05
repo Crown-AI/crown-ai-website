@@ -8,11 +8,13 @@ import { useRouter } from "next/navigation";
 import { NavBar } from "@/components/navbar/navbar";
 import { useSession } from "next-auth/react";
 import { useAllChatMessages } from "@/modules/chat/hooks/use-all-chat-messages/use-all-chat-messages";
+import { getAllChatMessages } from "@/modules/chat/lib/get-all-chat-messages/get-all-chat-messages";
+import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
 
 interface MessageData {
   message: string;
   username?: string;
-  email?: string;
+  email: string;
 }
 
 const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
@@ -22,6 +24,7 @@ const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
 export default function Chat() {
   const session = useSession();
   const [messages, setMessages] = useState<MessageData[]>([]);
+  const [email, setEmail] = useState<MessageData[]>([]);
 
   const [input, setInput] = useState<string>("");
   const router = useRouter();
@@ -92,9 +95,7 @@ export default function Chat() {
             {[...(databaseChatMessages || []), ...messages].map(
               (message, index) => (
                 <div key={index}>
-                  <p style={{ fontWeight: "bold" }}>
-                    {message.username || message.email}
-                  </p>
+                  <p style={{ fontWeight: "bold" }}>{message.email}</p>
                   <p
                     style={{
                       backgroundColor: "green",
@@ -169,7 +170,8 @@ export default function Chat() {
                     body: JSON.stringify({
                       message: input,
                       username: "TJ", // Replace with actual username
-                      email: "harrisjohnu@gmail.com", // Replace with actual email
+                      email:
+                        session.data?.user?.email || "harrisjohnu@gmail.com", // Replace with actual email
                     }),
                   });
                   setInput("");
