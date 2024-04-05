@@ -6,6 +6,8 @@ import { Box, Stack } from "@mui/material";
 import "../globalicons.css";
 import { useRouter } from "next/navigation";
 import { NavBar } from "@/components/navbar/navbar";
+import { useSession } from "next-auth/react";
+import { useAllChatMessages } from "@/modules/chat/hooks/use-all-chat-messages/use-all-chat-messages";
 
 interface MessageData {
   message: string;
@@ -18,20 +20,28 @@ const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
 });
 
 export default function Chat() {
+  const session = useSession();
   const [messages, setMessages] = useState<MessageData[]>([]);
 
   const [input, setInput] = useState<string>("");
   const router = useRouter();
+
+  const { data: databaseChatMessages } = useAllChatMessages();
+
+  console.log('@@ databaseChatMessages', databaseChatMessages);
+
+  useEffect(() => {
+    if (session.status === "unauthenticated") {
+      router.push("/auth/login");
+    }
+  }, [router, session.status]);
 
   useEffect(() => {
     const channel = pusher.subscribe("chat");
 
     channel.bind("message", (data: MessageData) => {
       console.log("@@ message: ", data);
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { message: "Your message has been sent" },
-      ]);
+      setMessages((prevMessages) => [...prevMessages, data]);
     });
 
     return () => {
@@ -79,27 +89,29 @@ export default function Chat() {
               overflow: "scroll",
             }}
           >
-            {messages.map((message, index) => (
-              <div key={index}>
-                <p style={{ fontWeight: "bold" }}>
-                  {message.username || message.email}
-                </p>
-                <p
-                  style={{
-                    backgroundColor: "green",
-                    display: "flex",
-                    position: "relative",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: 50,
-                    width: 250,
-                    height: 50,
-                  }}
-                >
-                  {message.message}
-                </p>
-              </div>
-            ))}
+            {[...(databaseChatMessages || []), ...messages].map(
+              (message, index) => (
+                <div key={index}>
+                  <p style={{ fontWeight: "bold" }}>
+                    {message.username || message.email}
+                  </p>
+                  <p
+                    style={{
+                      backgroundColor: "green",
+                      display: "flex",
+                      position: "relative",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: 50,
+                      width: 250,
+                      height: 50,
+                    }}
+                  >
+                    {message.message}
+                  </p>
+                </div>
+              )
+            )}
           </div>
           <div
             style={{
@@ -165,7 +177,7 @@ export default function Chat() {
                 onMouseEnter={(u) => {
                   u.preventDefault();
                   var button = document.getElementById(
-                    "text",
+                    "text"
                   ) as HTMLSpanElement;
                   button.style.backgroundColor = "aqua";
                   button.style.color = "white";
@@ -174,7 +186,7 @@ export default function Chat() {
                 onMouseOut={(j) => {
                   j.preventDefault();
                   var button = document.getElementById(
-                    "text",
+                    "text"
                   ) as HTMLSpanElement;
                   button.style.backgroundColor = "green";
                   button.style.color = "black";
