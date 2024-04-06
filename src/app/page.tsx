@@ -388,7 +388,7 @@ export default function Home() {
             >
               <Image
                 alt="upd3"
-                src={"/D108.jpg"}
+                src={"/drone-control.jpg"}
                 width={150}
                 height={150}
                 draggable={"false"}
@@ -425,7 +425,7 @@ export default function Home() {
               }}
             >
               <Image
-                alt="upd3"
+                alt="upd4"
                 src={"/Login.jpg"}
                 width={150}
                 height={150}
