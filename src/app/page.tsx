@@ -388,7 +388,7 @@ export default function Home() {
             >
               <Image
                 alt="upd3"
-                src={logo}
+                src={"/D108.jpg"}
                 width={150}
                 height={150}
                 draggable={"false"}
@@ -403,7 +403,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Fixed the scroll on the chat page
+                Reworked most pages
               </Typography>
             </div>
             <div
@@ -426,11 +426,11 @@ export default function Home() {
             >
               <Image
                 alt="upd3"
-                src={logo}
+                src={"/Login.jpg"}
                 width={150}
                 height={150}
                 draggable={"false"}
-                style={{ position: "relative", top: -35 }}
+                style={{ position: "relative", top: -22 }}
               ></Image>
               <Typography
                 variant="h6"
@@ -441,7 +441,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Gave the homepage a new look
+                Added timestamps to the Chat page
               </Typography>
             </div>
           </Stack>

@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
+import "../../globalicons.css";
 
 export default function VerifyRequest() {
   return (
@@ -27,6 +28,7 @@ export default function VerifyRequest() {
               MozBackgroundClip: "text",
               backgroundClip: "text",
               color: "transparent",
+              fontFamily: "'Reddit Mono', monospace",
             }}
             variant="h2"
           >
@@ -43,6 +45,7 @@ export default function VerifyRequest() {
               MozBackgroundClip: "text",
               backgroundClip: "text",
               color: "transparent",
+              fontFamily: "'Reddit Mono', monospace",
             }}
           >
             Check your email

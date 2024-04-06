@@ -19,8 +19,7 @@ export default function Logout() {
     <Stack
       height="100vh"
       style={{
-        backgroundImage:
-          "url('https://suntrics.com/wp-content/uploads/2023/05/Drones-Help-Farmers.jpg')",
+        backgroundImage: "url('/D108.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         display: "flex",
@@ -39,6 +38,7 @@ export default function Logout() {
           MozBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",
+          fontFamily: "'Reddit Mono', monospace",
         }}
       >
         Logging you out...

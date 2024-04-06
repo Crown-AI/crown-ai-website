@@ -99,6 +99,7 @@ export default function Chat() {
                       backgroundColor: "rgba(255, 255, 255, 0.5)",
                       borderRadius: 20,
                       width: 300,
+                      height: "auto",
                     }}
                   >
                     <h6
@@ -134,7 +135,6 @@ export default function Chat() {
                         justifyContent: "center",
                         borderRadius: 50,
                         width: 250,
-                        height: 50,
                         fontFamily: "'Indie Flower', cursive",
                       }}
                     >
