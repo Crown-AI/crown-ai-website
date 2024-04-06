@@ -28,7 +28,7 @@ export async function POST(req: Request) {
   } as SMTPTransport.Options);
 
   const mailOptions = {
-    from: process.env.SUPPORT_FROM,
+    from: process.env.EMAIL_FROM,
     to: process.env.CONTACT_EMAIL,
     replyTo: email,
     subject: "Contact Form Message",
