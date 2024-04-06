@@ -32,7 +32,7 @@ export default function HomePage() {
     <Box>
       <Stack
         style={{
-          backgroundImage: "url('D108.jpg')",
+          backgroundImage: "url('/AI-Chatbot.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "100vh",
@@ -168,8 +168,6 @@ export default function HomePage() {
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.5)",
             overflow: "scroll",
-            WebkitBackdropFilter: "blur(5px)",
-            backdropFilter: "blur(5px)",
           }}
           width={600}
           height={595}

@@ -153,82 +153,99 @@ export default function Chat() {
               top: 500,
             }}
           >
-            <input
-              placeholder="Message"
-              style={{
-                display: "flex",
-                position: "fixed",
-                top: 640,
-                marginTop: "auto",
-                alignItems: "bottom",
-                justifyContent: "bottom",
-                borderBottom: 0,
-                flexGrow: 1,
-                marginRight: 10,
-                backgroundColor: "rgba(128, 128, 128, 0.3)",
-                height: 50,
-                width: 1250,
-                outline: "none",
-                border: "none",
-              }}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-            />
-            <button
-              style={{
-                display: "flex",
-                position: "fixed",
-                top: 645,
-                background: "transparent",
-                border: "transparent",
-                left: 1255,
+            <form
+              onSubmit={() => {
+                fetch("/api/chat", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    message: input,
+                    username: "TJ", // Replace with actual username
+                    email: session.data?.user?.email || "harrisjohnu@gmail.com", // Replace with actual email
+                  }),
+                });
+                setInput("");
               }}
             >
-              <span
-                className="material-symbols-outlined"
-                id="text"
+              <input
+                placeholder="Message"
                 style={{
-                  backgroundColor: "green",
-                  width: 30,
-                  cursor: "pointer",
+                  display: "flex",
+                  position: "fixed",
+                  top: 640,
+                  marginTop: "auto",
+                  alignItems: "bottom",
+                  justifyContent: "bottom",
+                  borderBottom: 0,
+                  flexGrow: 1,
+                  marginRight: 10,
+                  backgroundColor: "rgba(128, 128, 128, 0.3)",
+                  height: 50,
+                  width: 1250,
+                  outline: "none",
+                  border: "none",
                 }}
-                onClick={() => {
-                  fetch("/api/chat", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                      message: input,
-                      username: "TJ", // Replace with actual username
-                      email:
-                        session.data?.user?.email || "harrisjohnu@gmail.com", // Replace with actual email
-                    }),
-                  });
-                  setInput("");
-                }}
-                onMouseEnter={(u) => {
-                  u.preventDefault();
-                  var button = document.getElementById(
-                    "text",
-                  ) as HTMLSpanElement;
-                  button.style.backgroundColor = "aqua";
-                  button.style.color = "white";
-                  button.style.transition = "1s ease-in-out";
-                }}
-                onMouseOut={(j) => {
-                  j.preventDefault();
-                  var button = document.getElementById(
-                    "text",
-                  ) as HTMLSpanElement;
-                  button.style.backgroundColor = "green";
-                  button.style.color = "black";
-                  button.style.transition = "1s ease-in-out";
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+              />
+              <button
+                style={{
+                  display: "flex",
+                  position: "fixed",
+                  top: 645,
+                  background: "transparent",
+                  border: "transparent",
+                  left: 1255,
                 }}
               >
-                send
-              </span>
-            </button>
+                <span
+                  className="material-symbols-outlined"
+                  id="text"
+                  style={{
+                    backgroundColor: "green",
+                    width: 30,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    fetch("/api/chat", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        message: input,
+                        username: "TJ", // Replace with actual username
+                        email:
+                          session.data?.user?.email || "harrisjohnu@gmail.com", // Replace with actual email
+                      }),
+                    });
+                    setInput("");
+                  }}
+                  onMouseEnter={(u) => {
+                    u.preventDefault();
+                    var button = document.getElementById(
+                      "text",
+                    ) as HTMLSpanElement;
+                    button.style.backgroundColor = "aqua";
+                    button.style.color = "white";
+                    button.style.transition = "1s ease-in-out";
+                  }}
+                  onMouseOut={(j) => {
+                    j.preventDefault();
+                    var button = document.getElementById(
+                      "text",
+                    ) as HTMLSpanElement;
+                    button.style.backgroundColor = "green";
+                    button.style.color = "black";
+                    button.style.transition = "1s ease-in-out";
+                  }}
+                >
+                  send
+                </span>
+              </button>
+            </form>
           </div>
         </Stack>
       </Stack>
