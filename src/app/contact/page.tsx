@@ -2,20 +2,27 @@
 import { Box, Button, Stack, TextField } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
+import { useSession } from "next-auth/react";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const router = useRouter();
+  const session = useSession();
   const [values, setValues] = useState({
     email: "",
     message: "",
     name: "",
   });
+  useEffect(() => {
+    if (session.status === "unauthenticated") {
+      router.push("/auth/login");
+    }
+  }, [router, session.status]);
   let code = "Phone Number";
   return (
     <Box>

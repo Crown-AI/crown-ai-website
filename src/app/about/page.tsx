@@ -4,9 +4,17 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "../globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 export default function About() {
   const router = useRouter();
+  const session = useSession();
+  useEffect(() => {
+    if (session.status === "unauthenticated") {
+      router.push("/auth/login");
+    }
+  }, [router, session.status]);
   return (
     <Box>
       <Stack
@@ -152,7 +160,7 @@ export default function About() {
                 variant="h3"
                 style={{ fontFamily: "'Indie Flower', cursive" }}
               >
-                Harrison U. John
+                Harrison JA
               </Typography>
               <Typography
                 variant="h5"
