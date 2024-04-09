@@ -39,11 +39,13 @@ export default function Home() {
         }}
         onMouseOver={(e) => {
           var mouse = document.getElementById("mouse") as HTMLElement;
+          var pointer = document.getElementById("pointer") as HTMLElement;
           console.log(mouse);
-          window.addEventListener("mousemove", (t: any) => {
+          window.addEventListener("mousemove", (t) => {
             mouse!.style.top = `${t.clientY}px`;
             mouse!.style.left = `${t.clientX}px`;
-            console.log("mouse not found");
+            pointer!.style.top = `${t.clientY}px`;
+            pointer!.style.left = `${t.clientX}px`;
           });
         }}
       >
@@ -73,6 +75,23 @@ export default function Home() {
             width={30}
             height={30}
             style={{
+              display: "block",
+              zIndex: 9999,
+              position: "absolute",
+              pointerEvents: "none",
+            }}
+            onClick={(l) => {
+              return true;
+            }}
+          ></Image>
+          <Image
+            src={"/pointer.png"}
+            alt="cursor"
+            id="pointer"
+            width={20}
+            height={30}
+            style={{
+              display: "none",
               zIndex: 9999,
               position: "absolute",
               pointerEvents: "none",
@@ -104,6 +123,18 @@ export default function Home() {
                 v.preventDefault();
                 router.push("/");
               }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
+              }}
+              onMouseOut={(f) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "none";
+                cursor!.style.display = "block";
+              }}
             >
               Home
             </p>
@@ -124,6 +155,18 @@ export default function Home() {
                 y.preventDefault();
                 router.push("/contact");
               }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
+              }}
+              onMouseOut={(f) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "none";
+                cursor!.style.display = "block";
+              }}
             >
               Contact us
             </p>
@@ -142,6 +185,18 @@ export default function Home() {
               onClick={(u) => {
                 u.preventDefault();
                 router.push("/about");
+              }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
+              }}
+              onMouseOut={(f) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "none";
+                cursor!.style.display = "block";
               }}
             >
               About us
@@ -162,6 +217,18 @@ export default function Home() {
               onClick={(l) => {
                 router.push("/chat");
               }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
+              }}
+              onMouseOut={(f) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "none";
+                cursor!.style.display = "block";
+              }}
             >
               P2P Chat
             </p>
@@ -180,6 +247,18 @@ export default function Home() {
               }}
               onClick={(i) => {
                 router.push("/dashboard");
+              }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
+              }}
+              onMouseOut={(f) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "none";
+                cursor!.style.display = "block";
               }}
             >
               Chats & Privacy
@@ -202,6 +281,18 @@ export default function Home() {
                 a.preventDefault();
                 router.push("/auth/login");
               }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
+              }}
+              onMouseOut={(f) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "none";
+                cursor!.style.display = "block";
+              }}
             >
               Login
             </Button>
@@ -222,6 +313,18 @@ export default function Home() {
                 l.preventDefault();
                 router.push("/auth/register");
               }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
+              }}
+              onMouseOut={(f) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "none";
+                cursor!.style.display = "block";
+              }}
             >
               Signup
             </Button>
@@ -239,14 +342,22 @@ export default function Home() {
           id="menu"
           onMouseEnter={(m) => {
             m.preventDefault();
+            var cursor = document.getElementById("mouse") as HTMLElement;
+            var pointer = document.getElementById("pointer") as HTMLElement;
             var menu = document.getElementById("menu") as HTMLElement;
+            pointer!.style.display = "block";
+            cursor!.style.display = "none";
             menu.style.backgroundColor = "black";
             menu.style.color = "white";
             menu.style.borderRadius = "20px";
           }}
           onMouseOut={(u) => {
             u.preventDefault();
+            var cursor = document.getElementById("mouse") as HTMLElement;
+            var pointer = document.getElementById("pointer") as HTMLElement;
             var menu = document.getElementById("menu") as HTMLElement;
+            pointer!.style.display = "none";
+            cursor!.style.display = "block";
             menu.style.backgroundColor = "transparent";
             menu.style.color = "black";
             menu.style.borderRadius = "10px";
@@ -305,15 +416,29 @@ export default function Home() {
                 color: "transparent",
               }}
               id="x"
+              onMouseOver={(r) => {
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
+              }}
               onMouseEnter={(r) => {
                 r.preventDefault();
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
                 var times = document.getElementById("x") as HTMLElement;
+                pointer!.style.display = "block";
+                cursor!.style.display = "none";
                 times.style.color = "red";
                 times.style.transition = "0s";
               }}
               onMouseOut={(b) => {
                 b.preventDefault();
+                var cursor = document.getElementById("mouse") as HTMLElement;
+                var pointer = document.getElementById("pointer") as HTMLElement;
                 var times = document.getElementById("x") as HTMLElement;
+                pointer!.style.display = "none";
+                cursor!.style.display = "block";
                 times.style.color = "grey";
                 times.style.transition = "0s";
               }}
