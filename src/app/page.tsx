@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import { purple } from "@mui/material/colors";
 import { DM_Serif_Text, Train_One } from "next/font/google";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import background from "public/Sample.png";
 import logo from "public/Samp.png";
@@ -13,8 +13,17 @@ import ReactPlayer from "react-player";
 import "./globalicons.css";
 import { HtmlContext } from "next/dist/server/future/route-modules/app-page/vendored/contexts/entrypoints";
 import { NavBar } from "@/components/navbar/navbar";
+import MouseHandle, { Mouse } from "@/components/mouse/mouse";
 
 export default function Home() {
+  useEffect(() => {
+    const imageElement = document.getElementById("mouse");
+    if (imageElement) {
+      console.log("Image element found:", imageElement);
+    } else {
+      console.log("Image element not found");
+    }
+  }, []);
   const router = useRouter();
   return (
     <Box>
@@ -26,6 +35,16 @@ export default function Home() {
           height: "100vh",
           WebkitBackdropFilter: "blur(1px)",
           backdropFilter: "blur(1px)",
+          cursor: "none",
+        }}
+        onMouseOver={(e) => {
+          var mouse = document.getElementById("mouse") as HTMLElement;
+          console.log(mouse);
+          window.addEventListener("mousemove", (t: any) => {
+            mouse!.style.top = `${t.clientY}px`;
+            mouse!.style.left = `${t.clientX}px`;
+            console.log("mouse not found");
+          });
         }}
       >
         <Stack>
@@ -47,7 +66,126 @@ export default function Home() {
           </video>
         </Stack>
         <Stack style={{ position: "relative", display: "flex" }}>
-          <NavBar />
+          <Image
+            src={"/cursor.png"}
+            alt="cursor"
+            id="mouse"
+            width={30}
+            height={30}
+            style={{
+              zIndex: 9999,
+              position: "absolute",
+              pointerEvents: "none",
+            }}
+            onClick={(l) => {
+              return true;
+            }}
+          ></Image>
+          <nav
+            style={{
+              display: "flex",
+              position: "relative",
+              alignItems: "center",
+              justifyContent: "center",
+              wordSpacing: 2,
+              gap: 5,
+              cursor: "none",
+            }}
+          >
+            <span className="material-symbols-outlined">home</span>
+            <p
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              id="home"
+              onClick={(v) => {
+                v.preventDefault();
+                router.push("/");
+              }}
+            >
+              Home
+            </p>
+            <span
+              className="material-symbols-outlined"
+              id="contacts"
+              style={{ marginLeft: 40 }}
+            >
+              contacts_product
+            </span>
+            <p
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              onClick={(y) => {
+                y.preventDefault();
+                router.push("/contact");
+              }}
+            >
+              Contact us
+            </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ marginLeft: 30 }}
+            >
+              local_library
+            </span>
+            <p
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              onClick={(u) => {
+                u.preventDefault();
+                router.push("/about");
+              }}
+            >
+              About us
+            </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ marginLeft: 50 }}
+            >
+              chat
+            </span>
+            <p
+              id="chats"
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              onClick={(l) => {
+                router.push("/chat");
+              }}
+            >
+              P2P Chat
+            </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ marginLeft: 50 }}
+            >
+              forum
+            </span>
+            <p
+              id="p2b"
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              onClick={(i) => {
+                router.push("/dashboard");
+              }}
+            >
+              Chats & Privacy
+            </p>
+          </nav>
+
           <Stack>
             <Button
               variant="contained"
@@ -58,6 +196,7 @@ export default function Home() {
                 position: "absolute",
                 left: 1050,
                 top: 4,
+                cursor: "none",
               }}
               onClick={(a) => {
                 a.preventDefault();
@@ -77,6 +216,7 @@ export default function Home() {
                 top: 4,
                 WebkitBackdropFilter: "blur(5px)",
                 backdropFilter: "blur(5px)",
+                cursor: "none",
               }}
               onClick={(l) => {
                 l.preventDefault();
@@ -94,7 +234,7 @@ export default function Home() {
             position: "absolute",
             WebkitBackdropFilter: "blur(1px)",
             backdropFilter: "blur(1px)",
-            cursor: "pointer",
+            cursor: "none",
           }}
           id="menu"
           onMouseEnter={(m) => {
@@ -161,7 +301,7 @@ export default function Home() {
                 fontSize: 0,
                 top: -330,
                 left: 173,
-                cursor: "pointer",
+                cursor: "none",
                 color: "transparent",
               }}
               id="x"
