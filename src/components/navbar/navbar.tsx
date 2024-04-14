@@ -1,5 +1,7 @@
+import { Stack, Button } from "@mui/material";
 import router from "next/router";
 import { useEffect } from "react";
+import Link from "next/link";
 
 export function NavBar() {
   const Home = () => {
@@ -36,7 +38,10 @@ export function NavBar() {
           cursor: "pointer",
         }}
         id="home"
-        onClick={Home}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/");
+        }}
       >
         Home
       </p>
@@ -53,7 +58,10 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "pointer",
         }}
-        onClick={Contact}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/contact");
+        }}
       >
         Contact us
       </p>
@@ -66,7 +74,10 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "pointer",
         }}
-        onClick={About}
+        onClick={(t) => {
+          t.preventDefault();
+          router.push("/about");
+        }}
       >
         About us
       </p>
@@ -80,7 +91,10 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "pointer",
         }}
-        onClick={Chat}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/chat");
+        }}
       >
         P2P Chat
       </p>
@@ -94,10 +108,23 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "pointer",
         }}
-        onClick={Bot}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/dashboard");
+        }}
       >
         Chats & Privacy
       </p>
+      <Stack direction="row" justifyContent="flex-end">
+        <Link href={"/auth/logout"}>
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "black", left: 130 }}
+          >
+            Logout
+          </Button>
+        </Link>
+      </Stack>
     </nav>
   );
 }

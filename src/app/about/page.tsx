@@ -25,8 +25,53 @@ export default function About() {
           backgroundSize: "cover",
           height: "100vh",
           width: "100%",
+          cursor: "none",
+          overflow: "hidden",
+        }}
+        onMouseOver={(e) => {
+          var mouse = document.getElementById("mouse") as HTMLElement;
+          var pointer = document.getElementById("pointer") as HTMLElement;
+          console.log(mouse);
+          window.addEventListener("mousemove", (t) => {
+            mouse!.style.top = `${t.clientY}px`;
+            mouse!.style.left = `${t.clientX}px`;
+            pointer!.style.top = `${t.clientY}px`;
+            pointer!.style.left = `${t.clientX}px`;
+          });
         }}
       >
+        <Image
+          src={"/cursor.png"}
+          alt="cursor"
+          id="mouse"
+          width={30}
+          height={30}
+          style={{
+            display: "block",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
+        <Image
+          src={"/pointer.png"}
+          alt="cursor"
+          id="pointer"
+          width={20}
+          height={30}
+          style={{
+            display: "none",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
         <nav
           style={{
             display: "flex",
@@ -59,6 +104,14 @@ export default function About() {
               fontFamily: "'Indie Flower', cursive",
               color: "rgb(0, 245, 230)",
             }}
+            onMouseOver={(e) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/text-cursor.png";
+            }}
+            onMouseOut={(d) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/cursor.png";
+            }}
           >
             About Us
           </Typography>
@@ -67,6 +120,14 @@ export default function About() {
             style={{
               fontFamily: "'Ojuju', sans-serif",
               color: "rgba(255, 0, 0, 1)",
+            }}
+            onMouseOver={(e) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/text-cursor.png";
+            }}
+            onMouseOut={(d) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/cursor.png";
             }}
           >
             In the heart of the digital agricultural revolution, our AI
@@ -126,6 +187,14 @@ export default function About() {
               backgroundClip: "text",
               color: "transparent",
             }}
+            onMouseOver={(e) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/text-cursor.png";
+            }}
+            onMouseOut={(d) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/cursor.png";
+            }}
           >
             Contributors
           </Typography>
@@ -142,10 +211,13 @@ export default function About() {
               style={{
                 backgroundColor: "rgba(0, 0, 0, 0.3)",
                 width: 400,
+                height: 2000,
                 border: "1px solid rgb(128, 128, 128)",
                 padding: "10px",
                 boxSizing: "border-box",
                 boxShadow: "0 0 50px rgb(128, 128, 128)",
+                cursor: "none",
+                overflowY: "scroll",
               }}
             >
               <Image
@@ -159,6 +231,18 @@ export default function About() {
               <Typography
                 variant="h3"
                 style={{ fontFamily: "'Indie Flower', cursive" }}
+                onMouseOver={(e) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/text-cursor.png";
+                }}
+                onMouseOut={(d) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
+                }}
               >
                 Harrison JA
               </Typography>
@@ -167,6 +251,18 @@ export default function About() {
                 style={{
                   fontFamily: "'Tillana', system-ui",
                   color: "black",
+                }}
+                onMouseOver={(e) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/text-cursor.png";
+                }}
+                onMouseOut={(d) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
                 }}
               >
                 Meet Harrison, a student with a passion for technology and
@@ -258,12 +354,36 @@ export default function About() {
               <Typography
                 variant="h3"
                 style={{ fontFamily: "'Indie Flower', cursive" }}
+                onMouseOver={(e) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/text-cursor.png";
+                }}
+                onMouseOut={(d) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
+                }}
               >
                 Raphaël TM
               </Typography>
               <Typography
                 variant="h5"
                 style={{ fontFamily: "'Tillana', system-ui", color: "black" }}
+                onMouseOver={(e) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/text-cursor.png";
+                }}
+                onMouseOut={(d) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
+                }}
               >
                 As a mentee, I had the privilege of working with a dedicated and
                 experienced mentor through TTV on a programming project. Our
