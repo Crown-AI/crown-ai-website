@@ -35,12 +35,20 @@ export function NavBar() {
         style={{
           color: "gray",
           fontFamily: "'Indie Flower', cursive",
-          cursor: "pointer",
+          cursor: "none",
         }}
         id="home"
         onClick={(e) => {
           e.preventDefault();
           router.push("/");
+        }}
+        onMouseOver={(s) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/pointer.png";
+        }}
+        onMouseOut={(u) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/cursor.png";
         }}
       >
         Home
@@ -56,11 +64,19 @@ export function NavBar() {
         style={{
           color: "gray",
           fontFamily: "'Indie Flower', cursive",
-          cursor: "pointer",
+          cursor: "none",
         }}
         onClick={(e) => {
           e.preventDefault();
           router.push("/contact");
+        }}
+        onMouseOver={(s) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/pointer.png";
+        }}
+        onMouseOut={(u) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/cursor.png";
         }}
       >
         Contact us
@@ -72,11 +88,19 @@ export function NavBar() {
         style={{
           color: "gray",
           fontFamily: "'Indie Flower', cursive",
-          cursor: "pointer",
+          cursor: "none",
         }}
         onClick={(t) => {
           t.preventDefault();
           router.push("/about");
+        }}
+        onMouseOver={(s) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/pointer.png";
+        }}
+        onMouseOut={(u) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/cursor.png";
         }}
       >
         About us
@@ -89,11 +113,19 @@ export function NavBar() {
         style={{
           color: "gray",
           fontFamily: "'Indie Flower', cursive",
-          cursor: "pointer",
+          cursor: "none",
         }}
         onClick={(e) => {
           e.preventDefault();
           router.push("/chat");
+        }}
+        onMouseOver={(s) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/pointer.png";
+        }}
+        onMouseOut={(u) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/cursor.png";
         }}
       >
         P2P Chat
@@ -106,11 +138,19 @@ export function NavBar() {
         style={{
           color: "gray",
           fontFamily: "'Indie Flower', cursive",
-          cursor: "pointer",
+          cursor: "none",
         }}
         onClick={(e) => {
           e.preventDefault();
           router.push("/dashboard");
+        }}
+        onMouseOver={(s) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/pointer.png";
+        }}
+        onMouseOut={(u) => {
+          var mouse = document.getElementById("mouse") as HTMLImageElement;
+          mouse.srcset = "/cursor.png";
         }}
       >
         Chats & Privacy
@@ -120,6 +160,14 @@ export function NavBar() {
           <Button
             variant="contained"
             style={{ backgroundColor: "black", left: 130 }}
+            onMouseOver={(s) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/pointer.png";
+            }}
+            onMouseOut={(u) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/cursor.png";
+            }}
           >
             Logout
           </Button>
