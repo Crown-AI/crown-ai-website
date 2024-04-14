@@ -166,7 +166,7 @@ export function NavBar() {
         Chats & Privacy
       </p>
       <Stack direction="row" justifyContent="flex-end">
-        <Link href={"/auth/logout"}>
+        <Link href={"/auth/logout"} style={{ cursor: "pointer" }}>
           <Button
             variant="contained"
             style={{ backgroundColor: "black", left: 130, cursor: "none" }}
