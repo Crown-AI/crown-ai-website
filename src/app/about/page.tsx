@@ -438,7 +438,7 @@ export default function About() {
                 onMouseOut={(y) => {
                   y.preventDefault();
                   var contact = document.getElementById(
-                    "rtc"
+                    "rtc",
                   ) as HTMLButtonElement;
                   contact.style.backgroundColor = "black";
                   contact.style.color = "white";
