@@ -387,16 +387,19 @@ export default function About() {
                 }}
               >
                 As a mentee, I had the privilege of working with a dedicated and
-                experienced mentor through TTV on a programming project. Our
-                mentor, with a rich background in the tech industry and
-                expertise in various programming languages such as JavaScript,
-                TypeScript, C#, and SQL, provided invaluable guidance and
-                support throughout the project. Our mentor&apos;s approach was
-                structured and well-designed, with a focus on creating a
-                productive learning environment. We established a regular
-                meeting schedule, planned topics in advance, and kept track of
-                our discussions. This framework allowed us to make the most of
-                our mentoring sessions, addressing specific questions,
+                experienced mentor through{" "}
+                <a href="https://tembotechventures.com/">
+                  TTV(Tembo Tech Ventures)
+                </a>{" "}
+                on a programming project. Our mentor, with a rich background in
+                the tech industry and expertise in various programming languages
+                such as JavaScript, TypeScript, C#, and SQL, provided invaluable
+                guidance and support throughout the project. Our mentor&apos;s
+                approach was structured and well-designed, with a focus on
+                creating a productive learning environment. We established a
+                regular meeting schedule, planned topics in advance, and kept
+                track of our discussions. This framework allowed us to make the
+                most of our mentoring sessions, addressing specific questions,
                 overcoming blockers, and engaging in pair programming sessions.
                 The mentor&apos;s guidance was instrumental in helping me
                 understand complex concepts and improve my problem-solving
@@ -412,7 +415,8 @@ export default function About() {
                 a crucial role in the success of our programming project. Their
                 guidance has left a lasting impact on my learning journey, and I
                 am grateful for the opportunity to have worked with such an
-                inspiring mentor through TTV.
+                inspiring mentor through{" "}
+                <a href="https://tembotechventures.com/">TTV</a>.
               </Typography>
               <Button
                 variant="contained"
@@ -434,7 +438,7 @@ export default function About() {
                 onMouseOut={(y) => {
                   y.preventDefault();
                   var contact = document.getElementById(
-                    "rtc",
+                    "rtc"
                   ) as HTMLButtonElement;
                   contact.style.backgroundColor = "black";
                   contact.style.color = "white";
