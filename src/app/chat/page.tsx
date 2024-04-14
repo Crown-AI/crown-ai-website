@@ -10,6 +10,8 @@ import { useSession } from "next-auth/react";
 import { useAllChatMessages } from "@/modules/chat/hooks/use-all-chat-messages/use-all-chat-messages";
 import { getAllChatMessages } from "@/modules/chat/lib/get-all-chat-messages/get-all-chat-messages";
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
+import Link from "next/link";
+import Image from "next/image";
 
 interface MessageData {
   message: string;
@@ -63,8 +65,52 @@ export default function Chat() {
           backgroundSize: "cover",
           height: "100vh",
           width: "100%",
+          cursor: "none",
+        }}
+        onMouseOver={(e) => {
+          var mouse = document.getElementById("mouse") as HTMLElement;
+          var pointer = document.getElementById("pointer") as HTMLElement;
+          console.log(mouse);
+          window.addEventListener("mousemove", (t) => {
+            mouse!.style.top = `${t.clientY}px`;
+            mouse!.style.left = `${t.clientX}px`;
+            pointer!.style.top = `${t.clientY}px`;
+            pointer!.style.left = `${t.clientX}px`;
+          });
         }}
       >
+        <Image
+          src={"/cursor.png"}
+          alt="cursor"
+          id="mouse"
+          width={30}
+          height={30}
+          style={{
+            display: "block",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
+        <Image
+          src={"/pointer.png"}
+          alt="cursor"
+          id="pointer"
+          width={20}
+          height={30}
+          style={{
+            display: "none",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
         <nav
           style={{
             display: "flex",
@@ -83,11 +129,12 @@ export default function Chat() {
               backgroundColor: "rgba(128, 128, 128, 0.3)",
               display: "flex",
               flexDirection: "column",
-              position: "relative",
+              position: "absolute",
               height: 500,
               width: 1000,
-              left: 150,
-              top: 50,
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
               overflowY: "scroll",
             }}
           >
@@ -151,6 +198,7 @@ export default function Chat() {
               position: "absolute",
               flexDirection: "row",
               top: 500,
+              cursor: "none",
             }}
           >
             <form
@@ -162,7 +210,7 @@ export default function Chat() {
                   },
                   body: JSON.stringify({
                     message: input,
-                    username: "TJ", // Replace with actual username
+                    username: session.data?.user?.name, // Replace with actual username
                     email: session.data?.user?.email || "harrisjohnu@gmail.com", // Replace with actual email
                   }),
                 });
@@ -171,10 +219,12 @@ export default function Chat() {
             >
               <input
                 placeholder="Message"
+                id="message"
                 style={{
                   display: "flex",
                   position: "fixed",
-                  top: 640,
+                  bottom: 0,
+                  cursor: "none",
                   marginTop: "auto",
                   alignItems: "bottom",
                   justifyContent: "bottom",
@@ -189,6 +239,18 @@ export default function Chat() {
                 }}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
+                onMouseOver={(e) => {
+                  var mouse = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  mouse.srcset = "/text-cursor.png";
+                }}
+                onMouseOut={(e) => {
+                  var mouse = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  mouse.srcset = "/cursor.png";
+                }}
               />
               <button
                 style={{
@@ -206,7 +268,7 @@ export default function Chat() {
                   style={{
                     backgroundColor: "green",
                     width: 30,
-                    cursor: "pointer",
+                    cursor: "none",
                   }}
                   onClick={() => {
                     fetch("/api/chat", {
@@ -228,6 +290,12 @@ export default function Chat() {
                     var button = document.getElementById(
                       "text",
                     ) as HTMLSpanElement;
+                    var mouse = document.getElementById(
+                      "mouse",
+                    ) as HTMLImageElement;
+                    mouse.srcset = "/pointer.png";
+                    mouse.height = 30;
+                    mouse.width = 20;
                     button.style.backgroundColor = "aqua";
                     button.style.color = "white";
                     button.style.transition = "1s ease-in-out";
@@ -237,6 +305,12 @@ export default function Chat() {
                     var button = document.getElementById(
                       "text",
                     ) as HTMLSpanElement;
+                    var mouse = document.getElementById(
+                      "mouse",
+                    ) as HTMLImageElement;
+                    mouse.srcset = "/cursor.png";
+                    mouse.height = 30;
+                    mouse.width = 30;
                     button.style.backgroundColor = "green";
                     button.style.color = "black";
                     button.style.transition = "1s ease-in-out";
