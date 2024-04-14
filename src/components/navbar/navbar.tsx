@@ -38,10 +38,7 @@ export function NavBar() {
           cursor: "none",
         }}
         id="home"
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/");
-        }}
+        onClick={Home}
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
@@ -68,10 +65,7 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "none",
         }}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/contact");
-        }}
+        onClick={Contact}
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
@@ -94,10 +88,7 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "none",
         }}
-        onClick={(t) => {
-          t.preventDefault();
-          router.push("/about");
-        }}
+        onClick={About}
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
@@ -121,10 +112,7 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "none",
         }}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/chat");
-        }}
+        onClick={Chat}
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
@@ -148,10 +136,7 @@ export function NavBar() {
           fontFamily: "'Indie Flower', cursive",
           cursor: "none",
         }}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/dashboard");
-        }}
+        onClick={Bot}
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
