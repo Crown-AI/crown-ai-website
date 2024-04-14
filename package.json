@@ -4,9 +4,9 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "scripts": {
-    "dev": "prisma migrate dev && next dev -p 3000",
+    "dev": "prisma migrate dev && next dev",
     "build": "next build && prisma migrate deploy",
-    "start": "next start -p 3000",
+    "start": "next start",
     "postinstall": "prisma generate",
     "lint": "next lint",
     "migrate-dev": "prisma migrate dev"

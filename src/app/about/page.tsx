@@ -80,6 +80,7 @@ export default function About() {
             justifyContent: "center",
             wordSpacing: 2,
             gap: 5,
+            cursor: "none",
           }}
         >
           <NavBar />

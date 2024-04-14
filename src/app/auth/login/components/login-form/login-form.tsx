@@ -9,10 +9,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { NavBar } from "@/components/navbar/navbar";
 import "../../../../globalicons.css";
+import { useRouter } from "next/navigation";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
   const inputStyle = {
     backgroundImage:
       "linear-gradient(to bottom right, red, aqua, silver, indigo, blue)",
@@ -41,14 +43,156 @@ export function LoginForm() {
           style={{
             display: "flex",
             position: "relative",
-            top: 0,
             alignItems: "center",
             justifyContent: "center",
             wordSpacing: 2,
             gap: 5,
           }}
         >
-          <NavBar />
+          <span className="material-symbols-outlined">home</span>
+          <p
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "none",
+            }}
+            id="home"
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/");
+            }}
+            onMouseOver={(s) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/pointer.png";
+              (mouse.height = 30), (mouse.width = 20);
+            }}
+            onMouseOut={(u) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/cursor.png";
+              (mouse.height = 30), (mouse.width = 30);
+            }}
+          >
+            Home
+          </p>
+          <span
+            className="material-symbols-outlined"
+            id="contacts"
+            style={{ marginLeft: 40 }}
+          >
+            contacts_product
+          </span>
+          <p
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "none",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/contact");
+            }}
+            onMouseOver={(s) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/pointer.png";
+              (mouse.height = 30), (mouse.width = 20);
+            }}
+            onMouseOut={(u) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/cursor.png";
+              (mouse.height = 30), (mouse.width = 30);
+            }}
+          >
+            Contact us
+          </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 30 }}
+          >
+            local_library
+          </span>
+          <p
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "none",
+            }}
+            onClick={(t) => {
+              t.preventDefault();
+              router.push("/about");
+            }}
+            onMouseOver={(s) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/pointer.png";
+              (mouse.height = 30), (mouse.width = 20);
+            }}
+            onMouseOut={(u) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/cursor.png";
+              (mouse.height = 30), (mouse.width = 30);
+            }}
+          >
+            About us
+          </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 50 }}
+          >
+            chat
+          </span>
+          <p
+            id="chats"
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "none",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/chat");
+            }}
+            onMouseOver={(s) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/pointer.png";
+              (mouse.height = 30), (mouse.width = 20);
+            }}
+            onMouseOut={(u) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/cursor.png";
+              (mouse.height = 30), (mouse.width = 30);
+            }}
+          >
+            P2P Chat
+          </p>
+          <span
+            className="material-symbols-outlined"
+            style={{ marginLeft: 50 }}
+          >
+            forum
+          </span>
+          <p
+            id="p2b"
+            style={{
+              color: "gray",
+              fontFamily: "'Indie Flower', cursive",
+              cursor: "none",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/dashboard");
+            }}
+            onMouseOver={(s) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/pointer.png";
+              (mouse.height = 30), (mouse.width = 20);
+            }}
+            onMouseOut={(u) => {
+              var mouse = document.getElementById("mouse") as HTMLImageElement;
+              mouse.srcset = "/cursor.png";
+              (mouse.height = 30), (mouse.width = 30);
+            }}
+          >
+            Chats & Privacy
+          </p>
         </nav>
         <Stack
           style={{
