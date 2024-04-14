@@ -45,10 +45,12 @@ export function NavBar() {
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
+          (mouse.height = 30), (mouse.width = 20);
         }}
         onMouseOut={(u) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/cursor.png";
+          (mouse.height = 30), (mouse.width = 30);
         }}
       >
         Home
@@ -73,10 +75,12 @@ export function NavBar() {
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
+          (mouse.height = 30), (mouse.width = 20);
         }}
         onMouseOut={(u) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/cursor.png";
+          (mouse.height = 30), (mouse.width = 30);
         }}
       >
         Contact us
@@ -97,10 +101,12 @@ export function NavBar() {
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
+          (mouse.height = 30), (mouse.width = 20);
         }}
         onMouseOut={(u) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/cursor.png";
+          (mouse.height = 30), (mouse.width = 30);
         }}
       >
         About us
@@ -122,10 +128,12 @@ export function NavBar() {
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
+          (mouse.height = 30), (mouse.width = 20);
         }}
         onMouseOut={(u) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/cursor.png";
+          (mouse.height = 30), (mouse.width = 30);
         }}
       >
         P2P Chat
@@ -147,10 +155,12 @@ export function NavBar() {
         onMouseOver={(s) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/pointer.png";
+          (mouse.height = 30), (mouse.width = 20);
         }}
         onMouseOut={(u) => {
           var mouse = document.getElementById("mouse") as HTMLImageElement;
           mouse.srcset = "/cursor.png";
+          (mouse.height = 30), (mouse.width = 30);
         }}
       >
         Chats & Privacy
@@ -159,14 +169,16 @@ export function NavBar() {
         <Link href={"/auth/logout"}>
           <Button
             variant="contained"
-            style={{ backgroundColor: "black", left: 130 }}
+            style={{ backgroundColor: "black", left: 130, cursor: "none" }}
             onMouseOver={(s) => {
               var mouse = document.getElementById("mouse") as HTMLImageElement;
               mouse.srcset = "/pointer.png";
+              (mouse.height = 30), (mouse.width = 20);
             }}
             onMouseOut={(u) => {
               var mouse = document.getElementById("mouse") as HTMLImageElement;
               mouse.srcset = "/cursor.png";
+              (mouse.height = 30), (mouse.width = 30);
             }}
           >
             Logout
