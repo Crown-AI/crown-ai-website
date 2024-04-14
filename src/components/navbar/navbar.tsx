@@ -165,18 +165,35 @@ export function NavBar() {
       >
         Chats & Privacy
       </p>
-      <Stack direction="row" justifyContent="flex-end">
+      <Stack
+        direction="row"
+        justifyContent="flex-end"
+        style={{ cursor: "none" }}
+      >
         <Link href={"/auth/logout"} style={{ cursor: "pointer" }}>
           <Button
             variant="contained"
+            id="button"
             style={{ backgroundColor: "black", left: 130, cursor: "none" }}
             onMouseOver={(s) => {
               var mouse = document.getElementById("mouse") as HTMLImageElement;
+              var button = document.getElementById(
+                "button",
+              ) as HTMLButtonElement;
+              button.style.backgroundColor = "red";
+              button.style.color = "black";
+              button.style.transition = "1s ease-in-out";
               mouse.srcset = "/pointer.png";
               (mouse.height = 30), (mouse.width = 20);
             }}
             onMouseOut={(u) => {
               var mouse = document.getElementById("mouse") as HTMLImageElement;
+              var button = document.getElementById(
+                "button",
+              ) as HTMLButtonElement;
+              button.style.backgroundColor = "black";
+              button.style.color = "white";
+              button.style.transition = "1s ease-in-out";
               mouse.srcset = "/cursor.png";
               (mouse.height = 30), (mouse.width = 30);
             }}
