@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Pusher from "pusher-js";
 import { Box, Stack } from "@mui/material";
 import "../globalicons.css";
@@ -28,6 +28,7 @@ export default function Chat() {
   const session = useSession();
   const [messages, setMessages] = useState<MessageData[]>([]);
   const [email, setEmail] = useState<MessageData[]>([]);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const [input, setInput] = useState<string>("");
   const router = useRouter();
@@ -36,6 +37,12 @@ export default function Chat() {
 
   console.log("@@ databaseChatMessages", databaseChatMessages);
 
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
   useEffect(() => {
     if (session.status === "unauthenticated") {
       router.push("/auth/login");
@@ -122,9 +129,24 @@ export default function Chat() {
           }}
         >
           <NavBar />
+          <span
+            className="material-symbols-outlined"
+            style={{ color: "white", position: "absolute", right: 3 }}
+            onMouseOver={(e) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/pointer.png";
+            }}
+            onMouseOut={(v) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/cursor.png";
+            }}
+          >
+            settings
+          </span>
         </nav>
         <Stack>
           <div
+            ref={chatContainerRef}
             style={{
               backgroundColor: "rgba(128, 128, 128, 0.3)",
               display: "flex",
@@ -159,7 +181,7 @@ export default function Chat() {
                         backgroundColor: "transparent",
                       }}
                     >
-                      {message.email}
+                      {message.username}
                     </h6>
                     <h6
                       style={{
@@ -202,7 +224,8 @@ export default function Chat() {
             }}
           >
             <form
-              onSubmit={() => {
+              onSubmit={(r) => {
+                r.preventDefault();
                 fetch("/api/chat", {
                   method: "POST",
                   headers: {
@@ -210,8 +233,10 @@ export default function Chat() {
                   },
                   body: JSON.stringify({
                     message: input,
-                    username: session.data?.user?.name, // Replace with actual username
-                    email: session.data?.user?.email || "harrisjohnu@gmail.com", // Replace with actual email
+                    username: window.localStorage.getItem("uname"),
+                    email:
+                      session.data?.user?.email ||
+                      window.localStorage.getItem("uname"),
                   }),
                 });
                 setInput("");
@@ -278,9 +303,9 @@ export default function Chat() {
                       },
                       body: JSON.stringify({
                         message: input,
-                        username: "TJ", // Replace with actual username
+                        username: window.localStorage.getItem("uname"),
                         email:
-                          session.data?.user?.email || "harrisjohnu@gmail.com", // Replace with actual email
+                          session.data?.user?.email || "harrisjohnu@gmail.com",
                       }),
                     });
                     setInput("");

@@ -3,6 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import "../../globalicons.css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Returned() {
   const router = useRouter();
@@ -19,8 +20,53 @@ export default function Returned() {
           backgroundSize: "cover",
           height: "100vh",
           width: "100%",
+          cursor: "none",
+          overflow: "hidden",
+        }}
+        onMouseOver={(e) => {
+          var mouse = document.getElementById("mouse") as HTMLElement;
+          var pointer = document.getElementById("pointer") as HTMLElement;
+          console.log(mouse);
+          window.addEventListener("mousemove", (t) => {
+            mouse!.style.top = `${t.clientY}px`;
+            mouse!.style.left = `${t.clientX}px`;
+            pointer!.style.top = `${t.clientY}px`;
+            pointer!.style.left = `${t.clientX}px`;
+          });
         }}
       >
+        <Image
+          src={"/cursor.png"}
+          alt="cursor"
+          id="mouse"
+          width={30}
+          height={30}
+          style={{
+            display: "block",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
+        <Image
+          src={"/pointer.png"}
+          alt="cursor"
+          id="pointer"
+          width={20}
+          height={30}
+          style={{
+            display: "none",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
         <Stack
           style={{
             display: "flex",
@@ -54,6 +100,15 @@ export default function Returned() {
               MozBackgroundClip: "text",
               backgroundClip: "text",
               color: "transparent",
+              cursor: "none",
+            }}
+            onMouseOver={(r) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/text-cursor.png";
+            }}
+            onMouseOut={(i) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/cursor.png";
             }}
           >
             Sent
@@ -73,10 +128,42 @@ export default function Returned() {
             variant="h6"
             style={{
               color: "ivory",
+              cursor: "none",
+            }}
+            onMouseOver={(r) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/text-cursor.png";
+            }}
+            onMouseOut={(i) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/cursor.png";
             }}
           >
             You will be redirected in a few seconds. If you are not redirected{" "}
-            <Link href={"/contact"} style={{ color: "rebeccapurple" }}>
+            <Link
+              href={"/contact"}
+              style={{ color: "rebeccapurple", cursor: "none" }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                var pointer = document.getElementById(
+                  "pointer",
+                ) as HTMLImageElement;
+                cursor.style.display = "none";
+                pointer.style.display = "block";
+              }}
+              onMouseOut={(e) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                var pointer = document.getElementById(
+                  "pointer",
+                ) as HTMLImageElement;
+                cursor.style.display = "block";
+                pointer.style.display = "none";
+              }}
+            >
               Click here
             </Link>
           </Typography>

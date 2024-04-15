@@ -223,7 +223,7 @@ export default function About() {
             >
               <Image
                 alt="HJ"
-                src={"/bw.jpg"}
+                src={"/win24.png"}
                 width={200}
                 height={200}
                 style={{ borderRadius: "100px" }}
@@ -266,7 +266,7 @@ export default function About() {
                   cursor.srcset = "/cursor.png";
                 }}
               >
-                Meet Harrison, a student with a passion for technology and
+                Meet Harrison, a guy with a passion for technology and
                 agriculture. With a keen interest in problem-solving and a
                 desire to make a difference, Harrison embarked on an exciting
                 journey to develop an agricultural chatbot project. The project
@@ -342,6 +342,7 @@ export default function About() {
                 boxShadow: "0 0 50px rgb(128, 128, 128)",
                 gap: 50,
                 marginLeft: 70,
+                overflowY: "scroll",
               }}
             >
               <Image
@@ -388,7 +389,30 @@ export default function About() {
               >
                 As a mentee, I had the privilege of working with a dedicated and
                 experienced mentor through{" "}
-                <a href="https://tembotechventures.com/">
+                <a
+                  href="https://tembotechventures.com/"
+                  style={{ cursor: "none" }}
+                  onMouseOver={(e) => {
+                    var cursor = document.getElementById(
+                      "mouse",
+                    ) as HTMLImageElement;
+                    var pointer = document.getElementById(
+                      "pointer",
+                    ) as HTMLImageElement;
+                    cursor.style.display = "none";
+                    pointer.style.display = "block";
+                  }}
+                  onMouseOut={(r) => {
+                    var cursor = document.getElementById(
+                      "mouse",
+                    ) as HTMLImageElement;
+                    var pointer = document.getElementById(
+                      "pointer",
+                    ) as HTMLImageElement;
+                    cursor.style.display = "block";
+                    pointer.style.display = "none";
+                  }}
+                >
                   TTV(Tembo Tech Ventures)
                 </a>{" "}
                 on a programming project. Our mentor, with a rich background in
@@ -416,7 +440,33 @@ export default function About() {
                 guidance has left a lasting impact on my learning journey, and I
                 am grateful for the opportunity to have worked with such an
                 inspiring mentor through{" "}
-                <a href="https://tembotechventures.com/">TTV</a>.
+                <a
+                  href="https://tembotechventures.com/"
+                  style={{ cursor: "none" }}
+                  onMouseOver={(e) => {
+                    var cursor = document.getElementById(
+                      "mouse",
+                    ) as HTMLImageElement;
+                    var pointer = document.getElementById(
+                      "pointer",
+                    ) as HTMLImageElement;
+                    cursor.style.display = "none";
+                    pointer.style.display = "block";
+                  }}
+                  onMouseOut={(r) => {
+                    var cursor = document.getElementById(
+                      "mouse",
+                    ) as HTMLImageElement;
+                    var pointer = document.getElementById(
+                      "pointer",
+                    ) as HTMLImageElement;
+                    cursor.style.display = "block";
+                    pointer.style.display = "none";
+                  }}
+                >
+                  TTV
+                </a>
+                .
               </Typography>
               <Button
                 variant="contained"

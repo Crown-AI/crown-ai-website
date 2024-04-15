@@ -3,13 +3,14 @@ import { useAllMessages } from "@/modules/messages/hooks/use-all-messages/use-al
 import { Box, Button, CircularProgress, Stack, TextField } from "@mui/material";
 import Image from "next/image";
 import Logo from "public/Samp.png";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MessageInput } from "../api/messages/route";
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
 import Link from "next/link";
 import { Train_One } from "next/font/google";
 import "../globalicons.css";
 import { useRouter } from "next/navigation";
+import { NavBar } from "@/components/navbar/navbar";
 const emptyMessage: MessageInput = {
   content: "",
 };
@@ -28,6 +29,13 @@ export default function HomePage() {
     borderBottom: 0,
   };
   const router = useRouter();
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  }, [nmessage]);
   return (
     <Box>
       <Stack
@@ -37,9 +45,54 @@ export default function HomePage() {
           backgroundPosition: "center",
           height: "100vh",
           marginTop: 10,
+          cursor: "none",
+          overflow: "hidden",
+        }}
+        onMouseOver={(e) => {
+          var mouse = document.getElementById("mouse") as HTMLElement;
+          var pointer = document.getElementById("pointer") as HTMLElement;
+          console.log(mouse);
+          window.addEventListener("mousemove", (t) => {
+            mouse!.style.top = `${t.clientY}px`;
+            mouse!.style.left = `${t.clientX}px`;
+            pointer!.style.top = `${t.clientY}px`;
+            pointer!.style.left = `${t.clientX}px`;
+          });
         }}
         display={"flex"}
       >
+        <Image
+          src={"/cursor.png"}
+          alt="cursor"
+          id="mouse"
+          width={30}
+          height={30}
+          style={{
+            display: "block",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
+        <Image
+          src={"/pointer.png"}
+          alt="cursor"
+          id="pointer"
+          width={20}
+          height={30}
+          style={{
+            display: "none",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
         <nav
           style={{
             display: "flex",
@@ -50,121 +103,10 @@ export default function HomePage() {
             gap: 5,
           }}
         >
-          <span className="material-symbols-outlined">home</span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            id="home"
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/");
-            }}
-          >
-            Home
-          </p>
-          <span
-            className="material-symbols-outlined"
-            id="contacts"
-            style={{ marginLeft: 40 }}
-          >
-            contacts_product
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/contact");
-            }}
-          >
-            Contact us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 30 }}
-          >
-            local_library
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(t) => {
-              t.preventDefault();
-              router.push("/about");
-            }}
-          >
-            About us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50 }}
-          >
-            chat
-          </span>
-          <p
-            id="chats"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/chat");
-            }}
-          >
-            P2P Chat
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50 }}
-          >
-            forum
-          </span>
-          <p
-            id="p2b"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/dashboard");
-            }}
-          >
-            Chats & Privacy
-          </p>
-          <Stack direction="row" justifyContent="flex-end">
-            <Link href={"/auth/logout"}>
-              <Button
-                variant="contained"
-                style={{ backgroundColor: "black", left: 130 }}
-              >
-                Logout
-              </Button>
-            </Link>
-          </Stack>
+          <NavBar />
         </nav>
-        <Stack display={"flex"} width={200} height={30}>
-          <Image
-            alt="Logo"
-            src={Logo}
-            width={100}
-            height={100}
-            draggable="false"
-          ></Image>
-        </Stack>
         <Stack
+          ref={chatContainerRef}
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.5)",
             overflow: "scroll",
@@ -180,10 +122,38 @@ export default function HomePage() {
             <div key={m.content}>
               <Link
                 href={`/dashboard/message/${m.id}`}
-                style={{ textDecoration: "none", cursor: "auto" }}
+                style={{ textDecoration: "none", cursor: "none" }}
+                onMouseOver={(r) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/text-cursor.png";
+                }}
+                onMouseOut={(i) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
+                }}
               >
                 <p
-                  style={{ color: "green", textDecoration: "none" }}
+                  style={{
+                    color: "green",
+                    textDecoration: "none",
+                    cursor: "none",
+                  }}
+                  onMouseOver={(r) => {
+                    var cursor = document.getElementById(
+                      "mouse",
+                    ) as HTMLImageElement;
+                    cursor.srcset = "/text-cursor.png";
+                  }}
+                  onMouseOut={(i) => {
+                    var cursor = document.getElementById(
+                      "mouse",
+                    ) as HTMLImageElement;
+                    cursor.srcset = "/cursor.png";
+                  }}
                   onClick={(r) => {
                     r.preventDefault();
                   }}
@@ -247,18 +217,30 @@ export default function HomePage() {
                 background: "silver",
                 borderBottom: 0,
                 overflow: "scroll",
+                cursor: "none",
+              }}
+              onMouseOver={(r) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/text-cursor.png";
+              }}
+              onMouseOut={(i) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/cursor.png";
               }}
             />
           </form>
         </Stack>
         <footer
           style={{
-            borderTop: 9,
-            marginTop: 290,
-            position: "relative",
+            position: "absolute",
             display: "flex",
             flexDirection: "row",
-            float: "right",
+            right: 0,
+            bottom: 0,
           }}
         >
           <p

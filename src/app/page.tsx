@@ -273,7 +273,7 @@ export default function Home() {
                 width: 110,
                 display: "flex",
                 position: "absolute",
-                left: 1050,
+                right: 0,
                 top: 4,
                 cursor: "none",
               }}
@@ -295,38 +295,6 @@ export default function Home() {
               }}
             >
               Login
-            </Button>
-            <Button
-              variant="contained"
-              style={{
-                backgroundColor: "plum",
-                width: 110,
-                display: "flex",
-                position: "absolute",
-                right: 0,
-                top: 4,
-                WebkitBackdropFilter: "blur(5px)",
-                backdropFilter: "blur(5px)",
-                cursor: "none",
-              }}
-              onClick={(l) => {
-                l.preventDefault();
-                router.push("/auth/register");
-              }}
-              onMouseOver={(r) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "block";
-                cursor!.style.display = "none";
-              }}
-              onMouseOut={(f) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "none";
-                cursor!.style.display = "block";
-              }}
-            >
-              Signup
             </Button>
           </Stack>
         </Stack>
@@ -556,7 +524,7 @@ export default function Home() {
               color: "rebeccapurple",
             }}
           >
-            Latest Updates
+            Upcoming Updates
           </Typography>
           <Stack display={"flex"} flexDirection={"row"} gap={3}>
             <div
@@ -576,11 +544,11 @@ export default function Home() {
             >
               <Image
                 alt="Update"
-                src={"/Agri-drone.jpg"}
+                src={"/plant-detector.jpg"}
                 width={150}
-                height={150}
+                height={170}
                 draggable="false"
-                style={{ position: "relative", top: -2 }}
+                style={{ position: "relative", top: -15 }}
               ></Image>
               <Typography
                 variant="h6"
@@ -591,8 +559,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Improved the Chatbot to respond to &quot;hi&quot; and
-                &quot;hello&quot;
+                A plant-detection API
               </Typography>
             </div>
             <div
@@ -615,7 +582,7 @@ export default function Home() {
             >
               <Image
                 alt="upd2"
-                src={"/aic.jpg"}
+                src={"/cursor.png"}
                 width={150}
                 height={150}
                 draggable={"false"}
@@ -630,7 +597,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Added a slideable menu bar
+                A new cursor
               </Typography>
             </div>
             <div
@@ -653,11 +620,11 @@ export default function Home() {
             >
               <Image
                 alt="upd3"
-                src={"/drone-control.jpg"}
+                src={"/UI.jpg"}
                 width={150}
-                height={150}
+                height={170}
                 draggable={"false"}
-                style={{ position: "relative", top: -35 }}
+                style={{ position: "relative", top: -30 }}
               ></Image>
               <Typography
                 variant="h6"
@@ -668,7 +635,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Reworked most pages
+                New UIs
               </Typography>
             </div>
             <div
@@ -680,6 +647,7 @@ export default function Home() {
                 WebkitBackdropFilter: "blur(5px)",
                 backdropFilter: "blur(5px)",
                 width: 170,
+                height: 300,
                 color: "gray",
                 backgroundColor: "rgba(0, 0, 0, 0.3)",
                 border: "1px transparent",
@@ -691,9 +659,9 @@ export default function Home() {
             >
               <Image
                 alt="upd4"
-                src={"/Login.jpg"}
+                src={"/botanical.jpg"}
                 width={150}
-                height={150}
+                height={170}
                 draggable={"false"}
                 style={{ position: "relative", top: -22 }}
               ></Image>
@@ -706,7 +674,7 @@ export default function Home() {
                   fontStyle: "normal",
                 }}
               >
-                Added timestamps to the Chat page
+                A new Botanical translator
               </Typography>
             </div>
           </Stack>

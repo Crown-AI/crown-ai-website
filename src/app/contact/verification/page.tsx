@@ -2,6 +2,7 @@
 import { Box, LinearProgress, Stack, Typography } from "@mui/material";
 import { useNavigation } from "react-router-dom";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import "../../globalicons.css";
 
 export default function VerifyContact() {
@@ -33,6 +34,19 @@ export default function VerifyContact() {
           backgroundSize: "cover",
           height: "100vh",
           width: "100%",
+          cursor: "none",
+          overflow: "hidden",
+        }}
+        onMouseOver={(e) => {
+          var mouse = document.getElementById("mouse") as HTMLElement;
+          var pointer = document.getElementById("pointer") as HTMLElement;
+          console.log(mouse);
+          window.addEventListener("mousemove", (t) => {
+            mouse!.style.top = `${t.clientY}px`;
+            mouse!.style.left = `${t.clientX}px`;
+            pointer!.style.top = `${t.clientY}px`;
+            pointer!.style.left = `${t.clientX}px`;
+          });
         }}
       >
         <video
@@ -48,6 +62,38 @@ export default function VerifyContact() {
         >
           <source src="/loader.mp4"></source>
         </video>
+        <Image
+          src={"/cursor.png"}
+          alt="cursor"
+          id="mouse"
+          width={30}
+          height={30}
+          style={{
+            display: "block",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
+        <Image
+          src={"/pointer.png"}
+          alt="cursor"
+          id="pointer"
+          width={20}
+          height={30}
+          style={{
+            display: "none",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
         <Stack>
           <p
             style={{
@@ -66,6 +112,15 @@ export default function VerifyContact() {
               alignItems: "center",
               justifyContent: "center",
               top: 200,
+              cursor: "none",
+            }}
+            onMouseOver={(l) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/text-cursor.png";
+            }}
+            onMouseOut={(i) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/cursor.png";
             }}
             id="prime"
           >
@@ -93,6 +148,18 @@ export default function VerifyContact() {
                 backgroundClip: "text",
                 color: "transparent",
               }}
+              onMouseOver={(l) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/text-cursor.png";
+              }}
+              onMouseOut={(i) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/cursor.png";
+              }}
             >
               Processing Information
             </p>
@@ -112,6 +179,18 @@ export default function VerifyContact() {
                 backgroundClip: "text",
                 color: "transparent",
               }}
+              onMouseOver={(l) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/text-cursor.png";
+              }}
+              onMouseOut={(i) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/cursor.png";
+              }}
             >
               Checking connection pipes
             </p>
@@ -130,6 +209,18 @@ export default function VerifyContact() {
                 MozBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
+              }}
+              onMouseOver={(l) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/text-cursor.png";
+              }}
+              onMouseOut={(i) => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/cursor.png";
               }}
             >
               Initializing...

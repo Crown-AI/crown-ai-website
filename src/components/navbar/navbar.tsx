@@ -160,7 +160,7 @@ export function NavBar() {
           id="button"
           style={{ backgroundColor: "black", left: 130, cursor: "none" }}
           onClick={(r) => {
-            window.location.href = "/logout";
+            window.location.href = "/auth/logout";
           }}
           onMouseOver={(s) => {
             var mouse = document.getElementById("mouse") as HTMLImageElement;

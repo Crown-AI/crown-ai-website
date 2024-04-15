@@ -34,19 +34,64 @@ export function LoginForm() {
           alignItems: "center",
           justifyContent: "center",
           display: "flex",
+          cursor: "none",
+        }}
+        onMouseOver={(e) => {
+          var mouse = document.getElementById("mouse") as HTMLElement;
+          var pointer = document.getElementById("pointer") as HTMLElement;
+          console.log(mouse);
+          window.addEventListener("mousemove", (t) => {
+            mouse!.style.top = `${t.clientY}px`;
+            mouse!.style.left = `${t.clientX}px`;
+            pointer!.style.top = `${t.clientY}px`;
+            pointer!.style.left = `${t.clientX}px`;
+          });
         }}
         width="100%"
         minHeight="100vh"
         display={"flex"}
       >
+        <Image
+          src={"/cursor.png"}
+          alt="cursor"
+          id="mouse"
+          width={30}
+          height={30}
+          style={{
+            display: "block",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
+        <Image
+          src={"/pointer.png"}
+          alt="cursor"
+          id="pointer"
+          width={20}
+          height={30}
+          style={{
+            display: "none",
+            zIndex: 9999,
+            position: "absolute",
+            pointerEvents: "none",
+          }}
+          onClick={(l) => {
+            return true;
+          }}
+        ></Image>
         <nav
           style={{
             display: "flex",
-            position: "relative",
+            position: "absolute",
             alignItems: "center",
             justifyContent: "center",
             wordSpacing: 2,
             gap: 5,
+            top: 0,
           }}
         >
           <span className="material-symbols-outlined">home</span>
@@ -222,6 +267,18 @@ export function LoginForm() {
                 fontStyle={"normal"}
                 fontWeight={400}
                 lineHeight="normal"
+                onMouseOver={(r) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/text-cursor.png";
+                }}
+                onMouseOut={(i) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
+                }}
               >
                 Sign into your account
               </Typography>
@@ -234,7 +291,8 @@ export function LoginForm() {
             >
               <TextField
                 name="email"
-                label="Username or email"
+                id="email"
+                label="Email"
                 inputProps={{ style: inputStyle }}
                 style={{
                   width: 220,
@@ -243,6 +301,22 @@ export function LoginForm() {
                 }}
                 value={email}
                 onChange={(o) => setEmail(o.target.value)}
+                onMouseOver={(r) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  var email = document.getElementById(
+                    "email",
+                  ) as HTMLInputElement;
+                  email.style.cursor = "none";
+                  cursor.srcset = "/text-cursor.png";
+                }}
+                onMouseOut={(i) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
+                }}
                 required
               ></TextField>
             </Stack>
@@ -251,7 +325,7 @@ export function LoginForm() {
               borderColor={"transparent"}
               direction={"column"}
               display={"flex"}
-              style={{ width: 220, position: "relative" }}
+              style={{ width: 220, position: "relative", bottom: 50 }}
             >
               <Button
                 variant="contained"
@@ -261,27 +335,28 @@ export function LoginForm() {
                   width: 220,
                   borderRadius: 50,
                   backgroundColor: "purple",
+                  cursor: "none",
+                }}
+                onMouseOver={(r) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/pointer.png";
+                  cursor.height = 30;
+                  cursor.width = 20;
+                }}
+                onMouseOut={(i) => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
+                  cursor.height = 30;
+                  cursor.width = 30;
                 }}
               >
                 <span>Login</span>
               </Button>
             </Stack>
-            <Typography
-              marginTop={5}
-              borderColor={"transparent"}
-              fontFamily={"Duru_Sans"}
-              width={255}
-              display={"flex"}
-              alignItems={"center"}
-              justifyContent={"center"}
-              flexShrink={0}
-              fontSize={14}
-              fontStyle={"normal"}
-              fontWeight={400}
-              lineHeight={"normal"}
-            >
-              Sign up
-            </Typography>
           </form>
         </Stack>
       </Stack>
