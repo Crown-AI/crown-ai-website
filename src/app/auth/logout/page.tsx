@@ -28,6 +28,7 @@ export default function Logout() {
         marginTop: 10,
         alignItems: "center",
         justifyContent: "center",
+        cursor: "none",
       }}
       onMouseOver={(e) => {
         var mouse = document.getElementById("mouse") as HTMLElement;

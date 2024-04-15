@@ -3,7 +3,7 @@ import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s",
+    template: "%s - AICulture",
     default: "Settings",
   },
   description:

@@ -15,7 +15,7 @@ import Image from "next/image";
 
 interface MessageData {
   message: string;
-  username?: string;
+  username: string;
   email: string;
   createdAt: Date;
 }
@@ -77,7 +77,7 @@ export default function Chat() {
         onMouseOver={(e) => {
           var mouse = document.getElementById("mouse") as HTMLElement;
           var pointer = document.getElementById("pointer") as HTMLElement;
-          console.log(mouse);
+          console.log(window.localStorage.getItem("uname"));
           window.addEventListener("mousemove", (t) => {
             mouse!.style.top = `${t.clientY}px`;
             mouse!.style.left = `${t.clientX}px`;
@@ -129,20 +129,6 @@ export default function Chat() {
           }}
         >
           <NavBar />
-          <span
-            className="material-symbols-outlined"
-            style={{ color: "white", position: "absolute", right: 3 }}
-            onMouseOver={(e) => {
-              var cursor = document.getElementById("mouse") as HTMLImageElement;
-              cursor.srcset = "/pointer.png";
-            }}
-            onMouseOut={(v) => {
-              var cursor = document.getElementById("mouse") as HTMLImageElement;
-              cursor.srcset = "/cursor.png";
-            }}
-          >
-            settings
-          </span>
         </nav>
         <Stack>
           <div
@@ -234,9 +220,7 @@ export default function Chat() {
                   body: JSON.stringify({
                     message: input,
                     username: window.localStorage.getItem("uname"),
-                    email:
-                      session.data?.user?.email ||
-                      window.localStorage.getItem("uname"),
+                    email: session.data?.user?.email || "harrisjohnu@gmail.com",
                   }),
                 });
                 setInput("");

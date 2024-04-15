@@ -40,13 +40,23 @@ export default function Home() {
         onMouseOver={(e) => {
           var mouse = document.getElementById("mouse") as HTMLElement;
           var pointer = document.getElementById("pointer") as HTMLElement;
-          console.log(mouse);
+          var check = window.localStorage.getItem("gotAUsername");
+          console.log(check);
           window.addEventListener("mousemove", (t) => {
             mouse!.style.top = `${t.clientY}px`;
             mouse!.style.left = `${t.clientX}px`;
             pointer!.style.top = `${t.clientY}px`;
             pointer!.style.left = `${t.clientX}px`;
           });
+          if (check === "true") {
+            console.log(`No need for a username`);
+          } else {
+            console.log(`Need a username`);
+            window.localStorage.setItem(
+              "uname",
+              `user${Math.floor(Math.random())}`,
+            );
+          }
         }}
       >
         <Stack>
