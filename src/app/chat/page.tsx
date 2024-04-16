@@ -463,8 +463,7 @@ export default function Chat() {
                   body: JSON.stringify({
                     message: input,
                     email: session.data?.user?.email || "harrisjohnu@gmail.com",
-                    username:
-                      username || `user${Math.floor(Math.random() * 2)}`,
+                    username: username || `NewUser`,
                   }),
                 });
                 setInput("");
@@ -522,20 +521,6 @@ export default function Chat() {
                     backgroundColor: "green",
                     width: 30,
                     cursor: "none",
-                  }}
-                  onClick={() => {
-                    fetch("/api/chat", {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                      body: JSON.stringify({
-                        message: input,
-                        email:
-                          session.data?.user?.email || "harrisjohnu@gmail.com",
-                      }),
-                    });
-                    setInput("");
                   }}
                   onMouseEnter={(u) => {
                     u.preventDefault();
