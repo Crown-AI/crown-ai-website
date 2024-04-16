@@ -70,4 +70,5 @@ model ChatMessage {
     username String
     email String
     createdAt DateTime @default(now())
+
 }

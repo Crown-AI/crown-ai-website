@@ -1,5 +1,8 @@
-
 tasks:
+  - name: set-permissions
+    init: |
+      chmod -R 777 /workspace/data
+    command: echo "Permissions set for /workspace/data"
   - name: docker-compose 
     init: docker-compose create
     command: docker-compose up -d
@@ -7,13 +10,6 @@ tasks:
     init: npm install
     command: export NEXTAUTH_URL="https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}/" && npm run dev
 ports:
-    - name: login
-      port: 1025
-      protocol: https
-
-
-
-vscode:
-  extensions:
-    - mtxr.sqltools
-    - mtxr.sqltools-driver-pg
+  - name: login
+    port: 1025
+    protocol: https

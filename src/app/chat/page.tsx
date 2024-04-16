@@ -15,10 +15,8 @@ import Image from "next/image";
 import About from "../about/page";
 import Contact from "../contact/page";
 import Home from "../page";
-import { matchesMiddleware } from "next/dist/shared/lib/router/router";
 
 interface MessageData {
-  id: string;
   message: string;
   username: string;
   email: string;
@@ -69,24 +67,6 @@ export default function Chat() {
       channel.unsubscribe();
     };
   }, []);
-  const handleDelete = async (messageId: number) => {
-    try {
-      const response = await fetch(`/api/chat/${messageId}`, {
-        method: "DELETE",
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to delete message");
-      }
-
-      // Remove the deleted message from the state
-      setMessages(
-        messages.filter((message) => message.id !== messageId.toString()),
-      );
-    } catch (error) {
-      console.error("Error deleting message:", error);
-    }
-  };
 
   return (
     <Box>
@@ -109,19 +89,6 @@ export default function Chat() {
             pointer!.style.top = `${t.clientY}px`;
             pointer!.style.left = `${t.clientX}px`;
           });
-          // Example of fetching the stored username and using it
-          fetch("/api/chat", {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              // Use the retrieved username
-              setUsername(data.username);
-            })
-            .catch((error) => console.error("Error fetching username:", error));
         }}
       >
         <Image
@@ -443,9 +410,6 @@ export default function Chat() {
                     >
                       {new Date(message.createdAt).toLocaleString()}
                     </h6>
-                    <button onClick={() => handleDelete(message.id as number)}>
-                      Delete
-                    </button>
                     <h4
                       style={{
                         backgroundColor: "transparent",
@@ -485,7 +449,7 @@ export default function Chat() {
                   body: JSON.stringify({
                     message: input,
                     email: session.data?.user?.email || "harrisjohnu@gmail.com",
-                    username: username || session.data?.user?.email,
+                    username: username || `NewUser`,
                   }),
                 });
                 setInput("");
@@ -543,6 +507,20 @@ export default function Chat() {
                     backgroundColor: "green",
                     width: 30,
                     cursor: "none",
+                  }}
+                  onClick={() => {
+                    fetch("/api/chat", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        message: input,
+                        email:
+                          session.data?.user?.email || "harrisjohnu@gmail.com",
+                      }),
+                    });
+                    setInput("");
                   }}
                   onMouseEnter={(u) => {
                     u.preventDefault();

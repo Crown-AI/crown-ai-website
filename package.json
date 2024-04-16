@@ -20,7 +20,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.15.12",
-    "@prisma/client": "^5.4.1",
+    "@prisma/client": "^5.12.1",
     "@types/node": "20.6.3",
     "@types/pusher-js": "^5.1.0",
     "@types/react": "18.2.22",
@@ -55,7 +55,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "prettier": "3.0.3",
-    "prisma": "^5.4.1",
+    "prisma": "^5.12.1",
     "react-error-overlay": "^6.0.11",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
