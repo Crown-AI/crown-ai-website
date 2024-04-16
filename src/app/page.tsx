@@ -11,7 +11,6 @@ import background from "public/Sample.png";
 import logo from "public/Samp.png";
 import ReactPlayer from "react-player";
 import "./globalicons.css";
-import { HtmlContext } from "next/dist/server/future/route-modules/app-page/vendored/contexts/entrypoints";
 import { NavBar } from "@/components/navbar/navbar";
 import MouseHandle, { Mouse } from "@/components/mouse/mouse";
 

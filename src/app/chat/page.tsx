@@ -18,6 +18,7 @@ import Home from "../page";
 import { matchesMiddleware } from "next/dist/shared/lib/router/router";
 
 interface MessageData {
+  id: string;
   message: string;
   username: string;
   email: string;
@@ -68,6 +69,24 @@ export default function Chat() {
       channel.unsubscribe();
     };
   }, []);
+  const handleDelete = async (messageId: number) => {
+    try {
+      const response = await fetch(`/api/chat/${messageId}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete message");
+      }
+
+      // Remove the deleted message from the state
+      setMessages(
+        messages.filter((message) => message.id !== messageId.toString()),
+      );
+    } catch (error) {
+      console.error("Error deleting message:", error);
+    }
+  };
 
   return (
     <Box>
@@ -424,6 +443,9 @@ export default function Chat() {
                     >
                       {new Date(message.createdAt).toLocaleString()}
                     </h6>
+                    <button onClick={() => handleDelete(message.id as number)}>
+                      Delete
+                    </button>
                     <h4
                       style={{
                         backgroundColor: "transparent",
@@ -463,7 +485,7 @@ export default function Chat() {
                   body: JSON.stringify({
                     message: input,
                     email: session.data?.user?.email || "harrisjohnu@gmail.com",
-                    username: username || `NewUser`,
+                    username: username || session.data?.user?.email,
                   }),
                 });
                 setInput("");
