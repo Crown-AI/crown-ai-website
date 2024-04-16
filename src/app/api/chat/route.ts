@@ -31,7 +31,7 @@ export const POST = async (req: Request) => {
   const savedMessage = await prisma.chatMessage.create({
     data: {
       message: messageInput.message,
-      username: session.user.name || "",
+      username: messageInput.username || "",
       email: session.user.email,
     },
   });

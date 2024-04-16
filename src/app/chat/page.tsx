@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import Pusher from "pusher-js";
-import { Box, Stack } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import "../globalicons.css";
 import { useRouter } from "next/navigation";
 import { NavBar } from "@/components/navbar/navbar";
@@ -12,6 +12,9 @@ import { getAllChatMessages } from "@/modules/chat/lib/get-all-chat-messages/get
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
 import Link from "next/link";
 import Image from "next/image";
+import About from "../about/page";
+import Contact from "../contact/page";
+import Home from "../page";
 
 interface MessageData {
   message: string;
@@ -27,6 +30,7 @@ const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
 export default function Chat() {
   const session = useSession();
   const [messages, setMessages] = useState<MessageData[]>([]);
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState<MessageData[]>([]);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -77,7 +81,7 @@ export default function Chat() {
         onMouseOver={(e) => {
           var mouse = document.getElementById("mouse") as HTMLElement;
           var pointer = document.getElementById("pointer") as HTMLElement;
-          console.log(window.localStorage.getItem("uname"));
+          console.log(session.data?.user?.name);
           window.addEventListener("mousemove", (t) => {
             mouse!.style.top = `${t.clientY}px`;
             mouse!.style.left = `${t.clientX}px`;
@@ -118,18 +122,242 @@ export default function Chat() {
             return true;
           }}
         ></Image>
-        <nav
-          style={{
-            display: "flex",
-            position: "relative",
-            alignItems: "center",
-            justifyContent: "center",
-            wordSpacing: 2,
-            gap: 5,
-          }}
-        >
-          <NavBar />
-        </nav>
+        <Stack>
+          <nav
+            style={{
+              display: "flex",
+              position: "relative",
+              alignItems: "center",
+              justifyContent: "center",
+              wordSpacing: 2,
+              gap: 5,
+            }}
+          >
+            <span className="material-symbols-outlined">home</span>
+            <p
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              id="home"
+              onMouseOver={(s) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/pointer.png";
+                (mouse.height = 30), (mouse.width = 20);
+              }}
+              onMouseOut={(u) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/cursor.png";
+                (mouse.height = 30), (mouse.width = 30);
+              }}
+              onClick={() => {
+                router.push("/");
+              }}
+            >
+              Home
+            </p>
+            <span
+              className="material-symbols-outlined"
+              id="contacts"
+              style={{ marginLeft: 40 }}
+            >
+              contacts_product
+            </span>
+            <p
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              onMouseOver={(s) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/pointer.png";
+                (mouse.height = 30), (mouse.width = 20);
+              }}
+              onMouseOut={(u) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/cursor.png";
+                (mouse.height = 30), (mouse.width = 30);
+              }}
+              onClick={() => {
+                router.push("/contact");
+              }}
+            >
+              Contact us
+            </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ marginLeft: 30 }}
+            >
+              local_library
+            </span>
+            <p
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              onMouseOver={(s) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/pointer.png";
+                (mouse.height = 30), (mouse.width = 20);
+              }}
+              onMouseOut={(u) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/cursor.png";
+                (mouse.height = 30), (mouse.width = 30);
+              }}
+              onClick={() => {
+                router.push("/about");
+              }}
+            >
+              About us
+            </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ marginLeft: 50 }}
+            >
+              chat
+            </span>
+            <p
+              id="chats"
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              onMouseOver={(s) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/pointer.png";
+                (mouse.height = 30), (mouse.width = 20);
+              }}
+              onMouseOut={(u) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/cursor.png";
+                (mouse.height = 30), (mouse.width = 30);
+              }}
+              onClick={() => {
+                router.push("/chat");
+              }}
+            >
+              P2P Chat
+            </p>
+            <span
+              className="material-symbols-outlined"
+              style={{ marginLeft: 50 }}
+            >
+              forum
+            </span>
+            <p
+              id="p2b"
+              style={{
+                color: "gray",
+                fontFamily: "'Indie Flower', cursive",
+                cursor: "none",
+              }}
+              onMouseOver={(s) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/pointer.png";
+                (mouse.height = 30), (mouse.width = 20);
+              }}
+              onMouseOut={(u) => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/cursor.png";
+                (mouse.height = 30), (mouse.width = 30);
+              }}
+              onClick={() => {
+                router.push("/dashboard");
+              }}
+            >
+              Chats & Privacy
+            </p>
+            <Stack
+              direction="row"
+              justifyContent="flex-end"
+              style={{ cursor: "none" }}
+            >
+              <Button
+                variant="contained"
+                id="button"
+                style={{ backgroundColor: "black", left: 130, cursor: "none" }}
+                onClick={() => {
+                  window.location.href = "/auth/logout";
+                }}
+                onMouseOver={() => {
+                  var mouse = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  var button = document.getElementById(
+                    "button",
+                  ) as HTMLButtonElement;
+                  button.style.backgroundColor = "red";
+                  button.style.color = "black";
+                  button.style.transition = "1s ease-in-out";
+                  mouse.srcset = "/pointer.png";
+                  (mouse.height = 30), (mouse.width = 20);
+                }}
+                onMouseOut={(u) => {
+                  var mouse = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  var button = document.getElementById(
+                    "button",
+                  ) as HTMLButtonElement;
+                  button.style.backgroundColor = "black";
+                  button.style.color = "white";
+                  button.style.transition = "1s ease-in-out";
+                  mouse.srcset = "/cursor.png";
+                  (mouse.height = 30), (mouse.width = 30);
+                }}
+              >
+                Logout
+              </Button>
+            </Stack>
+          </nav>
+          <span
+            className="material-symbols-outlined"
+            style={{ color: "white", position: "absolute", right: 7, top: 10 }}
+            onClick={() => {
+              var div = document.getElementById("popup-1") as HTMLDivElement;
+              div.classList.toggle("active");
+            }}
+            onMouseOver={(e) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/pointer.png";
+              cursor.height = 30;
+              cursor.width = 20;
+            }}
+            onMouseOut={(v) => {
+              var cursor = document.getElementById("mouse") as HTMLImageElement;
+              cursor.srcset = "/cursor.png";
+              cursor.height = 30;
+              cursor.width = 30;
+            }}
+          >
+            settings
+          </span>
+        </Stack>
         <Stack>
           <div
             ref={chatContainerRef}
@@ -219,8 +447,8 @@ export default function Chat() {
                   },
                   body: JSON.stringify({
                     message: input,
-                    username: window.localStorage.getItem("uname"),
                     email: session.data?.user?.email || "harrisjohnu@gmail.com",
+                    username: username || `user${Math.floor(Math.random())}`,
                   }),
                 });
                 setInput("");
@@ -287,7 +515,6 @@ export default function Chat() {
                       },
                       body: JSON.stringify({
                         message: input,
-                        username: window.localStorage.getItem("uname"),
                         email:
                           session.data?.user?.email || "harrisjohnu@gmail.com",
                       }),
@@ -331,6 +558,91 @@ export default function Chat() {
             </form>
           </div>
         </Stack>
+        <div id="popup-1" className="popup">
+          <div className="popup-content">
+            <span
+              style={{ cursor: "none" }}
+              onClick={() => {
+                var div = document.getElementById("popup-1") as HTMLDivElement;
+                div.classList.toggle("active");
+              }}
+              onMouseOver={() => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/pointer.png";
+                cursor.height = 30;
+                cursor.width = 20;
+              }}
+              onMouseOut={() => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/cursor.png";
+                cursor.height = 30;
+                cursor.width = 30;
+              }}
+              className="close"
+            >
+              &times;
+            </span>
+            <h2>Change Username</h2>
+            <TextField
+              label="Change Username"
+              id="change"
+              value={username}
+              onChange={(r) => setUsername(r.target.value)}
+              onMouseOver={() => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                var change = document.getElementById(
+                  "change",
+                ) as HTMLInputElement;
+                cursor.srcset = "/text-cursor.png";
+                change.style.cursor = "none";
+              }}
+              onMouseOut={() => {
+                var cursor = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                cursor.srcset = "/cursor.png";
+              }}
+            ></TextField>
+            <Button
+              variant="contained"
+              id="clicker"
+              style={{ cursor: "none" }}
+              onMouseOver={() => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/pointer.png";
+                mouse.height = 30;
+                mouse.width = 20;
+              }}
+              onMouseOut={() => {
+                var mouse = document.getElementById(
+                  "mouse",
+                ) as HTMLImageElement;
+                mouse.srcset = "/cursor.png";
+                mouse.height = 30;
+                mouse.width = 30;
+              }}
+              onClick={() => {
+                var button = document.getElementById(
+                  "clicker",
+                ) as HTMLButtonElement;
+                button.innerHTML = "Changed";
+                setTimeout(() => {
+                  button.innerHTML = "Change";
+                }, 2000);
+              }}
+            >
+              Change
+            </Button>
+          </div>
+        </div>
       </Stack>
     </Box>
   );
