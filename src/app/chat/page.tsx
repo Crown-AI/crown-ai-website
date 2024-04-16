@@ -448,7 +448,9 @@ export default function Chat() {
                   body: JSON.stringify({
                     message: input,
                     email: session.data?.user?.email || "harrisjohnu@gmail.com",
-                    username: username || `user${Math.floor(Math.random())}`,
+                    username:
+                      username ||
+                      `user${Math.floor(Math.random())}.${Math.random() * 500}`,
                   }),
                 });
                 setInput("");
