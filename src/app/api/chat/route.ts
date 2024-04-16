@@ -50,6 +50,16 @@ export interface GetAllChatMessagesResponse {
 
 export const GET = async (req: Request) => {
   const messages = await prisma.chatMessage.findMany();
+  const session = await getServerSession();
+  // Example of retrieving a user's username
+  const user = await prisma.user.findUnique({
+    where: {
+      email: session.user.email,
+    },
+  });
+
+  const username = user?.username || ""; // Use the retrieved username or a default value
+
   return NextResponse.json({
     messages,
   });

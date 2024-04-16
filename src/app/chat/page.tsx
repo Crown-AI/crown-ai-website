@@ -90,6 +90,19 @@ export default function Chat() {
             pointer!.style.top = `${t.clientY}px`;
             pointer!.style.left = `${t.clientX}px`;
           });
+          // Example of fetching the stored username and using it
+          fetch("/api/chat", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Use the retrieved username
+              setUsername(data.username);
+            })
+            .catch((error) => console.error("Error fetching username:", error));
         }}
       >
         <Image
@@ -145,14 +158,14 @@ export default function Chat() {
               id="home"
               onMouseOver={(s) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/pointer.png";
                 (mouse.height = 30), (mouse.width = 20);
               }}
               onMouseOut={(u) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/cursor.png";
                 (mouse.height = 30), (mouse.width = 30);
@@ -178,14 +191,14 @@ export default function Chat() {
               }}
               onMouseOver={(s) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/pointer.png";
                 (mouse.height = 30), (mouse.width = 20);
               }}
               onMouseOut={(u) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/cursor.png";
                 (mouse.height = 30), (mouse.width = 30);
@@ -210,14 +223,14 @@ export default function Chat() {
               }}
               onMouseOver={(s) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/pointer.png";
                 (mouse.height = 30), (mouse.width = 20);
               }}
               onMouseOut={(u) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/cursor.png";
                 (mouse.height = 30), (mouse.width = 30);
@@ -243,14 +256,14 @@ export default function Chat() {
               }}
               onMouseOver={(s) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/pointer.png";
                 (mouse.height = 30), (mouse.width = 20);
               }}
               onMouseOut={(u) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/cursor.png";
                 (mouse.height = 30), (mouse.width = 30);
@@ -276,14 +289,14 @@ export default function Chat() {
               }}
               onMouseOver={(s) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/pointer.png";
                 (mouse.height = 30), (mouse.width = 20);
               }}
               onMouseOut={(u) => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/cursor.png";
                 (mouse.height = 30), (mouse.width = 30);
@@ -308,10 +321,10 @@ export default function Chat() {
                 }}
                 onMouseOver={() => {
                   var mouse = document.getElementById(
-                    "mouse",
+                    "mouse"
                   ) as HTMLImageElement;
                   var button = document.getElementById(
-                    "button",
+                    "button"
                   ) as HTMLButtonElement;
                   button.style.backgroundColor = "red";
                   button.style.color = "black";
@@ -321,10 +334,10 @@ export default function Chat() {
                 }}
                 onMouseOut={(u) => {
                   var mouse = document.getElementById(
-                    "mouse",
+                    "mouse"
                   ) as HTMLImageElement;
                   var button = document.getElementById(
-                    "button",
+                    "button"
                   ) as HTMLButtonElement;
                   button.style.backgroundColor = "black";
                   button.style.color = "white";
@@ -427,7 +440,7 @@ export default function Chat() {
                     </h4>
                   </div>
                 </div>
-              ),
+              )
             )}
           </div>
           <div
@@ -481,13 +494,13 @@ export default function Chat() {
                 onChange={(e) => setInput(e.target.value)}
                 onMouseOver={(e) => {
                   var mouse = document.getElementById(
-                    "mouse",
+                    "mouse"
                   ) as HTMLImageElement;
                   mouse.srcset = "/text-cursor.png";
                 }}
                 onMouseOut={(e) => {
                   var mouse = document.getElementById(
-                    "mouse",
+                    "mouse"
                   ) as HTMLImageElement;
                   mouse.srcset = "/cursor.png";
                 }}
@@ -527,10 +540,10 @@ export default function Chat() {
                   onMouseEnter={(u) => {
                     u.preventDefault();
                     var button = document.getElementById(
-                      "text",
+                      "text"
                     ) as HTMLSpanElement;
                     var mouse = document.getElementById(
-                      "mouse",
+                      "mouse"
                     ) as HTMLImageElement;
                     mouse.srcset = "/pointer.png";
                     mouse.height = 30;
@@ -542,10 +555,10 @@ export default function Chat() {
                   onMouseOut={(j) => {
                     j.preventDefault();
                     var button = document.getElementById(
-                      "text",
+                      "text"
                     ) as HTMLSpanElement;
                     var mouse = document.getElementById(
-                      "mouse",
+                      "mouse"
                     ) as HTMLImageElement;
                     mouse.srcset = "/cursor.png";
                     mouse.height = 30;
@@ -571,7 +584,7 @@ export default function Chat() {
               }}
               onMouseOver={() => {
                 var cursor = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 cursor.srcset = "/pointer.png";
                 cursor.height = 30;
@@ -579,7 +592,7 @@ export default function Chat() {
               }}
               onMouseOut={() => {
                 var cursor = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 cursor.srcset = "/cursor.png";
                 cursor.height = 30;
@@ -597,17 +610,17 @@ export default function Chat() {
               onChange={(r) => setUsername(r.target.value)}
               onMouseOver={() => {
                 var cursor = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 var change = document.getElementById(
-                  "change",
+                  "change"
                 ) as HTMLInputElement;
                 cursor.srcset = "/text-cursor.png";
                 change.style.cursor = "none";
               }}
               onMouseOut={() => {
                 var cursor = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 cursor.srcset = "/cursor.png";
               }}
@@ -618,7 +631,7 @@ export default function Chat() {
               style={{ cursor: "none" }}
               onMouseOver={() => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/pointer.png";
                 mouse.height = 30;
@@ -626,7 +639,7 @@ export default function Chat() {
               }}
               onMouseOut={() => {
                 var mouse = document.getElementById(
-                  "mouse",
+                  "mouse"
                 ) as HTMLImageElement;
                 mouse.srcset = "/cursor.png";
                 mouse.height = 30;
@@ -634,7 +647,7 @@ export default function Chat() {
               }}
               onClick={() => {
                 var button = document.getElementById(
-                  "clicker",
+                  "clicker"
                 ) as HTMLButtonElement;
                 button.innerHTML = "Changed";
                 setTimeout(() => {
