@@ -15,6 +15,7 @@ import Image from "next/image";
 import About from "../about/page";
 import Contact from "../contact/page";
 import Home from "../page";
+import { matchesMiddleware } from "next/dist/shared/lib/router/router";
 
 interface MessageData {
   message: string;
@@ -89,6 +90,19 @@ export default function Chat() {
             pointer!.style.top = `${t.clientY}px`;
             pointer!.style.left = `${t.clientX}px`;
           });
+          // Example of fetching the stored username and using it
+          fetch("/api/chat", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Use the retrieved username
+              setUsername(data.username);
+            })
+            .catch((error) => console.error("Error fetching username:", error));
         }}
       >
         <Image
@@ -449,7 +463,8 @@ export default function Chat() {
                   body: JSON.stringify({
                     message: input,
                     email: session.data?.user?.email || "harrisjohnu@gmail.com",
-                    username: username || `NewUser`,
+                    username:
+                      username || `user${Math.floor(Math.random() * 2)}`,
                   }),
                 });
                 setInput("");
