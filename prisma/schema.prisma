@@ -35,10 +35,9 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(cuid())
+    id            String        @id @default(cuid())
     name          String?
-    email         String?   @unique
-    username       String?    @unique
+    email         String?       @unique
     emailVerified DateTime?
     image         String?
     accounts      Account[]
@@ -54,20 +53,22 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
+
 // Application models
 model Message {
-    id        String    @id @default(cuid())
+    id        String        @id @default(cuid())
     content   String
-    createdAt DateTime  @default(now())
-    updatedAt DateTime? @updatedAt
+    createdAt DateTime      @default(now())
+    updatedAt DateTime?     @updatedAt
     ownerId   String?
-    owner     User?     @relation(fields: [ownerId], references: [id])
+    owner     User?         @relation(fields: [ownerId], references: [id])
 }
 
 model ChatMessage {
-    id        Int      @id @default(autoincrement())
-    message   String
-    username  String
-    email     String
+    id Int @id @default(autoincrement())
+    message String
+    username String
+    email String
     createdAt DateTime @default(now())
+
 }
