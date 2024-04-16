@@ -1,7 +1,7 @@
 "use client";
 
 import { useMessageById } from "@/modules/messages/hooks/use-message-by-id/use-message-by-id";
-import { useParams } from "next/navigation";
+import { useParams } from "react-router-dom";
 
 export default function ReplyPage() {
   const params = useParams();
