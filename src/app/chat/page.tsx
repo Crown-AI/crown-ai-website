@@ -15,6 +15,7 @@ import Image from "next/image";
 import About from "../about/page";
 import Contact from "../contact/page";
 import Home from "../page";
+import { matchesMiddleware } from "next/dist/shared/lib/router/router";
 
 interface MessageData {
   message: string;
@@ -449,7 +450,8 @@ export default function Chat() {
                   body: JSON.stringify({
                     message: input,
                     email: session.data?.user?.email || "harrisjohnu@gmail.com",
-                    username: username || `user${generator}`,
+                    username:
+                      username || `user${Math.floor(Math.random() * 2)}`,
                   }),
                 });
                 setInput("");
