@@ -14,7 +14,7 @@ export const GET = async (
   const message = await prisma.message.findUniqueOrThrow({
     where: { id },
   });
-  return NextResponse.json<GetNoteByIdResponse>({
+  return NextResponse.json({
     message,
   });
 };

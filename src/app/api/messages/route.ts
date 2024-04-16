@@ -76,7 +76,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
       ownerId: session.user.id,
     },
   });
-  return NextResponse.json<GetAllMessagesResponse>({
+  return NextResponse.json({
     messages,
   });
 };
