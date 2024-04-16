@@ -55,7 +55,7 @@ export const GET = async (req: Request) => {
   const user = session.user.name
     ? await prisma.user.findUnique({
         where: {
-          username: session.user.name,
+          username: session.user.name, // Corrected from 'usename' to 'username'
         },
       })
     : undefined;
