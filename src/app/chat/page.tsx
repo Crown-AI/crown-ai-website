@@ -33,6 +33,7 @@ export default function Chat() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState<MessageData[]>([]);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const generator = `${Math.floor(Math.random() * 10000)}`;
 
   const [input, setInput] = useState<string>("");
   const router = useRouter();
@@ -448,9 +449,7 @@ export default function Chat() {
                   body: JSON.stringify({
                     message: input,
                     email: session.data?.user?.email || "harrisjohnu@gmail.com",
-                    username:
-                      username ||
-                      `user${Math.floor(Math.random())}.${Math.random() * 500}`,
+                    username: username || `user${generator}`,
                   }),
                 });
                 setInput("");
