@@ -19,7 +19,7 @@ DELETE FROM "User"
 WHERE id IN (SELECT id FROM CTE WHERE rn > 1);
 
 
-ALTER TABLE "User" ADD COLUMN     "usename" "harrishohnu";
+ALTER TABLE "User" ADD COLUMN "usename" TYPE;
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_usename_key" ON "User"("usename");
