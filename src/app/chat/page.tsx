@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Pusher from "pusher-js";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import "../globalicons.css";
@@ -16,13 +16,7 @@ import About from "../about/page";
 import Contact from "../contact/page";
 import Home from "../page";
 import { matchesMiddleware } from "next/dist/shared/lib/router/router";
-
-interface MessageData {
-  message: string;
-  username: string;
-  email: string;
-  createdAt: Date;
-}
+import { GetAllMessagesResponse } from "../api/messages/route";
 
 const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
   cluster: "mt1",
@@ -30,11 +24,29 @@ const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
 
 export default function Chat() {
   const session = useSession();
-  const [messages, setMessages] = useState<MessageData[]>([]);
+  const [messages, setMessages] = useState<GetAllMessagesResponse["messages"]>(
+    [],
+  );
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState<MessageData[]>([]);
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const generator = `${Math.floor(Math.random() * 10000)}`;
+  const send = useCallback(
+    (e: any) => {
+      e.preventDefault();
+      fetch("/api/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username || `user${Math.floor(Math.random() * 2)}`,
+        }),
+      });
+      setUsername("");
+    },
+    [username],
+  );
 
   const [input, setInput] = useState<string>("");
   const router = useRouter();
@@ -58,16 +70,31 @@ export default function Chat() {
   useEffect(() => {
     const channel = pusher.subscribe("chat");
 
-    channel.bind("message", (data: MessageData) => {
-      console.log("@@ message: ", data);
-      setMessages((prevMessages) => [...prevMessages, data]);
-    });
+    channel.bind(
+      "message",
+      (data: GetAllMessagesResponse["messages"][number]) => {
+        console.log("@@ message: ", data);
+        setMessages((prevMessages) => [...prevMessages, data]);
+      },
+    );
 
     return () => {
       channel.unbind_all();
       channel.unsubscribe();
     };
   }, []);
+  useEffect(() => {
+    async function Update() {
+      if (!session.data?.user) {
+        return;
+      }
+      const response = await fetch("/api/user");
+      const user = await response.json();
+      console.log("@@ user: ", user);
+      setUsername(user.user.username || "user");
+    }
+    Update();
+  }, [session.data?.user]);
 
   return (
     <Box>
@@ -90,19 +117,6 @@ export default function Chat() {
             pointer!.style.top = `${t.clientY}px`;
             pointer!.style.left = `${t.clientX}px`;
           });
-          // Example of fetching the stored username and using it
-          fetch("/api/chat", {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              // Use the retrieved username
-              setUsername(data.username);
-            })
-            .catch((error) => console.error("Error fetching username:", error));
         }}
       >
         <Image
@@ -410,7 +424,7 @@ export default function Chat() {
                         backgroundColor: "transparent",
                       }}
                     >
-                      {message.username}
+                      {message.owner?.username}
                     </h6>
                     <h6
                       style={{
@@ -603,60 +617,63 @@ export default function Chat() {
               &times;
             </span>
             <h2>Change Username</h2>
-            <TextField
-              label="Change Username"
-              id="change"
-              value={username}
-              onChange={(r) => setUsername(r.target.value)}
-              onMouseOver={() => {
-                var cursor = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                var change = document.getElementById(
-                  "change",
-                ) as HTMLInputElement;
-                cursor.srcset = "/text-cursor.png";
-                change.style.cursor = "none";
-              }}
-              onMouseOut={() => {
-                var cursor = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                cursor.srcset = "/cursor.png";
-              }}
-            ></TextField>
-            <Button
-              variant="contained"
-              id="clicker"
-              style={{ cursor: "none" }}
-              onMouseOver={() => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/pointer.png";
-                mouse.height = 30;
-                mouse.width = 20;
-              }}
-              onMouseOut={() => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/cursor.png";
-                mouse.height = 30;
-                mouse.width = 30;
-              }}
-              onClick={() => {
-                var button = document.getElementById(
-                  "clicker",
-                ) as HTMLButtonElement;
-                button.innerHTML = "Changed";
-                setTimeout(() => {
-                  button.innerHTML = "Change";
-                }, 2000);
-              }}
-            >
-              Change
-            </Button>
+            <form action="" onSubmit={send}>
+              <TextField
+                label="Change Username"
+                id="change"
+                value={username}
+                onChange={(r) => setUsername(r.target.value)}
+                onMouseOver={() => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  var change = document.getElementById(
+                    "change",
+                  ) as HTMLInputElement;
+                  cursor.srcset = "/text-cursor.png";
+                  change.style.cursor = "none";
+                }}
+                onMouseOut={() => {
+                  var cursor = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  cursor.srcset = "/cursor.png";
+                }}
+              ></TextField>
+              <Button
+                type="submit"
+                variant="contained"
+                id="clicker"
+                style={{ cursor: "none" }}
+                onMouseOver={() => {
+                  var mouse = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  mouse.srcset = "/pointer.png";
+                  mouse.height = 30;
+                  mouse.width = 20;
+                }}
+                onMouseOut={() => {
+                  var mouse = document.getElementById(
+                    "mouse",
+                  ) as HTMLImageElement;
+                  mouse.srcset = "/cursor.png";
+                  mouse.height = 30;
+                  mouse.width = 30;
+                }}
+                onClick={() => {
+                  var button = document.getElementById(
+                    "clicker",
+                  ) as HTMLButtonElement;
+                  button.innerHTML = "Changed";
+                  setTimeout(() => {
+                    button.innerHTML = "Change";
+                  }, 2000);
+                }}
+              >
+                Change
+              </Button>
+            </form>
           </div>
         </div>
       </Stack>
