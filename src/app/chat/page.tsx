@@ -449,7 +449,7 @@ export default function Chat() {
                         fontFamily: "'Indie Flower', cursive",
                       }}
                     >
-                      {message.}
+                      {message.message}
                     </h4>
                   </div>
                 </div>
