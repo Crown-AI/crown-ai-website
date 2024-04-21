@@ -28,7 +28,6 @@ export default function Chat() {
     [],
   );
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState<MessageData[]>([]);
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const generator = `${Math.floor(Math.random() * 10000)}`;
   const send = useCallback(
@@ -450,7 +449,7 @@ export default function Chat() {
                         fontFamily: "'Indie Flower', cursive",
                       }}
                     >
-                      {message.message}
+                      {message.}
                     </h4>
                   </div>
                 </div>
