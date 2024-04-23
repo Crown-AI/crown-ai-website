@@ -17,6 +17,7 @@ import Contact from "../contact/page";
 import Home from "../page";
 import { matchesMiddleware } from "next/dist/shared/lib/router/router";
 import { GetAllMessagesResponse } from "../api/messages/route";
+import { GetAllChatMessagesResponse } from "../api/chat/route";
 
 const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
   cluster: "mt1",
@@ -24,9 +25,9 @@ const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
 
 export default function Chat() {
   const session = useSession();
-  const [messages, setMessages] = useState<GetAllMessagesResponse["messages"]>(
-    [],
-  );
+  const [messages, setMessages] = useState<
+    GetAllChatMessagesResponse["messages"]
+  >([]);
   const [username, setUsername] = useState("");
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const generator = `${Math.floor(Math.random() * 10000)}`;
@@ -71,7 +72,7 @@ export default function Chat() {
 
     channel.bind(
       "message",
-      (data: GetAllMessagesResponse["messages"][number]) => {
+      (data: GetAllChatMessagesResponse["messages"][number]) => {
         console.log("@@ message: ", data);
         setMessages((prevMessages) => [...prevMessages, data]);
       },
