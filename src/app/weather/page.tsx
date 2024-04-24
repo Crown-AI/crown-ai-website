@@ -13,7 +13,7 @@ interface MapComponentProps {
 }
 
 const fetchWeather = async (latitude: number, longitude: number) => {
-  const apiKey = process.env.OPENWEATHER_API!;
+  const apiKey = "681a847ebddfec8c90bc96ae7e0af34e";
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
   try {
