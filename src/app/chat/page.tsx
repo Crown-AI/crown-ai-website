@@ -18,6 +18,8 @@ import Home from "../page";
 import { matchesMiddleware } from "next/dist/shared/lib/router/router";
 import { GetAllMessagesResponse } from "../api/messages/route";
 import { GetAllChatMessagesResponse } from "../api/chat/route";
+import { Mice } from "@/components/mice/mouse";
+import { MenuBar } from "@/components/menubar/menubar";
 
 const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
   cluster: "mt1",
@@ -119,38 +121,7 @@ export default function Chat() {
           });
         }}
       >
-        <Image
-          src={"/cursor.png"}
-          alt="cursor"
-          id="mouse"
-          width={30}
-          height={30}
-          style={{
-            display: "block",
-            zIndex: 9999,
-            position: "absolute",
-            pointerEvents: "none",
-          }}
-          onClick={(l) => {
-            return true;
-          }}
-        ></Image>
-        <Image
-          src={"/pointer.png"}
-          alt="cursor"
-          id="pointer"
-          width={20}
-          height={30}
-          style={{
-            display: "none",
-            zIndex: 9999,
-            position: "absolute",
-            pointerEvents: "none",
-          }}
-          onClick={(l) => {
-            return true;
-          }}
-        ></Image>
+        <Mice />
         <Stack>
           <nav
             style={{
@@ -364,6 +335,7 @@ export default function Chat() {
               </Button>
             </Stack>
           </nav>
+          <MenuBar />
           <span
             className="material-symbols-outlined"
             style={{ color: "white", position: "absolute", right: 7, top: 10 }}

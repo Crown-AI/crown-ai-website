@@ -6,6 +6,7 @@ import "../globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
+import { MenuBar } from "@/components/menubar/menubar";
 
 export default function About() {
   const router = useRouter();
@@ -85,6 +86,7 @@ export default function About() {
         >
           <NavBar />
         </nav>
+        <MenuBar />
         <Stack
           style={{
             display: "flex",
