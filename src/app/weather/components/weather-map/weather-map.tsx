@@ -56,9 +56,9 @@ const WeatherSidebar: React.FC<WeatherSidebarProps> = ({ weatherData }) => {
       }}
     >
       <br />
-      <p>Temperature: {weatherData.main.temp}K</p>
+      <p className="advents">Temperature: {weatherData.main.temp}K</p>
       <br />
-      <p>Weather: {weatherData.weather[0].description}</p>
+      <p className="advents">Weather: {weatherData.weather[0].description}</p>
     </div>
   );
 };
