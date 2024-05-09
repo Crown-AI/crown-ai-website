@@ -1,4 +1,5 @@
 import { Stack } from "@mui/material";
+import Link from "next/link";
 
 export function MenuBar() {
   const pointer = () => {
@@ -186,22 +187,21 @@ export function MenuBar() {
           >
             cloud
           </span>
-          <h5
-            style={{
-              color: "transparent",
-              position: "relative",
-              top: -160,
-              left: -63,
-            }}
-            onClick={() => {
-              window.location.href = "/weather";
-            }}
-            onMouseOver={pointer}
-            onMouseOut={cursor}
-            id="help"
-          >
-            Weather Forecast
-          </h5>
+          <Link href="/weather">
+            <h5
+              style={{
+                color: "transparent",
+                position: "relative",
+                top: -160,
+                left: -63,
+              }}
+              onMouseOver={pointer}
+              onMouseOut={cursor}
+              id="help"
+            >
+              Weather Forecast
+            </h5>
+          </Link>
         </div>
       </div>
     </Stack>
