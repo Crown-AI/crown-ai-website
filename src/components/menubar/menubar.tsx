@@ -1,5 +1,6 @@
 import { Stack } from "@mui/material";
 import Link from "next/link";
+import "../../app/globalicons.css";
 
 export function MenuBar() {
   const pointer = () => {
@@ -187,7 +188,7 @@ export function MenuBar() {
           >
             cloud
           </span>
-          <Link href="/weather">
+          <Link href="/weather" id="weatherTransport">
             <h5
               style={{
                 color: "transparent",

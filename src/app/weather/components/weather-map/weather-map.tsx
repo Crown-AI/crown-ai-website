@@ -91,7 +91,6 @@ export default function MappingBoard() {
         setView(userLatLng);
         setZoom(13);
 
-        // Fetch weather data for the user's location
         const weather = await fetchWeather(latitude, longitude);
         setWeatherData(weather);
       });
@@ -140,7 +139,11 @@ export default function MappingBoard() {
       >
         my_location
       </span>
-      <span className="material-symbols-outlined" id="arrow">
+      <span
+        className="material-symbols-outlined"
+        id="arrow"
+        onClick={() => router.back()}
+      >
         arrow_back
       </span>
       <WeatherSidebar weatherData={weatherData} />

@@ -148,3 +148,8 @@
   font-weight: 400;
   font-style: normal;
  }
+
+ #weatherTransport {
+  text-decoration: none;
+  cursor: none;
+ }
