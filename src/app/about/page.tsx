@@ -306,7 +306,7 @@ export default function About() {
               </Typography>
               <Button
                 variant="contained"
-                style={{ backgroundColor: "black", width: 220 }}
+                style={{ backgroundColor: "black", width: 220, cursor: "none" }}
                 onMouseEnter={(o) => {
                   o.preventDefault();
                   var contact = document.getElementById(
@@ -477,6 +477,7 @@ export default function About() {
                   backgroundColor: "black",
                   width: 220,
                   top: 50,
+                  cursor: "none",
                 }}
                 onMouseEnter={(o) => {
                   o.preventDefault();
