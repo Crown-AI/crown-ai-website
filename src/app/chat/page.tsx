@@ -20,6 +20,7 @@ import { GetAllMessagesResponse } from "../api/messages/route";
 import { GetAllChatMessagesResponse } from "../api/chat/route";
 import { Mice } from "@/components/mice/mouse";
 import { MenuBar } from "@/components/menubar/menubar";
+import { PointBack, PointOut } from "@/components/mousecontrols/mousecontrol";
 
 const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
   cluster: "mt1",
@@ -98,6 +99,14 @@ export default function Chat() {
     Update();
   }, [session.data?.user]);
 
+  const rotaryUnit = () => {
+    var settings = document.getElementById("settings") as HTMLSpanElement;
+    settings.style.animation = "setin 1s";
+  };
+  const rotarySwitch = () => {
+    var settings = document.getElementById("settings") as HTMLSpanElement;
+    settings.style.animation = "setout 1s";
+  };
   return (
     <Box>
       <Stack
@@ -112,7 +121,6 @@ export default function Chat() {
         onMouseOver={(e) => {
           var mouse = document.getElementById("mouse") as HTMLElement;
           var pointer = document.getElementById("pointer") as HTMLElement;
-          console.log(session.data?.user?.name);
           window.addEventListener("mousemove", (t) => {
             mouse!.style.top = `${t.clientY}px`;
             mouse!.style.left = `${t.clientX}px`;
@@ -141,20 +149,8 @@ export default function Chat() {
                 cursor: "none",
               }}
               id="home"
-              onMouseOver={(s) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/pointer.png";
-                (mouse.height = 30), (mouse.width = 20);
-              }}
-              onMouseOut={(u) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/cursor.png";
-                (mouse.height = 30), (mouse.width = 30);
-              }}
+              onMouseOver={PointOut}
+              onMouseOut={PointBack}
               onClick={() => {
                 router.push("/");
               }}
@@ -174,20 +170,8 @@ export default function Chat() {
                 fontFamily: "'Indie Flower', cursive",
                 cursor: "none",
               }}
-              onMouseOver={(s) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/pointer.png";
-                (mouse.height = 30), (mouse.width = 20);
-              }}
-              onMouseOut={(u) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/cursor.png";
-                (mouse.height = 30), (mouse.width = 30);
-              }}
+              onMouseOver={PointOut}
+              onMouseOut={PointBack}
               onClick={() => {
                 router.push("/contact");
               }}
@@ -206,20 +190,8 @@ export default function Chat() {
                 fontFamily: "'Indie Flower', cursive",
                 cursor: "none",
               }}
-              onMouseOver={(s) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/pointer.png";
-                (mouse.height = 30), (mouse.width = 20);
-              }}
-              onMouseOut={(u) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/cursor.png";
-                (mouse.height = 30), (mouse.width = 30);
-              }}
+              onMouseOver={PointOut}
+              onMouseOut={PointBack}
               onClick={() => {
                 router.push("/about");
               }}
@@ -239,20 +211,8 @@ export default function Chat() {
                 fontFamily: "'Indie Flower', cursive",
                 cursor: "none",
               }}
-              onMouseOver={(s) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/pointer.png";
-                (mouse.height = 30), (mouse.width = 20);
-              }}
-              onMouseOut={(u) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/cursor.png";
-                (mouse.height = 30), (mouse.width = 30);
-              }}
+              onMouseOver={PointOut}
+              onMouseOut={PointBack}
               onClick={() => {
                 router.push("/chat");
               }}
@@ -272,20 +232,8 @@ export default function Chat() {
                 fontFamily: "'Indie Flower', cursive",
                 cursor: "none",
               }}
-              onMouseOver={(s) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/pointer.png";
-                (mouse.height = 30), (mouse.width = 20);
-              }}
-              onMouseOut={(u) => {
-                var mouse = document.getElementById(
-                  "mouse",
-                ) as HTMLImageElement;
-                mouse.srcset = "/cursor.png";
-                (mouse.height = 30), (mouse.width = 30);
-              }}
+              onMouseOver={PointOut}
+              onMouseOut={PointBack}
               onClick={() => {
                 router.push("/dashboard");
               }}
@@ -338,23 +286,16 @@ export default function Chat() {
           <MenuBar />
           <span
             className="material-symbols-outlined"
+            id="settings"
             style={{ color: "white", position: "absolute", right: 7, top: 10 }}
             onClick={() => {
               var div = document.getElementById("popup-1") as HTMLDivElement;
               div.classList.toggle("active");
             }}
-            onMouseOver={(e) => {
-              var cursor = document.getElementById("mouse") as HTMLImageElement;
-              cursor.srcset = "/pointer.png";
-              cursor.height = 30;
-              cursor.width = 20;
-            }}
-            onMouseOut={(v) => {
-              var cursor = document.getElementById("mouse") as HTMLImageElement;
-              cursor.srcset = "/cursor.png";
-              cursor.height = 30;
-              cursor.width = 30;
-            }}
+            onMouseOver={PointOut}
+            onMouseEnter={rotaryUnit}
+            onMouseOut={PointBack}
+            onMouseLeave={rotarySwitch}
           >
             settings
           </span>

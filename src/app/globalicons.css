@@ -153,3 +153,13 @@
   text-decoration: none;
   cursor: none;
  }
+
+ @keyframes setin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(90deg);}
+ }
+
+ @keyframes setout {
+  from {transform: rotate(90deg);}
+  to {transform: rotate(0deg);}
+ }
