@@ -222,6 +222,44 @@
   color: rgb(160, 114, 207);
  }
 
+ #poorResult {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+ }
+
+ #poorResultTitle {
+  background-image: linear-gradient(to bottom, rgba(0, 128, 0, 0.699), rgba(0, 0, 0, 0.603), rgba(76, 0, 130, 0.753), rgba(255, 0, 0, 0.726), rgba(192, 192, 192, 0.651), rgba(255, 217, 0, 0.719));
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+ }
+ #poorResultContent {
+  background-image: linear-gradient(to bottom right, red, yellow, purple, dodgerblue, pink, aqua, green);
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+ }
+
+ #returnBack {
+  display: flex;
+  position: absolute;
+  top: 3%;
+  left: 2%;
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  color: rgb(160, 114, 207);
+
+ }
+
  @keyframes setin {
   from {transform: rotate(0deg);}
   to {transform: rotate(180deg);}
