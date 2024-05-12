@@ -1,8 +1,20 @@
 "use client";
-import { Box, Stack } from "@mui/material";
+import { Mice } from "@/components/mice/mouse";
+import { NavBar } from "@/components/navbar/navbar";
+import { Box, Stack, Typography } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import "../../app/globalicons.css";
+import { faUserAlt, faX } from "@fortawesome/free-solid-svg-icons";
+import { PointBack, PointOut } from "@/components/mousecontrols/mousecontrol";
+import { useRouter } from "next/navigation";
 
 export default function Settings() {
+  const router = useRouter();
+  const doneCustomizing = () => {
+    router.back();
+  };
   return (
     <Box>
       <Stack
@@ -24,38 +36,26 @@ export default function Settings() {
           });
         }}
       >
-        <Image
-          src={"/cursor.png"}
-          alt="cursor"
-          id="mouse"
-          width={30}
-          height={30}
-          style={{
-            display: "block",
-            zIndex: 9999,
-            position: "absolute",
-            pointerEvents: "none",
-          }}
-          onClick={(l) => {
-            return true;
-          }}
-        ></Image>
-        <Image
-          src={"/pointer.png"}
-          alt="cursor"
-          id="pointer"
-          width={20}
-          height={30}
-          style={{
-            display: "none",
-            zIndex: 9999,
-            position: "absolute",
-            pointerEvents: "none",
-          }}
-          onClick={(l) => {
-            return true;
-          }}
-        ></Image>
+        <Mice />
+        <Stack id="entpage">
+          <Stack id="leftPage">
+            <Typography variant="h2">Settings</Typography>
+            <br />
+            <Stack id="userProfile">
+              <FontAwesomeIcon icon={faUserAlt} id="userAlt" />
+              <Typography variant="h5">User profile</Typography>
+            </Stack>
+          </Stack>
+          <Stack id="rightPage">
+            <FontAwesomeIcon
+              icon={faX}
+              id="exit"
+              onMouseOver={PointOut}
+              onMouseOut={PointBack}
+              onClick={doneCustomizing}
+            />
+          </Stack>
+        </Stack>
       </Stack>
     </Box>
   );

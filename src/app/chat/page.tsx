@@ -21,6 +21,7 @@ import { GetAllChatMessagesResponse } from "../api/chat/route";
 import { Mice } from "@/components/mice/mouse";
 import { MenuBar } from "@/components/menubar/menubar";
 import { PointBack, PointOut } from "@/components/mousecontrols/mousecontrol";
+import { rotarySwitch, rotaryUnit } from "@/components/rotary-unit/rotary-unit";
 
 const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
   cluster: "mt1",
@@ -99,14 +100,6 @@ export default function Chat() {
     Update();
   }, [session.data?.user]);
 
-  const rotaryUnit = () => {
-    var settings = document.getElementById("settings") as HTMLSpanElement;
-    settings.style.animation = "setin 1s";
-  };
-  const rotarySwitch = () => {
-    var settings = document.getElementById("settings") as HTMLSpanElement;
-    settings.style.animation = "setout 1s";
-  };
   return (
     <Box>
       <Stack
@@ -436,20 +429,15 @@ export default function Chat() {
                 style={{
                   display: "flex",
                   position: "fixed",
-                  top: 645,
+                  right: 0,
                   background: "transparent",
                   border: "transparent",
-                  left: 1255,
+                  bottom: "1%",
                 }}
               >
                 <span
                   className="material-symbols-outlined"
                   id="text"
-                  style={{
-                    backgroundColor: "green",
-                    width: 30,
-                    cursor: "none",
-                  }}
                   onClick={() => {
                     fetch("/api/chat", {
                       method: "POST",

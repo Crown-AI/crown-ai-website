@@ -2,6 +2,7 @@ import { Stack, Button } from "@mui/material";
 import router from "next/router";
 import { useEffect } from "react";
 import Link from "next/link";
+import { rotarySwitch, rotaryUnit } from "../rotary-unit/rotary-unit";
 
 export function NavBar() {
   const Home = () => {
@@ -191,6 +192,7 @@ export function NavBar() {
         </Stack>
       </nav>
       <span
+        id="settings"
         className="material-symbols-outlined"
         style={{ color: "white", position: "absolute", right: 7, top: 10 }}
         onClick={(j) => {
@@ -202,6 +204,8 @@ export function NavBar() {
           cursor.height = 30;
           cursor.width = 20;
         }}
+        onMouseEnter={rotaryUnit}
+        onMouseLeave={rotarySwitch}
         onMouseOut={(v) => {
           var cursor = document.getElementById("mouse") as HTMLImageElement;
           cursor.srcset = "/cursor.png";

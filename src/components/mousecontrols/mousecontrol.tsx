@@ -11,3 +11,13 @@ export const PointBack = () => {
   cursor.height = 30;
   cursor.width = 30;
 };
+
+export const TextOut = () => {
+  var cursor = document.getElementById("mouse") as HTMLImageElement;
+  cursor.srcset = "/text-cursor.png";
+};
+
+export const TextBack = () => {
+  var cursor = document.getElementById("mouse") as HTMLImageElement;
+  cursor.srcset = "/cursor.png";
+};

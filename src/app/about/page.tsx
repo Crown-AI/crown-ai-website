@@ -225,10 +225,10 @@ export default function About() {
             >
               <Image
                 alt="HJ"
-                src={"/win24.png"}
+                src={"/bw.jpg"}
                 width={200}
                 height={200}
-                style={{ borderRadius: "100px" }}
+                style={{ borderRadius: "900px" }}
                 draggable={"false"}
               ></Image>
               <Typography
