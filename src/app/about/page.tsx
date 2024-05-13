@@ -41,6 +41,44 @@ export default function About() {
     contact.style.display = "flex";
     innerMain.style.animation = "comeOut 1s";
   };
+
+  const discreteChanger = () => {
+    var discord = document.getElementById("discordSection") as HTMLDivElement;
+    discord.style.backgroundColor = "rgba(128, 128, 128, 0.5)";
+    discord.style.boxShadow = "10px 10px 0 rgba(128, 128, 128, 0.61)";
+    discord.style.transition = "0.5s ease-in-out";
+  };
+
+  const indescreteExit = () => {
+    var discord = document.getElementById("discordSection") as HTMLDivElement;
+    discord.style.backgroundColor = "rgb(255, 255, 255)";
+    discord.style.boxShadow = "10px 10px 0 transparent";
+    discord.style.transition = "0.5s ease-in-out";
+  };
+
+  const TwitterChanger = () => {
+    var twitter = document.getElementById("twitterSection") as HTMLDivElement;
+    twitter.style.backgroundColor = "rgba(128, 128, 128, 0.5)";
+    twitter.style.boxShadow = "10px 10px 0 rgba(128, 128, 128, 0.61)";
+    twitter.style.transition = "0.5s ease-in-out";
+  };
+  const TwitterExit = () => {
+    var twitter = document.getElementById("twitterSection") as HTMLDivElement;
+    twitter.style.backgroundColor = "rgb(255, 255, 255)";
+    twitter.style.boxShadow = "10px 10px 0 transparent";
+    twitter.style.transition = "0.5s ease-in-out";
+  };
+
+  const GoBack = () => {
+    var contact = document.getElementById(
+      "contactOptionsBack",
+    ) as HTMLDivElement;
+    var innerMain = document.getElementById("contactOptions") as HTMLDivElement;
+    innerMain.style.animation = "glint 0.3s";
+    setTimeout(() => {
+      contact.style.display = "none";
+    }, 280);
+  };
   return (
     <Box>
       <Stack
@@ -520,10 +558,23 @@ export default function About() {
         </Stack>
         <Stack className="contactOptionsBack" id="contactOptionsBack">
           <Stack id="contactOptions" className="contactOptions">
-            <FontAwesomeIcon icon={faX} id="exitContactMenu" />
+            <FontAwesomeIcon
+              icon={faX}
+              id="exitContactMenu"
+              onMouseOver={PointOut}
+              onMouseOut={PointBack}
+              onClick={GoBack}
+            />
             <Typography variant="h2">Contact Options</Typography>
             <Stack id="socialMedia" className="socialMedia">
-              <Stack id="discordSection" className="discordSection">
+              <Stack
+                id="discordSection"
+                className="discordSection"
+                onMouseOver={discreteChanger}
+                onMouseOut={indescreteExit}
+                onMouseEnter={PointOut}
+                onMouseLeave={PointBack}
+              >
                 <FontAwesomeIcon icon={faDiscord} id="discordContact" />
                 <Typography
                   variant="h5"
@@ -533,14 +584,19 @@ export default function About() {
                   Join our server and explore the community
                 </Typography>
               </Stack>
-              <Stack id="twitterSection" className="twitterSection">
+              <Stack
+                id="twitterSection"
+                className="twitterSection"
+                onMouseOver={TwitterChanger}
+                onMouseOut={TwitterExit}
+              >
                 <FontAwesomeIcon icon={faXTwitter} id="twitterContact" />
                 <Typography
                   variant="h5"
                   id="discordDescription"
                   className="discordDescription"
                 >
-                  Follow us on Twitter
+                  Follow us on X
                 </Typography>
               </Stack>
             </Stack>

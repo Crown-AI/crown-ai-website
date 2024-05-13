@@ -3,6 +3,7 @@ import router from "next/router";
 import { useEffect } from "react";
 import Link from "next/link";
 import { rotarySwitch, rotaryUnit } from "../rotary-unit/rotary-unit";
+import { PointBack, PointOut } from "../mousecontrols/mousecontrol";
 
 export function NavBar() {
   const Home = () => {
@@ -41,16 +42,8 @@ export function NavBar() {
           }}
           id="home"
           onClick={Home}
-          onMouseOver={(s) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/pointer.png";
-            (mouse.height = 30), (mouse.width = 20);
-          }}
-          onMouseOut={(u) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/cursor.png";
-            (mouse.height = 30), (mouse.width = 30);
-          }}
+          onMouseOver={PointOut}
+          onMouseOut={PointBack}
         >
           Home
         </p>
@@ -68,16 +61,8 @@ export function NavBar() {
             cursor: "none",
           }}
           onClick={Contact}
-          onMouseOver={(s) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/pointer.png";
-            (mouse.height = 30), (mouse.width = 20);
-          }}
-          onMouseOut={(u) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/cursor.png";
-            (mouse.height = 30), (mouse.width = 30);
-          }}
+          onMouseOver={PointOut}
+          onMouseOut={PointBack}
         >
           Contact us
         </p>
@@ -91,16 +76,8 @@ export function NavBar() {
             cursor: "none",
           }}
           onClick={About}
-          onMouseOver={(s) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/pointer.png";
-            (mouse.height = 30), (mouse.width = 20);
-          }}
-          onMouseOut={(u) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/cursor.png";
-            (mouse.height = 30), (mouse.width = 30);
-          }}
+          onMouseOver={PointOut}
+          onMouseOut={PointBack}
         >
           About us
         </p>
@@ -115,16 +92,8 @@ export function NavBar() {
             cursor: "none",
           }}
           onClick={Chat}
-          onMouseOver={(s) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/pointer.png";
-            (mouse.height = 30), (mouse.width = 20);
-          }}
-          onMouseOut={(u) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/cursor.png";
-            (mouse.height = 30), (mouse.width = 30);
-          }}
+          onMouseOver={PointOut}
+          onMouseOut={PointBack}
         >
           P2P Chat
         </p>
@@ -139,16 +108,8 @@ export function NavBar() {
             cursor: "none",
           }}
           onClick={Bot}
-          onMouseOver={(s) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/pointer.png";
-            (mouse.height = 30), (mouse.width = 20);
-          }}
-          onMouseOut={(u) => {
-            var mouse = document.getElementById("mouse") as HTMLImageElement;
-            mouse.srcset = "/cursor.png";
-            (mouse.height = 30), (mouse.width = 30);
-          }}
+          onMouseOver={PointOut}
+          onMouseOut={PointBack}
         >
           Chats & Privacy
         </p>
@@ -198,20 +159,10 @@ export function NavBar() {
         onClick={(j) => {
           window.location.href = "/settings";
         }}
-        onMouseOver={(e) => {
-          var cursor = document.getElementById("mouse") as HTMLImageElement;
-          cursor.srcset = "/pointer.png";
-          cursor.height = 30;
-          cursor.width = 20;
-        }}
+        onMouseOver={PointOut}
         onMouseEnter={rotaryUnit}
         onMouseLeave={rotarySwitch}
-        onMouseOut={(v) => {
-          var cursor = document.getElementById("mouse") as HTMLImageElement;
-          cursor.srcset = "/cursor.png";
-          cursor.height = 30;
-          cursor.width = 30;
-        }}
+        onMouseOut={PointBack}
       >
         settings
       </span>
