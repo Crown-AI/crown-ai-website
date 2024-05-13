@@ -30,7 +30,7 @@ export default function HomePage() {
   };
   setTimeout(() => {
     router.push("/chat");
-  }, 10000);
+  }, 5000);
   return (
     <Box>
       <Stack

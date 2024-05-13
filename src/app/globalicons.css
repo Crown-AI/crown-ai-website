@@ -260,6 +260,86 @@
 
  }
 
+ .contactOptionsBack {
+  display: none;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.534);
+ }
+
+ .socialMedia {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  gap: 5px;
+  height: 100%;
+ }
+
+ #exitContactMenu {
+  display: flex;
+  position: relative;
+  float: right;
+  color: black;
+ }
+
+ .discordSection {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 15px;
+  width: 25%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  box-shadow: 10px 10px 0 rgba(128, 128, 128, 0.61);
+ }
+
+ .twitterSection {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 15px;
+  width: 25%;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  box-shadow: 10px 10px 0 rgba(128, 128, 128, 0.61);
+ }
+
+ #twitterContact {
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  color: #000;
+ }
+
+ .contactOptions {
+  display: flex;
+  position: relative;
+  height: 70%;
+  background-color: #ffffff;
+ }
+
+ #discordContact {
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  color: rgb(105, 105, 219);
+ }
+
+ .discordDescription {
+  display: flex;
+  position: relative;
+  font-family: monospace;
+ }
+
  @keyframes setin {
   from {transform: rotate(0deg);}
   to {transform: rotate(180deg);}
@@ -268,4 +348,9 @@
  @keyframes setout {
   from {transform: rotate(180deg);}
   to {transform: rotate(0deg);}
+ }
+
+ @keyframes comeOut {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
  }

@@ -7,6 +7,10 @@ import { NavBar } from "@/components/navbar/navbar";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { MenuBar } from "@/components/menubar/menubar";
+import { PointBack, PointOut } from "@/components/mousecontrols/mousecontrol";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
   const router = useRouter();
@@ -16,6 +20,27 @@ export default function About() {
       router.push("/auth/login");
     }
   }, [router, session.status]);
+  const buttonChangeUp = () => {
+    var contact = document.getElementById("contact") as HTMLButtonElement;
+    contact.style.backgroundColor = "red";
+    contact.style.color = "black";
+    contact.style.transition = "1s ease-in-out";
+  };
+  const buttonChangeDown = () => {
+    var contact = document.getElementById("contact") as HTMLButtonElement;
+    contact.style.backgroundColor = "black";
+    contact.style.color = "white";
+    contact.style.transition = "1s ease-in-out";
+  };
+
+  const AlmightyContactForm = () => {
+    var contact = document.getElementById(
+      "contactOptionsBack",
+    ) as HTMLDivElement;
+    var innerMain = document.getElementById("contactOptions") as HTMLDivElement;
+    contact.style.display = "flex";
+    innerMain.style.animation = "comeOut 1s";
+  };
   return (
     <Box>
       <Stack
@@ -307,29 +332,12 @@ export default function About() {
               <Button
                 variant="contained"
                 style={{ backgroundColor: "black", width: 220, cursor: "none" }}
-                onMouseEnter={(o) => {
-                  o.preventDefault();
-                  var contact = document.getElementById(
-                    "contact",
-                  ) as HTMLButtonElement;
-                  contact.style.backgroundColor = "red";
-                  contact.style.color = "black";
-                  contact.style.transition = "1s ease-in-out";
-                }}
-                onMouseOut={(y) => {
-                  y.preventDefault();
-                  var contact = document.getElementById(
-                    "contact",
-                  ) as HTMLButtonElement;
-                  contact.style.backgroundColor = "black";
-                  contact.style.color = "white";
-                  contact.style.transition = "1s ease-in-out";
-                }}
+                onMouseEnter={buttonChangeUp}
+                onMouseOver={PointOut}
+                onMouseLeave={PointBack}
+                onMouseOut={buttonChangeDown}
                 id="contact"
-                onClick={(u) => {
-                  u.preventDefault();
-                  router.push("/contact");
-                }}
+                onClick={AlmightyContactForm}
               >
                 Contact
               </Button>
@@ -488,6 +496,8 @@ export default function About() {
                   contact.style.color = "black";
                   contact.style.transition = "1s ease-in-out";
                 }}
+                onMouseOver={PointOut}
+                onMouseLeave={PointBack}
                 onMouseOut={(y) => {
                   y.preventDefault();
                   var contact = document.getElementById(
@@ -506,6 +516,34 @@ export default function About() {
                 Contact
               </Button>
             </div>
+          </Stack>
+        </Stack>
+        <Stack className="contactOptionsBack" id="contactOptionsBack">
+          <Stack id="contactOptions" className="contactOptions">
+            <FontAwesomeIcon icon={faX} id="exitContactMenu" />
+            <Typography variant="h2">Contact Options</Typography>
+            <Stack id="socialMedia" className="socialMedia">
+              <Stack id="discordSection" className="discordSection">
+                <FontAwesomeIcon icon={faDiscord} id="discordContact" />
+                <Typography
+                  variant="h5"
+                  id="discordDescription"
+                  className="discordDescription"
+                >
+                  Join our server and explore the community
+                </Typography>
+              </Stack>
+              <Stack id="twitterSection" className="twitterSection">
+                <FontAwesomeIcon icon={faXTwitter} id="twitterContact" />
+                <Typography
+                  variant="h5"
+                  id="discordDescription"
+                  className="discordDescription"
+                >
+                  Follow us on Twitter
+                </Typography>
+              </Stack>
+            </Stack>
           </Stack>
         </Stack>
       </Stack>
