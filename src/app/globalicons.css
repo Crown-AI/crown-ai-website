@@ -32,6 +32,11 @@
     background-color: black;
    }
 
+   ::selection {
+    background-color: blue;
+    color: red;
+   }
+
    @keyframes amazon {
     0% {
       background-image: linear-gradient(to bottom right, red, aqua, silver, indigo, blue);
@@ -292,10 +297,9 @@
   flex-direction: column;
   gap: 15px;
   width: 25%;
-  height: 100%;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
+  border: 2px solid transparent;
  }
 
  .twitterSection {
@@ -306,8 +310,7 @@
   width: 25%;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
-  box-shadow: 10px 10px 0 rgba(128, 128, 128, 0.61);
+  border: 2px solid transparent;
  }
 
  #twitterContact {
@@ -338,6 +341,55 @@
   position: relative;
   font-family: monospace;
  }
+ .linkedinSection {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 15px;
+  width: 25%;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+ }
+ .twitterDescription {
+  display: flex;
+  position: relative;
+  font-family: monospace;
+ } 
+
+ #linkedinContact {
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  color: rgb(105, 105, 219);
+ }
+
+ .linkedinDescription {
+  display: flex;
+  position: relative;
+  font-family: monospace;
+  align-items: center;
+  justify-content: center;
+ }
+
+ .ppfpSection {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 15px;
+  width: 25%;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+ }
+
+
+ .ppfpDescription {
+  display: flex;
+  position: relative;
+  font-family: monospace;
+ }
 
  @keyframes setin {
   from {transform: rotate(0deg);}
@@ -357,4 +409,14 @@
  @keyframes glint {
   from {transform: scale(1);}
   to {transform: scale(0);}
+ }
+
+ @keyframes rotateS {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
+ }
+
+ @keyframes overDone {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
  }

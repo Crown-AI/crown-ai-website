@@ -9,7 +9,12 @@ import { useEffect } from "react";
 import { MenuBar } from "@/components/menubar/menubar";
 import { PointBack, PointOut } from "@/components/mousecontrols/mousecontrol";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faDiscord,
+  faLinkedin,
+  faLinkedinIn,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
@@ -44,29 +49,58 @@ export default function About() {
 
   const discreteChanger = () => {
     var discord = document.getElementById("discordSection") as HTMLDivElement;
-    discord.style.backgroundColor = "rgba(128, 128, 128, 0.5)";
-    discord.style.boxShadow = "10px 10px 0 rgba(128, 128, 128, 0.61)";
+    discord.style.border = "2px solid #000";
     discord.style.transition = "0.5s ease-in-out";
   };
 
   const indescreteExit = () => {
     var discord = document.getElementById("discordSection") as HTMLDivElement;
-    discord.style.backgroundColor = "rgb(255, 255, 255)";
-    discord.style.boxShadow = "10px 10px 0 transparent";
+    discord.style.border = "2px solid transparent";
     discord.style.transition = "0.5s ease-in-out";
   };
 
   const TwitterChanger = () => {
     var twitter = document.getElementById("twitterSection") as HTMLDivElement;
-    twitter.style.backgroundColor = "rgba(128, 128, 128, 0.5)";
-    twitter.style.boxShadow = "10px 10px 0 rgba(128, 128, 128, 0.61)";
+    twitter.style.border = "2px solid #000";
     twitter.style.transition = "0.5s ease-in-out";
   };
   const TwitterExit = () => {
     var twitter = document.getElementById("twitterSection") as HTMLDivElement;
-    twitter.style.backgroundColor = "rgb(255, 255, 255)";
-    twitter.style.boxShadow = "10px 10px 0 transparent";
+    twitter.style.border = "2px solid transparent";
     twitter.style.transition = "0.5s ease-in-out";
+  };
+  const LinkedInCome = () => {
+    var linkedin = document.getElementById("linkedinSection") as HTMLDivElement;
+    linkedin.style.border = "2px solid #000";
+    linkedin.style.transition = "0.5s ease-in-out";
+  };
+  const LinkedInExit = () => {
+    var linkedin = document.getElementById("linkedinSection") as HTMLDivElement;
+    linkedin.style.border = "2px solid transparent";
+    linkedin.style.transition = "0.5s ease-in-out";
+  };
+  const ProfileSee = () => {
+    var ppfp = document.getElementById("ppfpSection") as HTMLDivElement;
+    var ppfpInsider = document.getElementById(
+      "ppfpContact",
+    ) as HTMLImageElement;
+    ppfp.style.border = "2px solid #000";
+    ppfp.style.transition = "0.5s ease-in-out";
+    ppfpInsider.style.animation = "rotateS 0.5s infinite linear";
+  };
+  const AlreadySeen = () => {
+    var ppfp = document.getElementById("ppfpSection") as HTMLDivElement;
+    var ppfpInsider = document.getElementById(
+      "ppfpContact",
+    ) as HTMLImageElement;
+    ppfp.style.border = "2px solid transparent";
+    ppfp.style.transition = "0.5s ease-in-out";
+    ppfpInsider.style.animation = "overDone 0.5s linear";
+  };
+
+  const checkLinkedin = () => {
+    window.location.href =
+      "https://www.linkedin.com/in/harrison-john-anozie-6766a7298?jobid=1234&lipi=urn%3Ali%3Apage%3Ad_jobs_easyapply_pdfgenresume%3BH88xVqqmR52WtSe7%2FkA6sA%3D%3D&licu=urn%3Ali%3Acontrol%3Ad_jobs_easyapply_pdfgenresume-v02_profile";
   };
 
   const GoBack = () => {
@@ -341,8 +375,8 @@ export default function About() {
                 instruments for students and farmers. By combining their love
                 for technology and agriculture, Harrison sought to develop a
                 tool that would help farmers, students, and anyone interested in
-                agriculture. Throughout the project, He learned about chatbot
-                development, artificial intelligence, and agricultural
+                rgb(78, 78, 156). Throughout the project, He learned about
+                chatbot development, artificial intelligence, and agricultural
                 practices. They researched existing chatbots and their features,
                 identified gaps, and designed a chatbot that would cater to the
                 unique needs of the agricultural community. Along the way, He
@@ -574,6 +608,9 @@ export default function About() {
                 onMouseOut={indescreteExit}
                 onMouseEnter={PointOut}
                 onMouseLeave={PointBack}
+                onClick={() => {
+                  window.location.href = "https://discord.gg/YAuDJX84";
+                }}
               >
                 <FontAwesomeIcon icon={faDiscord} id="discordContact" />
                 <Typography
@@ -589,14 +626,63 @@ export default function About() {
                 className="twitterSection"
                 onMouseOver={TwitterChanger}
                 onMouseOut={TwitterExit}
+                onMouseEnter={PointOut}
+                onMouseLeave={PointBack}
               >
                 <FontAwesomeIcon icon={faXTwitter} id="twitterContact" />
                 <Typography
                   variant="h5"
-                  id="discordDescription"
-                  className="discordDescription"
+                  id="twitterDescription"
+                  className="twitterDescription"
                 >
                   Follow us on X
+                </Typography>
+              </Stack>
+              <Stack
+                id="linkedinSection"
+                className="linkedinSection"
+                onMouseOver={LinkedInCome}
+                onMouseOut={LinkedInExit}
+                onMouseEnter={PointOut}
+                onMouseLeave={PointBack}
+                onClick={() => {
+                  window.location.href =
+                    "https://www.linkedin.com/in/harrison-john-anozie-6766a7298?jobid=1234&lipi=urn%3Ali%3Apage%3Ad_jobs_easyapply_pdfgenresume%3BH88xVqqmR52WtSe7%2FkA6sA%3D%3D&licu=urn%3Ali%3Acontrol%3Ad_jobs_easyapply_pdfgenresume-v02_profile";
+                }}
+              >
+                <FontAwesomeIcon icon={faLinkedin} id="linkedinContact" />
+                <Typography
+                  variant="h5"
+                  id="linkedinDescription"
+                  className="linkedinDescription"
+                >
+                  Connect with us on LinkedIn
+                </Typography>
+              </Stack>
+              <Stack
+                id="ppfpSection"
+                className="ppfpSection"
+                onMouseOver={ProfileSee}
+                onMouseOut={AlreadySeen}
+                onMouseEnter={PointOut}
+                onMouseLeave={PointBack}
+                onClick={() => {
+                  window.location.href = "https://harrisonja.vercel.app";
+                }}
+              >
+                <Image
+                  alt="Myself"
+                  src={"/ppfp.png"}
+                  id="ppfpContact"
+                  height={100}
+                  width={100}
+                ></Image>
+                <Typography
+                  variant="h5"
+                  id="ppfpDescription"
+                  className="ppfpDescription"
+                >
+                  Check out my personal website.
                 </Typography>
               </Stack>
             </Stack>
