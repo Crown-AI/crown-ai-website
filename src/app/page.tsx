@@ -15,6 +15,7 @@ import { NavBar } from "@/components/navbar/navbar";
 import MouseHandle, { Mouse } from "@/components/mouse/mouse";
 import { MenuBar } from "@/components/menubar/menubar";
 import { Mice } from "@/components/mice/mouse";
+import { PointBack, PointOut } from "@/components/mousecontrols/mousecontrol";
 
 export default function Home() {
   useEffect(() => {
@@ -25,17 +26,23 @@ export default function Home() {
       console.log("Image element not found");
     }
   }, []);
-  const pointer = () => {
-    var cursor = document.getElementById("mouse") as HTMLElement;
-    var pointer = document.getElementById("pointer") as HTMLElement;
-    pointer!.style.display = "block";
-    cursor!.style.display = "none";
+  const mesh = () => {
+    var aiculture = document.getElementById("aiculture") as HTMLHeadingElement;
+    aiculture.style.transition = "1s ease-in-out";
+    aiculture.style.backgroundImage =
+      "linear-gradient(-175deg, red 0%, blue 15%, green 25%, purple 50%, gold 75%, silver 100%)";
+    aiculture.style.backgroundSize = "200% auto";
+    aiculture.style.color = "transparent";
+    aiculture.style.animation = "meshColors 1s infinite linear";
   };
-  const cursor = () => {
-    var cursor = document.getElementById("mouse") as HTMLElement;
-    var pointer = document.getElementById("pointer") as HTMLElement;
-    pointer!.style.display = "none";
-    cursor!.style.display = "block";
+  const doneSpectatingMesh = () => {
+    var aiculture = document.getElementById("aiculture") as HTMLHeadingElement;
+    aiculture.style.backgroundImage =
+      "linear-gradient(to bottom right, red, aqua, silver, indigo, blue)";
+    aiculture.style.backgroundClip = "text";
+    aiculture.style.color = "transparent";
+    aiculture.style.animation = "done 1s";
+    aiculture.style.transition = "1s ease-in-out";
   };
   const router = useRouter();
   return (
@@ -292,23 +299,10 @@ export default function Home() {
         </Stack>
         <MenuBar />
         <Typography
-          style={{
-            backgroundImage:
-              "linear-gradient(to bottom right, red, aqua, silver, indigo, blue)",
-            WebkitBackgroundClip: "text",
-            MozBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            fontFamily: "'Tilt Prism', sans-serif",
-          }}
           variant="h1"
-          position={"absolute"}
-          top={110}
-          left={500}
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          color={"silver"}
+          id="aiculture"
+          onMouseOver={mesh}
+          onMouseOut={doneSpectatingMesh}
         >
           AICulture
         </Typography>
@@ -389,6 +383,8 @@ export default function Home() {
                 boxShadow: "0 15px 30px 0 #888888",
                 margin: "8px",
               }}
+              onMouseOver={PointOut}
+              onMouseOut={PointBack}
             >
               <Image
                 alt="upd2"
@@ -519,7 +515,7 @@ export default function Home() {
                 fontStyle: "normal",
               }}
             >
-              Prime Cobra
+              CrownAI
             </a>
             <sup style={{ color: "black" }}>&reg;</sup>
           </p>

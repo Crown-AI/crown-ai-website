@@ -1,93 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Indie+Flower&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Felipa&family=Fredericka+the+Great&family=Hanalei&family=Shadows+Into+Light&family=Tilt+Prism&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Tillana:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Rajdhani:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Poetsen+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Felipa&family=Fredericka+the+Great&family=Hanalei&family=Shadows+Into+Light&family=Tilt+Prism&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Tillana:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Poetsen+One&display=swap");
 
 .material-symbols-outlined {
-    font-variation-settings: 'FILL'  0, 'wght'  400, 'GRAD'  0, 'opsz'  24;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+#prime {
+  animation: amazon 5s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  background-color: gray;
+}
+::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+::selection {
+  background-color: blue;
+  color: red;
+}
+
+@keyframes amazon {
+  0% {
+    background-image: linear-gradient(
+      to bottom right,
+      red,
+      aqua,
+      silver,
+      indigo,
+      blue
+    );
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
-  
-  .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
+  25% {
+    background-image: linear-gradient(
+      to left,
+      red,
+      blue,
+      green,
+      silver,
+      yellow,
+      brown
+    );
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: 5s ease-in-out;
   }
+  50% {
+    background-image: linear-gradient(
+      to bottom right,
+      pink,
+      gray,
+      silver,
+      black,
+      gold,
+      blue
+    );
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: 5s ease-in-out;
+  }
+  75% {
+    background-image: linear-gradient(
+      to bottom left,
+      silver,
+      dodgerblue,
+      rgba(0, 255, 213, 0.712) rgba(240, 152, 210, 0.726)
+        rgba(146, 125, 125, 0.479)
+    );
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: 5s ease-in-out;
+  }
+  100% {
+    background-image: linear-gradient(
+      to bottom right,
+      red,
+      aqua,
+      silver,
+      indigo,
+      blue
+    );
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: 5s ease-in-out;
+  }
+}
 
-   #prime {
-    animation: amazon 5s ease-in-out infinite;
-   }
+#idea {
+  gap: 50;
+}
 
-   ::-webkit-scrollbar {
-    background-color: gray;
-   }
-   ::-webkit-scrollbar-thumb {
-    background-color: black;
-   }
+option {
+  height: 80px;
+}
 
-   ::selection {
-    background-color: blue;
-    color: red;
-   }
-
-   @keyframes amazon {
-    0% {
-      background-image: linear-gradient(to bottom right, red, aqua, silver, indigo, blue);
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    25% {
-      background-image: linear-gradient(to left, red, blue, green, silver, yellow, brown);
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      transition: 5s ease-in-out;
-    }
-    50% {
-      background-image: linear-gradient(to bottom right, pink, gray, silver, black, gold, blue);
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      transition: 5s ease-in-out;
-    }
-    75% {
-      background-image: linear-gradient(to bottom left, silver, dodgerblue, rgba(0, 255, 213, 0.712) rgba(240, 152, 210, 0.726) rgba(146, 125, 125, 0.479));
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      transition: 5s ease-in-out;
-    }
-    100% {
-      background-image: linear-gradient(to bottom right, red, aqua, silver, indigo, blue);
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      color: transparent; 
-      transition: 5s ease-in-out;
-    }
-   }
-
-   #idea {
-    gap: 50;
-   }
-
-   option {
-    height: 80px;
-   } 
-
-   /* The popup form overlay */
+/* The popup form overlay */
 .popup {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -97,137 +137,137 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
- }
- 
- /* Popup content */
- .popup-content {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Popup content */
+.popup-content {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 30%; /* Could be more or less, depending on screen size */
- }
- 
- /* The close button */
- .close {
+}
+
+/* The close button */
+.close {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
- }
- 
- .close:hover,
- .close:focus {
+}
+
+.close:hover,
+.close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
- }
- 
- .popup.active {
-  display: block;
- }
+}
 
- .message-sent {
+.popup.active {
+  display: block;
+}
+
+.message-sent {
   text-align: right;
   background-color: #dcf8c6;
- }
- 
- .message-received {
+}
+
+.message-received {
   text-align: left;
-  background-color: #ffffff; 
- }
- #arrow {
+  background-color: #ffffff;
+}
+#arrow {
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 9999;
   cursor: pointer;
- }
+}
 
- .advents {
+.advents {
   font-family: "Cormorant", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
- }
+}
 
- #weatherTransport {
+#weatherTransport {
   text-decoration: none;
   cursor: none;
- }
+}
 
- #text {
+#text {
   background-color: green;
   cursor: none;
- }
+}
 
- #entpage {
+#entpage {
   display: flex;
   position: relative;
   width: 100%;
   height: 100vh;
   flex-direction: row;
- }
- #leftPage {
+}
+#leftPage {
   display: flex;
   position: relative;
   width: 20%;
   height: 100vh;
   background-color: rgb(192, 192, 192);
- }
- #rightPage {
+}
+#rightPage {
   display: flex;
   position: relative;
   width: 80%;
   height: 100vh;
   background-color: rgb(255, 255, 255);
- }
+}
 
- #userProfile {
+#userProfile {
   display: flex;
   position: relative;
   background-color: #aaa;
   border: 1px solid #000;
   height: 50px;
   flex-direction: row;
- }
+}
 
- #userProfile:active {
+#userProfile:active {
   background-color: rgb(87, 87, 245);
- }
+}
 
- #userProfile:focus {
+#userProfile:focus {
   background-color: rgb(87, 87, 245);
- }
+}
 
- #userAlt {
+#userAlt {
   display: flex;
   position: relative;
   width: 40px;
   height: 40px;
- }
+}
 
- #exit {
+#exit {
   display: flex;
   position: absolute;
   top: 0;
   right: 0;
   width: 20px;
   height: 20px;
- }
+}
 
- #exit:hover {
+#exit:hover {
   color: red;
- }
+}
 
- #exit:active {
+#exit:active {
   color: rgb(160, 114, 207);
- }
+}
 
- #poorResult {
+#poorResult {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -236,24 +276,41 @@
   width: 100%;
   align-items: center;
   justify-content: center;
- }
+}
 
- #poorResultTitle {
-  background-image: linear-gradient(to bottom, rgba(0, 128, 0, 0.699), rgba(0, 0, 0, 0.603), rgba(76, 0, 130, 0.753), rgba(255, 0, 0, 0.726), rgba(192, 192, 192, 0.651), rgba(255, 217, 0, 0.719));
+#poorResultTitle {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 128, 0, 0.699),
+    rgba(0, 0, 0, 0.603),
+    rgba(76, 0, 130, 0.753),
+    rgba(255, 0, 0, 0.726),
+    rgba(192, 192, 192, 0.651),
+    rgba(255, 217, 0, 0.719)
+  );
   -moz-background-clip: text;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
- }
- #poorResultContent {
-  background-image: linear-gradient(to bottom right, red, yellow, purple, dodgerblue, pink, aqua, green);
+}
+#poorResultContent {
+  background-image: linear-gradient(
+    to bottom right,
+    red,
+    yellow,
+    purple,
+    dodgerblue,
+    pink,
+    aqua,
+    green
+  );
   -moz-background-clip: text;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
- }
+}
 
- #returnBack {
+#returnBack {
   display: flex;
   position: absolute;
   top: 3%;
@@ -262,10 +319,9 @@
   height: 90px;
   cursor: pointer;
   color: rgb(160, 114, 207);
+}
 
- }
-
- .contactOptionsBack {
+.contactOptionsBack {
   display: none;
   position: absolute;
   align-items: center;
@@ -274,24 +330,24 @@
   width: 100%;
   height: 100%;
   background-color: rgba(128, 128, 128, 0.534);
- }
+}
 
- .socialMedia {
+.socialMedia {
   display: flex;
   position: relative;
   flex-direction: row;
   gap: 15px;
   height: 100%;
- }
+}
 
- #exitContactMenu {
+#exitContactMenu {
   display: flex;
   position: relative;
   float: right;
   color: black;
- }
+}
 
- .discordSection {
+.discordSection {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -300,9 +356,9 @@
   align-items: center;
   justify-content: center;
   border: 2px solid transparent;
- }
+}
 
- .twitterSection {
+.twitterSection {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -311,37 +367,37 @@
   align-items: center;
   justify-content: center;
   border: 2px solid transparent;
- }
+}
 
- #twitterContact {
+#twitterContact {
   display: flex;
   position: relative;
   width: 100px;
   height: 100px;
   color: #000;
- }
+}
 
- .contactOptions {
+.contactOptions {
   display: flex;
   position: relative;
   height: 70%;
   background-color: #ffffff;
- }
+}
 
- #discordContact {
+#discordContact {
   display: flex;
   position: relative;
   width: 100px;
   height: 100px;
   color: rgb(105, 105, 219);
- }
+}
 
- .discordDescription {
+.discordDescription {
   display: flex;
   position: relative;
   font-family: monospace;
- }
- .linkedinSection {
+}
+.linkedinSection {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -350,30 +406,30 @@
   align-items: center;
   justify-content: center;
   border: 2px solid transparent;
- }
- .twitterDescription {
+}
+.twitterDescription {
   display: flex;
   position: relative;
   font-family: monospace;
- } 
+}
 
- #linkedinContact {
+#linkedinContact {
   display: flex;
   position: relative;
   width: 100px;
   height: 100px;
   color: rgb(105, 105, 219);
- }
+}
 
- .linkedinDescription {
+.linkedinDescription {
   display: flex;
   position: relative;
   font-family: monospace;
   align-items: center;
   justify-content: center;
- }
+}
 
- .ppfpSection {
+.ppfpSection {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -382,41 +438,95 @@
   align-items: center;
   justify-content: center;
   border: 2px solid transparent;
- }
+}
 
-
- .ppfpDescription {
+.ppfpDescription {
   display: flex;
   position: relative;
   font-family: monospace;
- }
+}
 
- @keyframes setin {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(180deg);}
- }
+#aiculture {
+  background-image: linear-gradient(
+    to bottom right,
+    red,
+    aqua,
+    silver,
+    indigo,
+    blue
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: "Tilt Prism", sans-serif;
+  position: absolute;
+  top: 110px;
+  left: 500px;
+  display: flex;
+  align-items: "center";
+  justify-content: "center";
+}
 
- @keyframes setout {
-  from {transform: rotate(180deg);}
-  to {transform: rotate(0deg);}
- }
+@keyframes setin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
 
- @keyframes comeOut {
-  from {transform: scale(0);}
-  to {transform: scale(1);}
- }
+@keyframes setout {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
 
- @keyframes glint {
-  from {transform: scale(1);}
-  to {transform: scale(0);}
- }
+@keyframes comeOut {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
- @keyframes rotateS {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(359deg);}
- }
+@keyframes glint {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
 
- @keyframes overDone {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
- }
+@keyframes rotateS {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes overDone {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes meshColors {
+  from {text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px purple, 0 0 50px 0 purple, 0 0 75px purple, 0 0 90px purple;}
+  to {background-position: 200% center;}
+}
+@keyframes done {
+  from {text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px aqua, 0 0 50px aqua, 0 0 75px aqua, 0 0 90px aqua;}
+  to {background-image: linear-gradient(to bottom right, red, aqua, silver, indigo, blue); background-clip: text; color: transparent; }
+}
