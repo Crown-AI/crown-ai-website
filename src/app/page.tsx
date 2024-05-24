@@ -49,7 +49,7 @@ export default function Home() {
     <Box>
       <Stack
         style={{
-          backgroundImage: "url('/D108.jpg')",
+          backgroundImage: "url('/ai.jpg')",
           backgroundPosition: "center",
           backgroundSize: "cover",
           height: "100vh",
@@ -82,6 +82,7 @@ export default function Home() {
         <Stack>
           <video
             style={{
+              display: "none",
               position: "absolute",
               right: 0,
               bottom: 0,
@@ -372,8 +373,6 @@ export default function Home() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                WebkitBackdropFilter: "blur(5px)",
-                backdropFilter: "blur(5px)",
                 width: 170,
                 color: "gray",
                 backgroundColor: "rgba(0, 0, 0, 0.3)",
@@ -412,8 +411,6 @@ export default function Home() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                WebkitBackdropFilter: "blur(5px)",
-                backdropFilter: "blur(5px)",
                 width: 170,
                 color: "gray",
                 backgroundColor: "rgba(0, 0, 0, 0.3)",
@@ -450,8 +447,6 @@ export default function Home() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                WebkitBackdropFilter: "blur(5px)",
-                backdropFilter: "blur(5px)",
                 width: 170,
                 height: 300,
                 color: "gray",
