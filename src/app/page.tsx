@@ -30,7 +30,7 @@ export default function Home() {
     var aiculture = document.getElementById("aiculture") as HTMLHeadingElement;
     aiculture.style.transition = "1s ease-in-out";
     aiculture.style.backgroundImage =
-      "linear-gradient(-175deg, red 0%, blue 15%, green 25%, purple 50%, gold 75%, silver 100%)";
+      "linear-gradient(-173deg, red 0%, aqua 15%, silver 50%, indigo 75%, blue 100%)";
     aiculture.style.backgroundSize = "200% auto";
     aiculture.style.color = "transparent";
     aiculture.style.animation = "meshColors 1s infinite linear";
