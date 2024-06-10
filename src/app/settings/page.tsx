@@ -74,6 +74,7 @@ export default function Settings() {
               </Typography>
               <br />
               <Button
+                variant="outlined"
                 id="editProfile"
                 onMouseOver={PointOut}
                 onMouseOut={PointBack}
