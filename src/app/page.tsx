@@ -16,6 +16,7 @@ import MouseHandle, { Mouse } from "@/components/mouse/mouse";
 import { MenuBar } from "@/components/menubar/menubar";
 import { Mice } from "@/components/mice/mouse";
 import { PointBack, PointOut } from "@/components/mousecontrols/mousecontrol";
+import { AuditNavbar } from "@/components/audit-navbar/audit-navbar";
 
 export default function Home() {
   useEffect(() => {
@@ -26,30 +27,26 @@ export default function Home() {
       console.log("Image element not found");
     }
   }, []);
-  const mesh = () => {
-    var aiculture = document.getElementById("aiculture") as HTMLHeadingElement;
-    aiculture.style.transition = "1s ease-in-out";
-    aiculture.style.backgroundImage =
-      "linear-gradient(-173deg, red 0%, aqua 15%, silver 50%, indigo 75%, blue 100%)";
-    aiculture.style.backgroundSize = "200% auto";
-    aiculture.style.color = "transparent";
-    aiculture.style.animation = "meshColors 1s infinite linear";
+  const multiColor = () => {
+    var mainTitle = document.getElementById("mainTitle") as HTMLHeadingElement;
+    mainTitle.style.color = "white";
+    mainTitle.style.textShadow =
+      " 0 0 10px #fff, 0 0 20px #fff, 0 0 45px purple, 0 0 75px purple, 0 0 90px purple, 0 0 150px purple";
+    mainTitle.style.transition = "1s ease-in-out";
   };
-  const doneSpectatingMesh = () => {
-    var aiculture = document.getElementById("aiculture") as HTMLHeadingElement;
-    aiculture.style.backgroundImage =
-      "linear-gradient(to bottom right, red, aqua, silver, indigo, blue)";
-    aiculture.style.backgroundClip = "text";
-    aiculture.style.color = "transparent";
-    aiculture.style.animation = "done 1s";
-    aiculture.style.transition = "1s ease-in-out";
+  const doneGlowing = () => {
+    var mainTitle = document.getElementById("mainTitle") as HTMLHeadingElement;
+    mainTitle.style.color = "black";
+    mainTitle.style.textShadow = "none";
+    mainTitle.style.transition = "1s ease-in-out";
   };
+
   const router = useRouter();
   return (
     <Box>
       <Stack
         style={{
-          backgroundImage: "url('/ai.jpg')",
+          backgroundImage: "url('/background.png')",
           backgroundPosition: "center",
           backgroundSize: "cover",
           height: "100vh",
@@ -57,6 +54,7 @@ export default function Home() {
           backdropFilter: "blur(1px)",
           cursor: "none",
         }}
+        id="homeback"
         onMouseOver={(e) => {
           var mouse = document.getElementById("mouse") as HTMLElement;
           var pointer = document.getElementById("pointer") as HTMLElement;
@@ -101,168 +99,8 @@ export default function Home() {
         <Stack style={{ position: "relative", display: "flex" }}>
           <Mice />
           <nav
-            style={{
-              display: "flex",
-              position: "relative",
-              alignItems: "center",
-              justifyContent: "center",
-              wordSpacing: 2,
-              gap: 5,
-              cursor: "none",
-            }}
           >
-            <span className="material-symbols-outlined">home</span>
-            <p
-              style={{
-                color: "gray",
-                fontFamily: "'Indie Flower', cursive",
-                cursor: "none",
-              }}
-              id="home"
-              onClick={(v) => {
-                v.preventDefault();
-                router.push("/");
-              }}
-              onMouseOver={(r) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "block";
-                cursor!.style.display = "none";
-              }}
-              onMouseOut={(f) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "none";
-                cursor!.style.display = "block";
-              }}
-            >
-              Home
-            </p>
-            <span
-              className="material-symbols-outlined"
-              id="contacts"
-              style={{ marginLeft: 40 }}
-            >
-              contacts_product
-            </span>
-            <p
-              style={{
-                color: "gray",
-                fontFamily: "'Indie Flower', cursive",
-                cursor: "none",
-              }}
-              onClick={(y) => {
-                y.preventDefault();
-                router.push("/contact");
-              }}
-              onMouseOver={(r) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "block";
-                cursor!.style.display = "none";
-              }}
-              onMouseOut={(f) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "none";
-                cursor!.style.display = "block";
-              }}
-            >
-              Contact us
-            </p>
-            <span
-              className="material-symbols-outlined"
-              style={{ marginLeft: 30 }}
-            >
-              local_library
-            </span>
-            <p
-              style={{
-                color: "gray",
-                fontFamily: "'Indie Flower', cursive",
-                cursor: "none",
-              }}
-              onClick={(u) => {
-                u.preventDefault();
-                router.push("/about");
-              }}
-              onMouseOver={(r) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "block";
-                cursor!.style.display = "none";
-              }}
-              onMouseOut={(f) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "none";
-                cursor!.style.display = "block";
-              }}
-            >
-              About us
-            </p>
-            <span
-              className="material-symbols-outlined"
-              style={{ marginLeft: 50 }}
-            >
-              chat
-            </span>
-            <p
-              id="chats"
-              style={{
-                color: "gray",
-                fontFamily: "'Indie Flower', cursive",
-                cursor: "none",
-              }}
-              onClick={(l) => {
-                router.push("/chat");
-              }}
-              onMouseOver={(r) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "block";
-                cursor!.style.display = "none";
-              }}
-              onMouseOut={(f) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "none";
-                cursor!.style.display = "block";
-              }}
-            >
-              P2P Chat
-            </p>
-            <span
-              className="material-symbols-outlined"
-              style={{ marginLeft: 50 }}
-            >
-              forum
-            </span>
-            <p
-              id="p2b"
-              style={{
-                color: "gray",
-                fontFamily: "'Indie Flower', cursive",
-                cursor: "none",
-              }}
-              onClick={(i) => {
-                router.push("/dashboard");
-              }}
-              onMouseOver={(r) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "block";
-                cursor!.style.display = "none";
-              }}
-              onMouseOut={(f) => {
-                var cursor = document.getElementById("mouse") as HTMLElement;
-                var pointer = document.getElementById("pointer") as HTMLElement;
-                pointer!.style.display = "none";
-                cursor!.style.display = "block";
-              }}
-            >
-              Chats & Privacy
-            </p>
+            <AuditNavbar />
           </nav>
 
           <Stack>
@@ -273,9 +111,10 @@ export default function Home() {
                 width: 110,
                 display: "flex",
                 position: "absolute",
-                right: 0,
+                left: 5,
                 top: 4,
                 cursor: "none",
+                zIndex: 20,
               }}
               onClick={(a) => {
                 a.preventDefault();
@@ -298,223 +137,14 @@ export default function Home() {
             </Button>
           </Stack>
         </Stack>
-        <MenuBar />
         <Typography
           variant="h1"
-          id="aiculture"
-          onMouseOver={mesh}
-          onMouseOut={doneSpectatingMesh}
+          id="mainTitle"
+          onMouseOver={multiColor}
+          onMouseOut={doneGlowing}
         >
-          AICulture
+          SYPHER GLOBE
         </Typography>
-        <Stack
-          style={{
-            display: "flex",
-            position: "relative",
-            top: 170,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Typography
-            variant="h2"
-            style={{
-              display: "flex",
-              position: "relative",
-              alignItems: "center",
-              justifyContent: "center",
-              WebkitBackdropFilter: "blur(1px)",
-              backdropFilter: "blur(1px)",
-              fontFamily: "'Italiana', sans-serif",
-              color: "rebeccapurple",
-            }}
-          >
-            Grand Update
-          </Typography>
-          <Stack display={"flex"} flexDirection={"row"} gap={3}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
-                border: "1px transparent",
-                padding: "10px",
-                width: 170,
-                boxSizing: "border-box",
-                boxShadow: "0 15px 30px 0 #888888",
-                margin: "8px",
-              }}
-            >
-              <Image
-                alt="Update"
-                src={"/plant-detector.jpg"}
-                width={150}
-                height={170}
-                draggable="false"
-                style={{ position: "relative", top: -15 }}
-              ></Image>
-              <Typography
-                variant="h6"
-                style={{
-                  color: "lightpink",
-                  fontFamily: "'Rajdhani', sans-serif",
-                  fontWeight: 500,
-                  fontStyle: "normal",
-                }}
-              >
-                A plant-detection API
-              </Typography>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 170,
-                color: "gray",
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
-                border: "1px transparent",
-                padding: "10px",
-                boxSizing: "border-box",
-                boxShadow: "0 15px 30px 0 #888888",
-                margin: "8px",
-              }}
-              onMouseOver={PointOut}
-              onMouseOut={PointBack}
-            >
-              <Image
-                alt="upd2"
-                src={"/cursor.png"}
-                width={150}
-                height={150}
-                draggable={"false"}
-                style={{ position: "relative", top: -35 }}
-              ></Image>
-              <Typography
-                variant="h6"
-                style={{
-                  color: "lightpink",
-                  fontFamily: "'Rajdhani', sans-serif",
-                  fontWeight: 500,
-                  fontStyle: "normal",
-                }}
-              >
-                A new cursor
-              </Typography>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 170,
-                color: "gray",
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
-                border: "1px transparent",
-                padding: "10px",
-                boxSizing: "border-box",
-                boxShadow: "0 15px 30px 0 #888888",
-                margin: "8px",
-              }}
-            >
-              <Image
-                alt="upd3"
-                src={"/UI.jpg"}
-                width={150}
-                height={170}
-                draggable={"false"}
-                style={{ position: "relative", top: -30 }}
-              ></Image>
-              <Typography
-                variant="h6"
-                style={{
-                  color: "lightpink",
-                  fontFamily: "'Rajdhani', sans-serif",
-                  fontWeight: 500,
-                  fontStyle: "normal",
-                }}
-              >
-                New UIs
-              </Typography>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 170,
-                height: 300,
-                color: "gray",
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
-                border: "1px transparent",
-                padding: "10px",
-                boxSizing: "border-box",
-                boxShadow: "0 15px 30px 0 #888888",
-                margin: "8px",
-              }}
-            >
-              <Image
-                alt="upd4"
-                src={"/botanical.jpg"}
-                width={150}
-                height={170}
-                draggable={"false"}
-                style={{ position: "relative", top: -22 }}
-              ></Image>
-              <Typography
-                variant="h6"
-                style={{
-                  color: "lightpink",
-                  fontFamily: "'Rajdhani', sans-serif",
-                  fontWeight: 500,
-                  fontStyle: "normal",
-                }}
-              >
-                A new Botanical translator
-              </Typography>
-            </div>
-          </Stack>
-        </Stack>
-        <footer
-          style={{
-            marginTop: "auto",
-            marginLeft: "auto",
-            position: "relative",
-            display: "flex",
-            flexDirection: "row",
-            float: "right",
-          }}
-        >
-          <p
-            style={{
-              color: "gold",
-              fontFamily: "'Indie Flower', cursive",
-              fontStyle: "italic",
-              float: "right",
-            }}
-          >
-            Powered by{" "}
-            <a
-              style={{
-                backgroundImage:
-                  "linear-gradient(to bottom right, red, indigo, gold, silver, blue, aqua)",
-                MozBackgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-                fontStyle: "normal",
-              }}
-            >
-              CrownAI
-            </a>
-            <sup style={{ color: "black" }}>&reg;</sup>
-          </p>
-        </footer>
       </Stack>
     </Box>
   );
