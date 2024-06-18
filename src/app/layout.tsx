@@ -3,11 +3,10 @@ import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - My App",
-    default: "AICulture",
+    template: "%s - Crown-AI",
+    default: "Crown-AI",
   },
-  description:
-    "An AI agriculture website intended to help people with agricultural questions and help users chat with other users for better understanding.",
+  description: "The Crown of Luxury: Royalty in Technology and Development",
 };
 
 export default function RootLayout({
