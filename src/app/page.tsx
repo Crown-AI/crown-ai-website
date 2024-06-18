@@ -12,6 +12,13 @@ export default function HomePage() {
           <nav>
             <NavBar />
           </nav>
+          <br />
+          <hr />
+          <br />
+          <hr />
+          <br />
+          <hr />
+          <br />
           <Typography variant="h1" id="title">
             CrownAI
           </Typography>
@@ -20,6 +27,9 @@ export default function HomePage() {
               The Crown of Luxury: Royalty in Technology and Development
             </Typography>
           </Marquee>
+          <br />
+          <hr />
+          <br />
           <Stack className="WhatWeDo">
             <Typography variant="h1" id="whatTitle">
               What We Do
@@ -29,8 +39,7 @@ export default function HomePage() {
                 <Typography variant="h2">API Development</Typography>
                 <br />
                 <Typography variant="h4">
-                  We develop APIs based on the specifications of our
-                  client&apos;s
+                  We develop APIs based on the specifications of our clients
                 </Typography>
               </Stack>
               <Stack className="dos" id="web">
@@ -38,7 +47,7 @@ export default function HomePage() {
                 <br />
                 <Typography variant="h4">
                   We develop web applications based on the specfications of our
-                  client&apos;s
+                  clients
                 </Typography>
               </Stack>
               <Stack className="dos" id="ai">
@@ -46,13 +55,6 @@ export default function HomePage() {
                 <br />
                 <Typography variant="h4">
                   We develop AI tools using machine learning, etc.
-                </Typography>
-              </Stack>
-              <Stack className="dos" id="api">
-                <Typography variant="h2">Web App Development</Typography>
-                <br />
-                <Typography variant="h4">
-                  We develop APIs based on our client&apos;s tastes
                 </Typography>
               </Stack>
             </Stack>
