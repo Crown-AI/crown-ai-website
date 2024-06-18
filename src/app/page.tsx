@@ -1,6 +1,5 @@
 "use client";
 import { Box, Stack, Typography } from "@mui/material";
-import Marquee from "react-fast-marquee";
 import "./globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
 
@@ -22,11 +21,10 @@ export default function HomePage() {
           <Typography variant="h1" id="title">
             CrownAI
           </Typography>
-          <Marquee className="slogan" delay={0} direction="left">
-            <Typography variant="h4" id="wisdom">
-              The Crown of Luxury: Royalty in Technology and Development
-            </Typography>
-          </Marquee>
+          <br />
+          <Typography variant="h4" id="wisdom">
+            The Crown of Luxury: Royalty in Technology and Development
+          </Typography>
           <br />
           <hr />
           <br />
@@ -54,7 +52,8 @@ export default function HomePage() {
                 <Typography variant="h2">AI Development</Typography>
                 <br />
                 <Typography variant="h4">
-                  We develop AI tools using machine learning, etc.
+                  We develop AI tools using machine learning, etc. to build AI
+                  applications
                 </Typography>
               </Stack>
             </Stack>

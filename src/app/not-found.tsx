@@ -8,7 +8,7 @@ export default async function NotFound() {
   return (
     <Stack
       style={{
-        backgroundImage: "url(/notfound.jpg)",
+        backgroundImage: "url('/notfound.jpg')",
         backgroundPosition: "center",
         backgroundSize: "cover",
         height: "100vh",
