@@ -113,6 +113,15 @@
     height: 100%;
     overflow-y: hidden;
   }
+  #login {
+    display: flex;
+    position: absolute;
+    border-color: #7dd6ec;
+    border-radius: 10px;
+    z-index: 55;
+    right: 10%;
+    top: 30%;
+  }
   .WhatWeDo {
     display: flex;
     position: relative;
@@ -130,6 +139,13 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+  }
+  .others {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
   .values {
     display: flex;

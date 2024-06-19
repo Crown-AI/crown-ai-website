@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import Image from "next/image";
 
 export function NavBar() {
@@ -30,6 +31,11 @@ export function NavBar() {
           </li>
         </ul>
       </section>
+      <div id="loginButton">
+        <Button variant="outlined" id="login">
+          Login
+        </Button>
+      </div>
     </div>
   );
 }
