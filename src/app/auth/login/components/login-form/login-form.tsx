@@ -16,228 +16,54 @@ export function LoginForm() {
   const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
   const inputStyle = {
-    backgroundImage:
-      "linear-gradient(to bottom right, red, aqua, silver, indigo, blue)",
-    WebkitBackgroundClip: "text",
-    MozBackgroundClip: "text",
-    backgroundClip: "text",
-    color: "transparent",
+    color: "red",
     fontFamily: "'Indie Flower', cursive",
   };
   return (
     <Box>
       <Stack
         style={{
-          backgroundImage: "url('/Login.jpg')",
+          backgroundImage: "url('/login.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           alignItems: "center",
           justifyContent: "center",
           display: "flex",
-          cursor: "none",
-        }}
-        onMouseOver={(e) => {
-          var mouse = document.getElementById("mouse") as HTMLElement;
-          var pointer = document.getElementById("pointer") as HTMLElement;
-          console.log(mouse);
-          window.addEventListener("mousemove", (t) => {
-            mouse!.style.top = `${t.clientY}px`;
-            mouse!.style.left = `${t.clientX}px`;
-            pointer!.style.top = `${t.clientY}px`;
-            pointer!.style.left = `${t.clientX}px`;
-          });
         }}
         width="100%"
         minHeight="100vh"
         display={"flex"}
       >
-        <Image
-          src={"/cursor.png"}
-          alt="cursor"
-          id="mouse"
-          width={30}
-          height={30}
-          style={{
-            display: "block",
-            zIndex: 9999,
-            position: "absolute",
-            pointerEvents: "none",
-          }}
-          onClick={(l) => {
-            return true;
-          }}
-        ></Image>
-        <Image
-          src={"/pointer.png"}
-          alt="cursor"
-          id="pointer"
-          width={20}
-          height={30}
-          style={{
-            display: "none",
-            zIndex: 9999,
-            position: "absolute",
-            pointerEvents: "none",
-          }}
-          onClick={(l) => {
-            return true;
-          }}
-        ></Image>
-        <nav
-          style={{
-            display: "flex",
-            position: "absolute",
-            alignItems: "center",
-            justifyContent: "center",
-            wordSpacing: 2,
-            gap: 5,
-            top: 0,
-          }}
-        >
-          <span className="material-symbols-outlined">home</span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "none",
-            }}
-            id="home"
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/");
-            }}
-            onMouseOver={(s) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/pointer.png";
-              (mouse.height = 30), (mouse.width = 20);
-            }}
-            onMouseOut={(u) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/cursor.png";
-              (mouse.height = 30), (mouse.width = 30);
-            }}
-          >
-            Home
-          </p>
-          <span
-            className="material-symbols-outlined"
-            id="contacts"
-            style={{ marginLeft: 40 }}
-          >
-            contacts_product
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "none",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/contact");
-            }}
-            onMouseOver={(s) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/pointer.png";
-              (mouse.height = 30), (mouse.width = 20);
-            }}
-            onMouseOut={(u) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/cursor.png";
-              (mouse.height = 30), (mouse.width = 30);
-            }}
-          >
-            Contact us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 30 }}
-          >
-            local_library
-          </span>
-          <p
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "none",
-            }}
-            onClick={(t) => {
-              t.preventDefault();
-              router.push("/about");
-            }}
-            onMouseOver={(s) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/pointer.png";
-              (mouse.height = 30), (mouse.width = 20);
-            }}
-            onMouseOut={(u) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/cursor.png";
-              (mouse.height = 30), (mouse.width = 30);
-            }}
-          >
-            About us
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50 }}
-          >
-            chat
-          </span>
-          <p
-            id="chats"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "none",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/chat");
-            }}
-            onMouseOver={(s) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/pointer.png";
-              (mouse.height = 30), (mouse.width = 20);
-            }}
-            onMouseOut={(u) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/cursor.png";
-              (mouse.height = 30), (mouse.width = 30);
-            }}
-          >
-            P2P Chat
-          </p>
-          <span
-            className="material-symbols-outlined"
-            style={{ marginLeft: 50 }}
-          >
-            forum
-          </span>
-          <p
-            id="p2b"
-            style={{
-              color: "gray",
-              fontFamily: "'Indie Flower', cursive",
-              cursor: "none",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              router.push("/dashboard");
-            }}
-            onMouseOver={(s) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/pointer.png";
-              (mouse.height = 30), (mouse.width = 20);
-            }}
-            onMouseOut={(u) => {
-              var mouse = document.getElementById("mouse") as HTMLImageElement;
-              mouse.srcset = "/cursor.png";
-              (mouse.height = 30), (mouse.width = 30);
-            }}
-          >
-            Chats & Privacy
-          </p>
+        <nav>
+          <div className="links">
+            <Image
+              src={"/Crown.png"}
+              id="navImg"
+              alt="AI"
+              width={110}
+              height={110}
+              draggable="false"
+            ></Image>
+            <section>
+              <ul>
+                <li>
+                  <a href="#">LATEST PRODUCT</a>
+                </li>
+                <li>
+                  <a href="#">SERVICES</a>
+                </li>
+                <li>
+                  <a href="#">ABOUT US</a>
+                </li>
+                <li>
+                  <a href="#">OUR TEAM</a>
+                </li>
+                <li>
+                  <a href="#">CONTACT US</a>
+                </li>
+              </ul>
+            </section>
+          </div>
         </nav>
         <Stack
           style={{
@@ -263,22 +89,10 @@ export function LoginForm() {
             >
               <Typography
                 fontSize={22}
-                style={{ fontFamily: "'Indie Flower', cursive" }}
+                style={{ fontFamily: "monospace" }}
                 fontStyle={"normal"}
                 fontWeight={400}
                 lineHeight="normal"
-                onMouseOver={(r) => {
-                  var cursor = document.getElementById(
-                    "mouse",
-                  ) as HTMLImageElement;
-                  cursor.srcset = "/text-cursor.png";
-                }}
-                onMouseOut={(i) => {
-                  var cursor = document.getElementById(
-                    "mouse",
-                  ) as HTMLImageElement;
-                  cursor.srcset = "/cursor.png";
-                }}
               >
                 Sign into your account
               </Typography>
@@ -301,22 +115,6 @@ export function LoginForm() {
                 }}
                 value={email}
                 onChange={(o) => setEmail(o.target.value)}
-                onMouseOver={(r) => {
-                  var cursor = document.getElementById(
-                    "mouse",
-                  ) as HTMLImageElement;
-                  var email = document.getElementById(
-                    "email",
-                  ) as HTMLInputElement;
-                  email.style.cursor = "none";
-                  cursor.srcset = "/text-cursor.png";
-                }}
-                onMouseOut={(i) => {
-                  var cursor = document.getElementById(
-                    "mouse",
-                  ) as HTMLImageElement;
-                  cursor.srcset = "/cursor.png";
-                }}
                 required
               ></TextField>
             </Stack>
@@ -328,30 +126,14 @@ export function LoginForm() {
               style={{ width: 220, position: "relative", bottom: 50 }}
             >
               <Button
-                variant="contained"
+                variant="outlined"
                 type="submit"
                 style={{
                   fontFamily: "Train_One",
                   width: 220,
                   borderRadius: 50,
-                  backgroundColor: "purple",
-                  cursor: "none",
-                }}
-                onMouseOver={(r) => {
-                  var cursor = document.getElementById(
-                    "mouse",
-                  ) as HTMLImageElement;
-                  cursor.srcset = "/pointer.png";
-                  cursor.height = 30;
-                  cursor.width = 20;
-                }}
-                onMouseOut={(i) => {
-                  var cursor = document.getElementById(
-                    "mouse",
-                  ) as HTMLImageElement;
-                  cursor.srcset = "/cursor.png";
-                  cursor.height = 30;
-                  cursor.width = 30;
+                  borderColor: "silver",
+                  color: "gold",
                 }}
               >
                 <span>Login</span>

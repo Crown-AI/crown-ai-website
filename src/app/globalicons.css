@@ -116,7 +116,8 @@
   #login {
     display: flex;
     position: absolute;
-    border-color: #7dd6ec;
+    border-color: #a671eb;
+    color: #a671eb;
     border-radius: 10px;
     z-index: 55;
     right: 10%;

@@ -4,11 +4,10 @@ import Head from "next/head";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - AICulture",
+    template: "%s - Crown-AI",
     default: "Login",
   },
-  description:
-    "Login to your AICulture account to get the bext AI agriculture experience",
+  description: "Login to your CrownAI account",
 };
 
 export default function RootLayout({
@@ -19,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Login | AICulture</title>
+        <title>Login | Crown-AI</title>
       </head>
       <body>
         <RootProvider>{children}</RootProvider>

@@ -2,6 +2,9 @@ import { Button } from "@mui/material";
 import Image from "next/image";
 
 export function NavBar() {
+  const Login = () => {
+    window.location.href = "/auth/login";
+  };
   return (
     <div className="links">
       <Image
@@ -32,7 +35,7 @@ export function NavBar() {
         </ul>
       </section>
       <div id="loginButton">
-        <Button variant="outlined" id="login">
+        <Button variant="outlined" id="login" onClick={Login}>
           Login
         </Button>
       </div>
