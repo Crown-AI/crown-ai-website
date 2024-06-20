@@ -4,61 +4,34 @@ import Image from "next/image";
 import "../../globalicons.css";
 
 export default function VerifyRequest() {
+  const glow = () => {
+    var typography = document.getElementById(
+      "typography",
+    ) as HTMLHeadingElement;
+    typography.style.color = "#fff";
+    typography.style.textShadow =
+      "0 0 10px #fff, 0 0 20px #fff, 0 0 39px silver, 0 0 67px silver";
+    typography.style.transition = "1s ease-in-out";
+  };
+  const stop = () => {
+    var typography = document.getElementById(
+      "typography",
+    ) as HTMLHeadingElement;
+    typography.style.color = "silver";
+    typography.style.textShadow = "0 0 0 silver";
+    typography.style.transition = "1s ease-in-out";
+  };
   return (
     <Box>
       <Stack
         width={"100%"}
         height={"100vh"}
         style={{
-          backgroundImage: "url('/email.jpg')",
+          backgroundImage: "url('/mail.jpg')",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          cursor: "none",
-        }}
-        onMouseOver={(e) => {
-          var mouse = document.getElementById("mouse") as HTMLElement;
-          var pointer = document.getElementById("pointer") as HTMLElement;
-          console.log(mouse);
-          window.addEventListener("mousemove", (t) => {
-            mouse!.style.top = `${t.clientY}px`;
-            mouse!.style.left = `${t.clientX}px`;
-            pointer!.style.top = `${t.clientY}px`;
-            pointer!.style.left = `${t.clientX}px`;
-          });
         }}
       >
-        <Image
-          src={"/cursor.png"}
-          alt="cursor"
-          id="mouse"
-          width={30}
-          height={30}
-          style={{
-            display: "block",
-            zIndex: 9999,
-            position: "absolute",
-            pointerEvents: "none",
-          }}
-          onClick={(l) => {
-            return true;
-          }}
-        ></Image>
-        <Image
-          src={"/pointer.png"}
-          alt="cursor"
-          id="pointer"
-          width={20}
-          height={30}
-          style={{
-            display: "none",
-            zIndex: 9999,
-            position: "absolute",
-            pointerEvents: "none",
-          }}
-          onClick={(l) => {
-            return true;
-          }}
-        ></Image>
         <Stack
           alignItems={"center"}
           justifyContent={"center"}
@@ -68,49 +41,15 @@ export default function VerifyRequest() {
         >
           <Typography
             style={{
-              backgroundImage:
-                "linear-gradient(to left, red, indigo, violet, blue, yellow, red)",
-              WebkitBackgroundClip: "text",
-              MozBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-              fontFamily: "'Reddit Mono', monospace",
+              color: "silver",
+              fontFamily: "'Tilt Prism', sans-serif",
             }}
-            onMouseOver={(r) => {
-              var cursor = document.getElementById("mouse") as HTMLImageElement;
-              cursor.srcset = "/text-cursor.png";
-            }}
-            onMouseOut={(i) => {
-              var cursor = document.getElementById("mouse") as HTMLImageElement;
-              cursor.srcset = "/cursor.png";
-            }}
+            onMouseOver={glow}
+            onMouseOut={stop}
+            id="typography"
             variant="h2"
           >
             Email Incoming
-          </Typography>
-        </Stack>
-        <Stack alignItems={"center"} justifyContent={"center"}>
-          <Typography
-            variant="h4"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom right, gold, indigo, red, blue, violet, silver)",
-              WebkitBackgroundClip: "text",
-              MozBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-              fontFamily: "'Reddit Mono', monospace",
-            }}
-            onMouseOver={(r) => {
-              var cursor = document.getElementById("mouse") as HTMLImageElement;
-              cursor.srcset = "/text-cursor.png";
-            }}
-            onMouseOut={(i) => {
-              var cursor = document.getElementById("mouse") as HTMLImageElement;
-              cursor.srcset = "/cursor.png";
-            }}
-          >
-            Check your email
           </Typography>
         </Stack>
       </Stack>

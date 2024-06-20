@@ -17,7 +17,7 @@ export function LoginForm() {
   const router = useRouter();
   const inputStyle = {
     color: "red",
-    fontFamily: "'Indie Flower', cursive",
+    fontFamily: "monospace",
   };
   return (
     <Box>
@@ -99,7 +99,7 @@ export function LoginForm() {
                 fontWeight={400}
                 lineHeight="normal"
               >
-                Sign into your account
+                Sign in to your account
               </Typography>
               <br />
               <TextField
@@ -155,18 +155,29 @@ export function LoginForm() {
                 justifyContent: "center",
               }}
             >
-              <Button
-                variant="outlined"
+              <Link
+                href={"/auth/register"}
                 style={{
-                  width: "90%",
-                  fontFamily: "Train_One",
-                  borderRadius: 10,
-                  borderColor: "aqua",
-                  color: "silver",
+                  display: "flex",
+                  position: "relative",
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
-                <span>Signup</span>
-              </Button>
+                <Button
+                  variant="outlined"
+                  style={{
+                    width: "90%",
+                    fontFamily: "Train_One",
+                    borderRadius: 10,
+                    borderColor: "aqua",
+                    color: "silver",
+                  }}
+                >
+                  <span>Signup</span>
+                </Button>
+              </Link>
             </Stack>
           </form>
         </Stack>
