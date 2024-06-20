@@ -67,10 +67,8 @@ export function LoginForm() {
         </nav>
         <Stack
           style={{
-            backgroundColor: "rgba(255, 255, 255, 0.3)",
+            backgroundColor: "rgba(72.55, 94.9, 100, 0.3)",
             width: 410,
-            alignItems: "center",
-            justifyContent: "center",
           }}
         >
           <form
@@ -84,34 +82,35 @@ export function LoginForm() {
               direction={"column"}
               style={{ height: "30vh" }}
               spacing={5}
-              borderTop={90}
               borderColor={"transparent"}
             >
+              <br />
               <Typography
                 fontSize={22}
-                style={{ fontFamily: "monospace" }}
+                style={{
+                  fontFamily: "monospace",
+                  display: "flex",
+                  position: "relative",
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
                 fontStyle={"normal"}
                 fontWeight={400}
                 lineHeight="normal"
               >
                 Sign into your account
               </Typography>
-            </Stack>
-            <Stack
-              spacing={2}
-              style={{ width: 220, height: "30vh" }}
-              borderBottom={50}
-              borderColor={"transparent"}
-            >
+              <br />
               <TextField
                 name="email"
                 id="email"
                 label="Email"
                 inputProps={{ style: inputStyle }}
+                fullWidth
                 style={{
-                  width: 220,
-                  flexDirection: "column",
                   borderRadius: 50,
+                  backgroundColor: "blue",
                 }}
                 value={email}
                 onChange={(o) => setEmail(o.target.value)}
@@ -119,11 +118,14 @@ export function LoginForm() {
               ></TextField>
             </Stack>
             <Stack
-              borderTop={10}
-              borderColor={"transparent"}
               direction={"column"}
               display={"flex"}
-              style={{ width: 220, position: "relative", bottom: 50 }}
+              style={{
+                width: "100%",
+                position: "relative",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               <Button
                 variant="outlined"
@@ -137,6 +139,33 @@ export function LoginForm() {
                 }}
               >
                 <span>Login</span>
+              </Button>
+            </Stack>
+            <br />
+            <hr />
+            <br />
+            <Stack
+              direction={"column"}
+              display={"flex"}
+              style={{
+                width: "100%",
+                position: "relative",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Button
+                variant="outlined"
+                type="submit"
+                style={{
+                  fontFamily: "Train_One",
+                  width: 220,
+                  borderRadius: 50,
+                  borderColor: "aqua",
+                  color: "silver",
+                }}
+              >
+                <span>Signup</span>
               </Button>
             </Stack>
           </form>

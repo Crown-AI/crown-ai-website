@@ -17,9 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <title>Login | Crown-AI</title>
-      </head>
+      <head></head>
       <body>
         <RootProvider>{children}</RootProvider>
       </body>
