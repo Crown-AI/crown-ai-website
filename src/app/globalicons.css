@@ -123,6 +123,13 @@
     right: 10%;
     top: 30%;
   }
+  #differenciator {
+    background-color: #000;
+    height: 2px;
+  }
+  #separator {
+    background-color: transparent;
+  }
   .WhatWeDo {
     display: flex;
     position: relative;

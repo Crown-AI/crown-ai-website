@@ -110,13 +110,14 @@ export function LoginForm() {
                 fullWidth
                 style={{
                   borderRadius: 50,
-                  backgroundColor: "blue",
                 }}
                 value={email}
                 onChange={(o) => setEmail(o.target.value)}
                 required
               ></TextField>
             </Stack>
+            <br />
+            <br />
             <Stack
               direction={"column"}
               display={"flex"}
@@ -131,9 +132,9 @@ export function LoginForm() {
                 variant="outlined"
                 type="submit"
                 style={{
+                  width: "90%",
                   fontFamily: "Train_One",
-                  width: 220,
-                  borderRadius: 50,
+                  borderRadius: 10,
                   borderColor: "silver",
                   color: "gold",
                 }}
@@ -142,7 +143,7 @@ export function LoginForm() {
               </Button>
             </Stack>
             <br />
-            <hr />
+            <hr id="differenciator" />
             <br />
             <Stack
               direction={"column"}
@@ -156,11 +157,10 @@ export function LoginForm() {
             >
               <Button
                 variant="outlined"
-                type="submit"
                 style={{
+                  width: "90%",
                   fontFamily: "Train_One",
-                  width: 220,
-                  borderRadius: 50,
+                  borderRadius: 10,
                   borderColor: "aqua",
                   color: "silver",
                 }}
