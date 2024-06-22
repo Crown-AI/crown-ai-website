@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import { NavBar } from "@/components/navbar/navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import Marquee from "react-fast-marquee";
 const emptyMessage: MessageInput = {
   content: "",
 };
@@ -28,35 +29,29 @@ export default function HomePage() {
   const disobeyDefaultFunction = () => {
     router.back();
   };
-  setTimeout(() => {
-    router.push("/chat");
-  }, 5000);
   return (
     <Box>
       <Stack
         style={{
-          backgroundImage:
-            "url('https://th.bing.com/th/id/OIP.hsRdiWZZHcRgmHD1n_Cy-wHaEK?rs=1&pid=ImgDetMain')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundColor: "turquoise",
           height: "100vh",
-          marginTop: 10,
-          overflow: "hidden",
         }}
       >
-        <Stack id="poorResult">
-          <Typography variant="h2" id="poorResultTitle">
-            It&apos;s not you. It&apos;s us
-          </Typography>
-          <Typography variant="h5" id="poorResultContent">
-            Please continue with other features while we work on this problem
-          </Typography>
+        <Stack
+          style={{
+            display: "flex",
+            position: "relative",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Typography variant="h1">Crown-AI</Typography>
+          <Marquee>
+            <Typography variant="h3">
+              The Crown of Luxury: Royalty in Technology and Development
+            </Typography>
+          </Marquee>
         </Stack>
-        <FontAwesomeIcon
-          icon={faArrowCircleLeft}
-          id="returnBack"
-          onClick={disobeyDefaultFunction}
-        />
       </Stack>
     </Box>
   );

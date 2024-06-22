@@ -1,8 +1,13 @@
 "use client";
 import { Button } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export function NavBar() {
+  const router = useRouter();
+  const Login = () => {
+    router.push("/auth/login");
+  };
   return (
     <div className="links">
       <Image
@@ -33,7 +38,7 @@ export function NavBar() {
         </ul>
       </section>
       <div id="loginButton">
-        <Button variant="outlined" id="login">
+        <Button variant="outlined" id="login" onClick={Login}>
           Login
         </Button>
       </div>
