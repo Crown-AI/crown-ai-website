@@ -11,6 +11,9 @@ export function NavBar() {
   const Login = () => {
     router.push("/auth/login");
   };
+  const Logout = () => {
+    router.push("/auth/logout");
+  };
   return (
     <div className="links">
       <Image
@@ -44,7 +47,7 @@ export function NavBar() {
         <Button variant="outlined" id="login" onClick={Login}>
           Login
         </Button>
-        <Button variant="outlined" id="logout" onClick={Login}>
+        <Button variant="outlined" id="logout" onClick={Logout}>
           Logout
         </Button>
       </div>
