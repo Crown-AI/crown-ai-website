@@ -28,7 +28,10 @@ const emptyMessage: MessageInput = {
 export default function HomePage() {
   const router = useRouter();
   const session = useSession();
-  if (!session.data?.user) {
+  if (session.data?.user) {
+    console.log("Logged into session");
+  } else {
+    console.log("Not logged into session");
     router.push("/auth/login");
   }
   return (
