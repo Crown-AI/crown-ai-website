@@ -70,9 +70,11 @@ export default function HomePage() {
             width: "100%",
           }}
         >
-          <Typography variant="h1">Crown-AI</Typography>
+          <Typography variant="h1" id="dtitle">
+            Crown-AI
+          </Typography>
           <br />
-          <Typography variant="h3" id="wisdom">
+          <Typography variant="h4" id="dslogan">
             The Crown of Luxury: Royalty in Technology and Development
           </Typography>
         </Stack>

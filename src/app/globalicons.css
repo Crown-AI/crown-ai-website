@@ -11,6 +11,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+IS:wght@100..400&family=Playwrite+NL:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Playwrite+IS:wght@100..400&family=Playwrite+NZ:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+NG+Modern:wght@100..400&display=swap');
 
 .material-symbols-outlined {
     font-variation-settings:
@@ -41,6 +42,13 @@
     font-weight: 300;
     font-style: normal;
     color: #B9F2FF;
+  }
+  #dtitle {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: #80a363;
 
   }
   nav {
@@ -114,6 +122,12 @@
     position: relative;
     height: 100%;
     overflow-y: hidden;
+  }
+  #dslogan {
+    font-family: "Playwrite NG Modern", cursive;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
   }
   #login {
     position: absolute;
