@@ -28,7 +28,7 @@ const emptyMessage: MessageInput = {
 export default function HomePage() {
   const router = useRouter();
   const session = useSession();
-  if (session.status !== "authenticated") {
+  if (session.data?.user) {
     router.push("/auth/login");
   }
   return (
@@ -42,9 +42,11 @@ export default function HomePage() {
         <Stack
           style={{
             display: "flex",
-            position: "relative",
+            position: "absolute",
             alignItems: "center",
             justifyContent: "center",
+            height: "100%",
+            width: "100%",
           }}
         >
           <Typography variant="h1">Crown-AI</Typography>
