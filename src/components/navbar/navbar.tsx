@@ -8,9 +8,6 @@ export function NavBar() {
   const Login = () => {
     window.location.href = "/auth/login";
   };
-  const Logout = () => {
-    window.location.href = "/auth/logout";
-  };
   return (
     <div className="links" id="links">
       <Image
@@ -42,9 +39,6 @@ export function NavBar() {
       </section>
       <div id="loginButton">
         <Button variant="outlined" id="login" onClick={Login}>
-          Login
-        </Button>
-        <Button variant="outlined" id="logout" onClick={Logout}>
           Login
         </Button>
       </div>

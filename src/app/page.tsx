@@ -5,10 +5,6 @@ import { NavBar } from "@/components/navbar/navbar";
 import { useSession } from "next-auth/react";
 
 export default function HomePage() {
-  const session = useSession();
-  if (session.data?.user) {
-    window.location.href = "/dashboard";
-  }
   return (
     <Box>
       <Stack className="home">
