@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@mui/material";
 import { useSession } from "next-auth/react";
 import Image from "next/image";

@@ -2,7 +2,6 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import "./globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
-import { useEffect } from "react";
 import { useSession } from "next-auth/react";
 
 export default function HomePage() {
