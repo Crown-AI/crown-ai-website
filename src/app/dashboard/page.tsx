@@ -31,6 +31,8 @@ export default function HomePage() {
   useEffect(() => {
     if (session.status === "unauthenticated") {
       router.push("/auth/login");
+    } else {
+      console.log("Logged in");
     }
   }, [router, session.status]);
   return (
@@ -39,6 +41,7 @@ export default function HomePage() {
         style={{
           backgroundColor: "turquoise",
           height: "100vh",
+          width: "100%",
         }}
       >
         <Stack
@@ -47,16 +50,15 @@ export default function HomePage() {
             position: "absolute",
             alignItems: "center",
             justifyContent: "center",
-            height: "100%",
-            width: "100vh",
+            height: "100vh",
+            width: "100%",
           }}
         >
           <Typography variant="h1">Crown-AI</Typography>
-          <Marquee>
-            <Typography variant="h3">
-              The Crown of Luxury: Royalty in Technology and Development
-            </Typography>
-          </Marquee>
+          <br />
+          <Typography variant="h3">
+            The Crown of Luxury: Royalty in Technology and Development
+          </Typography>
         </Stack>
       </Stack>
     </Box>
