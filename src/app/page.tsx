@@ -3,8 +3,32 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import "./globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function HomePage() {
+  const router = useRouter();
+  const session = useSession();
+  useEffect(() => {
+    if (session.status === "authenticated") {
+      router.push("/auth/login");
+    } else {
+      console.log("Logged in");
+    }
+  }, [router, session.status]);
+  useEffect(() => {
+    let login = document.getElementById("login") as HTMLButtonElement;
+    let logout = document.getElementById("logout") as HTMLButtonElement;
+    if (session.data?.user) {
+      console.log("Logged in");
+      login.style.display = "none";
+      logout.style.display = "flex";
+    } else {
+      console.log("Logged out");
+      login.style.display = "flex";
+      logout.style.display = "none";
+    }
+  }, [router, session.data?.user]);
   return (
     <Box>
       <Stack className="home">

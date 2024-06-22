@@ -72,7 +72,7 @@ export default function HomePage() {
         >
           <Typography variant="h1">Crown-AI</Typography>
           <br />
-          <Typography variant="h3">
+          <Typography variant="h3" id="wisdom">
             The Crown of Luxury: Royalty in Technology and Development
           </Typography>
         </Stack>
