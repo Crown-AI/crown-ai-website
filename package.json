@@ -27,6 +27,7 @@
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.15.12",
     "@prisma/client": "^5.12.1",
+    "@syncfusion/ej2-react-charts": "^26.1.38",
     "@types/node": "20.6.3",
     "@types/pusher-js": "^5.1.0",
     "@types/react": "18.2.22",

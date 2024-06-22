@@ -62,6 +62,8 @@
     justify-content: center;
     top: 0;
     left: 0;
+    z-index: 400;
+    background-color: transparent;
   }
   .links section ul li {
     list-style: none;
@@ -123,6 +125,16 @@
     right: 10%;
     top: 30%;
   }
+  #logout {
+    display: flex;
+    position: absolute;
+    border-color: black;
+    color: gray;
+    border-radius: 10px;
+    z-index: 55;
+    right: 10%;
+    top: 30%;
+  }
   #differenciator {
     background-color: #000;
     height: 2px;
@@ -162,11 +174,7 @@
     gap: 10px;
     width: fit-content;
   }
-  #hullo {
-    overflow: hidden;
-    white-space: nowrap;
-    animation: slider 10s linear infinite;
-  }
+  
   .dos {
     display: flex;
     position: relative;
@@ -175,7 +183,11 @@
     color: #80a363;
   }
   
-
+  /* src/components/BarGraph.css */
+.dashboard {
+  background-color: rgb(180, 83, 83);
+  height: 100vh;
+}
 #prime {
   animation: amazon 5s ease-in-out infinite;
 }

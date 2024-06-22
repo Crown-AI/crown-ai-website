@@ -7,7 +7,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <html>
       <head>
-        <title>Dashboard | AICulture</title>
+        <title>Crown-AI</title>
       </head>
       <body>
         <Container

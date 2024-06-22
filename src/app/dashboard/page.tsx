@@ -20,43 +20,64 @@ import { useRouter } from "next/navigation";
 import { NavBar } from "@/components/navbar/navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { Graph } from "@/components/graph/graph";
+import { useSession } from "next-auth/react";
 const emptyMessage: MessageInput = {
   content: "",
 };
 export default function HomePage() {
   const router = useRouter();
-  const disobeyDefaultFunction = () => {
-    router.back();
+  const session = useSession();
+  if (!session.data?.user) {
+    router.push("/auth/login");
+  }
+  const logout = () => {
+    router.push("/auth/logout");
   };
-  setTimeout(() => {
-    router.push("/chat");
-  }, 5000);
   return (
     <Box>
-      <Stack
-        style={{
-          backgroundImage:
-            "url('https://th.bing.com/th/id/OIP.hsRdiWZZHcRgmHD1n_Cy-wHaEK?rs=1&pid=ImgDetMain')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "100vh",
-          marginTop: 10,
-          overflow: "hidden",
-        }}
-      >
-        <Stack id="poorResult">
-          <Typography variant="h2" id="poorResultTitle">
-            It&apos;s not you. It&apos;s us
-          </Typography>
-          <Typography variant="h5" id="poorResultContent">
-            Please continue with other features while we work on this problem
-          </Typography>
+      <Stack className="dashboard">
+        <Stack className="main">
+          <nav>
+            <div className="links" id="links">
+              <Image
+                src={"/Crown.png"}
+                id="navImg"
+                alt="AI"
+                width={110}
+                height={110}
+                draggable="false"
+              ></Image>
+              <section>
+                <ul>
+                  <li>
+                    <a href="#">LATEST PRODUCT</a>
+                  </li>
+                  <li>
+                    <a href="#">SERVICES</a>
+                  </li>
+                  <li>
+                    <a href="/about">ABOUT US</a>
+                  </li>
+                  <li>
+                    <a href="#">OUR TEAM</a>
+                  </li>
+                  <li>
+                    <a href="#">CONTACT US</a>
+                  </li>
+                </ul>
+              </section>
+              <div id="loginButton">
+                <Button variant="outlined" id="logout" onClick={logout}>
+                  Logout
+                </Button>
+              </div>
+            </div>
+          </nav>
+          <Stack>
+            <Graph />
+          </Stack>
         </Stack>
-        <FontAwesomeIcon
-          icon={faArrowCircleLeft}
-          id="returnBack"
-          onClick={disobeyDefaultFunction}
-        />
       </Stack>
     </Box>
   );

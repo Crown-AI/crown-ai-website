@@ -1,12 +1,36 @@
+"use client";
 import { Button } from "@mui/material";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export function NavBar() {
   const Login = () => {
     window.location.href = "/auth/login";
   };
+  const Logout = () => {
+    window.location.href = "/auth/logout";
+  };
+  const session = useSession();
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const redemption = () => {
+      let login = document.getElementById("login") as HTMLButtonElement;
+      let logout = document.getElementById("logout") as HTMLButtonElement;
+      if (session.data?.user) {
+        console.log("Status: Logged in");
+        login.style.display = "none";
+        logout.style.display = "flex";
+      } else {
+        console.log("Status: Logged out");
+        login.style.display = "flex";
+        logout.style.display = "none";
+      }
+    };
+    window.addEventListener("mouseover", redemption);
+  });
+
   return (
-    <div className="links">
+    <div className="links" id="links">
       <Image
         src={"/Crown.png"}
         id="navImg"
@@ -24,7 +48,7 @@ export function NavBar() {
             <a href="#">SERVICES</a>
           </li>
           <li>
-            <a href="#">ABOUT US</a>
+            <a href="/about">ABOUT US</a>
           </li>
           <li>
             <a href="#">OUR TEAM</a>
@@ -36,6 +60,9 @@ export function NavBar() {
       </section>
       <div id="loginButton">
         <Button variant="outlined" id="login" onClick={Login}>
+          Login
+        </Button>
+        <Button variant="outlined" id="logout" onClick={Logout}>
           Login
         </Button>
       </div>

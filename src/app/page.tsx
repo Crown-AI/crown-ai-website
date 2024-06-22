@@ -2,8 +2,30 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import "./globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
+import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 export default function HomePage() {
+  var navbar = document.getElementById("links") as HTMLDivElement;
+  useEffect(() => {
+    const handler = () => {
+      if (navbar) {
+        if (
+          document.body.scrollTop > 5 ||
+          document.documentElement.scrollTop > 5
+        ) {
+          navbar.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+        } else {
+          navbar.style.backgroundColor = "transparent";
+        }
+      }
+    };
+    window.addEventListener("scroll", handler);
+  }, []);
+  const session = useSession();
+  if (session.data?.user) {
+    window.location.href = "/dashboard";
+  }
   return (
     <Box>
       <Stack className="home">

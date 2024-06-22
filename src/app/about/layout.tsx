@@ -4,11 +4,10 @@ import Head from "next/head";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - AICulture",
+    template: "%s",
     default: "About",
   },
-  description:
-    "An AI agriculture website intended to help people with agricultural questions and help users chat with other users for better understanding.",
+  description: "Check out who we are and what we are about",
 };
 
 export default function RootLayout({
@@ -18,9 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <title>About | AICulture</title>
-      </head>
+      <head></head>
       <body>
         <RootProvider>{children}</RootProvider>
       </body>
