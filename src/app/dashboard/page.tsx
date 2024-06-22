@@ -28,7 +28,7 @@ const emptyMessage: MessageInput = {
 export default function HomePage() {
   const router = useRouter();
   const session = useSession();
-  if (session.data?.user) {
+  if (!session.data?.user) {
     router.push("/auth/login");
   }
   return (
@@ -46,7 +46,7 @@ export default function HomePage() {
             alignItems: "center",
             justifyContent: "center",
             height: "100%",
-            width: "100%",
+            width: "100vh",
           }}
         >
           <Typography variant="h1">Crown-AI</Typography>
