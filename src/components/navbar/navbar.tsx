@@ -1,10 +1,13 @@
 "use client";
 import { Button } from "@mui/material";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export function NavBar() {
   const router = useRouter();
+  const session = useSession();
   const Login = () => {
     router.push("/auth/login");
   };
@@ -40,6 +43,9 @@ export function NavBar() {
       <div id="loginButton">
         <Button variant="outlined" id="login" onClick={Login}>
           Login
+        </Button>
+        <Button variant="outlined" id="logout" onClick={Login}>
+          Logout
         </Button>
       </div>
     </div>

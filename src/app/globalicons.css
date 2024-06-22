@@ -116,7 +116,6 @@
     overflow-y: hidden;
   }
   #login {
-    display: flex;
     position: absolute;
     border-color: #a671eb;
     color: #a671eb;
@@ -126,7 +125,6 @@
     top: 30%;
   }
   #logout {
-    display: flex;
     position: absolute;
     border-color: black;
     color: gray;

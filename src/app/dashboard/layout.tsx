@@ -6,9 +6,7 @@ import { ReactNode } from "react";
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <html>
-      <head>
-        <title>Crown-AI</title>
-      </head>
+      <head></head>
       <body>
         <Container
           style={{

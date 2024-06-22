@@ -29,6 +29,19 @@ export default function HomePage() {
   const router = useRouter();
   const session = useSession();
   useEffect(() => {
+    let login = document.getElementById("login") as HTMLButtonElement;
+    let logout = document.getElementById("logout") as HTMLButtonElement;
+    if (session.data?.user) {
+      console.log("Logged in");
+      login.style.display = "none";
+      logout.style.display = "flex";
+    } else {
+      console.log("Logged out");
+      login.style.display = "flex";
+      logout.style.display = "none";
+    }
+  }, [router, session.data?.user]);
+  useEffect(() => {
     if (session.status === "unauthenticated") {
       router.push("/auth/login");
     } else {
@@ -44,6 +57,45 @@ export default function HomePage() {
           width: "100%",
         }}
       >
+        <nav>
+          <div className="links">
+            <Image
+              src={"/Crown.png"}
+              id="navImg"
+              alt="AI"
+              width={110}
+              height={110}
+              draggable="false"
+            ></Image>
+            <section>
+              <ul>
+                <li>
+                  <a href="#">LATEST PRODUCT</a>
+                </li>
+                <li>
+                  <a href="#">SERVICES</a>
+                </li>
+                <li>
+                  <a href="#">ABOUT US</a>
+                </li>
+                <li>
+                  <a href="#">OUR TEAM</a>
+                </li>
+                <li>
+                  <a href="#">CONTACT US</a>
+                </li>
+              </ul>
+            </section>
+            <div id="loginButton">
+              <Button variant="outlined" id="login">
+                Login
+              </Button>
+              <Button variant="outlined" id="logout">
+                Logout
+              </Button>
+            </div>
+          </div>
+        </nav>
         <Stack
           style={{
             display: "flex",
