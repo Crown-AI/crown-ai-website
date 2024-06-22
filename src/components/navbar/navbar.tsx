@@ -1,15 +1,12 @@
-"use client";
 import { Button } from "@mui/material";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { useEffect } from "react";
 
 export function NavBar() {
   const Login = () => {
     window.location.href = "/auth/login";
   };
   return (
-    <div className="links" id="links">
+    <div className="links">
       <Image
         src={"/Crown.png"}
         id="navImg"
@@ -27,7 +24,7 @@ export function NavBar() {
             <a href="#">SERVICES</a>
           </li>
           <li>
-            <a href="/about">ABOUT US</a>
+            <a href="#">ABOUT US</a>
           </li>
           <li>
             <a href="#">OUR TEAM</a>

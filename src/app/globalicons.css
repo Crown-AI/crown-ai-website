@@ -126,7 +126,7 @@
     top: 30%;
   }
   #logout {
-    display: none;
+    display: flex;
     position: absolute;
     border-color: black;
     color: gray;

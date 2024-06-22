@@ -57,7 +57,7 @@ export default function HomePage() {
                     <a href="#">SERVICES</a>
                   </li>
                   <li>
-                    <a href="/about">ABOUT US</a>
+                    <a href="#">ABOUT US</a>
                   </li>
                   <li>
                     <a href="#">OUR TEAM</a>
