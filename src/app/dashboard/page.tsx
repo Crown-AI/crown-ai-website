@@ -21,14 +21,16 @@ import { NavBar } from "@/components/navbar/navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import Marquee from "react-fast-marquee";
+import { useSession } from "next-auth/react";
 const emptyMessage: MessageInput = {
   content: "",
 };
 export default function HomePage() {
   const router = useRouter();
-  const disobeyDefaultFunction = () => {
-    router.back();
-  };
+  const session = useSession();
+  if (session.status !== "authenticated") {
+    router.push("/auth/login");
+  }
   return (
     <Box>
       <Stack
