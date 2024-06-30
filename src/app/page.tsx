@@ -29,9 +29,16 @@ export default function HomePage() {
       logout.style.display = "none";
     }
   }, [router, session.data?.user]);
+  useEffect(() => {
+    let images = [`/ai2.jpg`, `/back.jpg`, `/back3.jpg`, `/back4.jpg`];
+    let home = document.getElementById("home") as HTMLDivElement;
+    let selectedBG = Math.floor(Math.random() * images.length);
+    let pickedBG = images[selectedBG];
+    home.style.backgroundImage = `url("${pickedBG}")`;
+  }, []);
   return (
     <Box>
-      <Stack className="home">
+      <Stack className="home" id="home">
         <Stack className="main">
           <nav>
             <NavBar />

@@ -21,7 +21,7 @@
     'opsz' 24
   }
   .home {
-    background-image: url("/ai2.jpg");
+    background-color: #252c44;
     background-size: cover;
     background-position: center;
     height: 100vh;

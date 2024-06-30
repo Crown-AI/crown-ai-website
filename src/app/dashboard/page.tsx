@@ -48,6 +48,13 @@ export default function HomePage() {
       console.log("Logged in");
     }
   }, [router, session.status]);
+  useEffect(() => {
+    let images = [`/ai2.jpg`, `/back.jpg`, `/back3.jpg`, `/back4.jpg`];
+    let home = document.getElementById("home") as HTMLDivElement;
+    let selectedBG = Math.floor(Math.random() * images.length);
+    let pickedBG = images[selectedBG];
+    home.style.backgroundImage = `url("${pickedBG}")`;
+  }, []);
   return (
     <Box>
       <Stack
@@ -56,6 +63,7 @@ export default function HomePage() {
           height: "100vh",
           width: "100%",
         }}
+        id="home"
       >
         <nav>
           <NavBar />
