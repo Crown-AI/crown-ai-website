@@ -1,3 +1,4 @@
+"use client";
 import { Box, Stack, Typography } from "@mui/material";
 import "../globalicons.css";
 import Image from "next/image";
