@@ -13,8 +13,33 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { NavBar } from "@/components/navbar/navbar";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function OurTeam() {
+  const router = useRouter();
+  const session = useSession();
+  useEffect(() => {
+    let login = document.getElementById("login") as HTMLButtonElement;
+    let logout = document.getElementById("logout") as HTMLButtonElement;
+    if (session.data?.user) {
+      console.log("Logged in");
+      login.style.display = "none";
+      logout.style.display = "flex";
+    } else {
+      console.log("Logged out");
+      login.style.display = "flex";
+      logout.style.display = "none";
+    }
+  }, [router, session.data?.user]);
+  useEffect(() => {
+    if (session.status === "unauthenticated") {
+      router.push("/auth/login");
+    } else {
+      console.log("Logged in");
+    }
+  }, [router, session.status]);
   return (
     <Box>
       <Stack className="teamHome">
