@@ -64,6 +64,7 @@ export default function HomePage() {
           width: "100%",
         }}
         id="home"
+        className="home"
       >
         <nav>
           <NavBar />
