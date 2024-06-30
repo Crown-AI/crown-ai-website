@@ -86,10 +86,7 @@ export default function OurTeam() {
                     </li>
                     <li>
                       <a href="#" className="fab fa-linkedin">
-                        <FontAwesomeIcon
-                          icon={faLinkedinIn}
-                          style={{ fontSize: 24, width: 24, height: 24 }}
-                        />
+                        <FontAwesomeIcon icon={faLinkedinIn} />
                       </a>
                     </li>
                   </ul>
@@ -128,10 +125,7 @@ export default function OurTeam() {
                     </li>
                     <li>
                       <a href="#" className="fab fa-linkedin">
-                        <FontAwesomeIcon
-                          icon={faLinkedinIn}
-                          style={{ fontSize: 24, width: 24, height: 24 }}
-                        />
+                        <FontAwesomeIcon icon={faLinkedinIn} />
                       </a>
                     </li>
                   </ul>
