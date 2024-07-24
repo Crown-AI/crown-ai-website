@@ -1,22 +1,19 @@
 "use client";
 import { Box, Skeleton, Stack, Typography } from "@mui/material";
+import { fetchData } from "next-auth/client/_utils";
+import _logger from "next-auth/utils/logger";
+import Image from "next/image";
+import path from "path";
 import { useEffect, useState } from "react";
 
 export default function LatestProduct() {
-  const [isLoading, setIsLoading] = useState("none");
+  const [isLoading, setIsLoading] = useState(true);
   const [skeletonLoader, setSkeletonLoader] = useState("flex");
-  useEffect(() => {
-    const fetchData = () => {
-      setTimeout(() => {
-        setIsLoading("flex");
-        setSkeletonLoader("none");
-      }, 5000);
-    };
-    fetchData();
-  }, []);
+
   function Product() {
+    const [imageLoaded, setImageLoaded] = useState(false);
     return (
-      <Stack style={{ display: isLoading }}>
+      <Stack>
         <Typography variant="h1" id="latestTitle">
           Latest Product
         </Typography>
@@ -24,7 +21,28 @@ export default function LatestProduct() {
         <hr />
         <br />
         <Stack className="latestProduct">
-          <img src="/latestProduct.jpg" alt="Latest Product" />
+          <Skeleton
+            variant="circular"
+            width={300}
+            height={300}
+            animation="wave"
+            sx={{ display: imageLoaded ? "none" : "flex" }}
+          ></Skeleton>
+          <Image
+            src={"/bw.jpg"}
+            alt="profile"
+            width={300}
+            height={300}
+            onLoad={() => {
+              console.log("profile loaded");
+              setImageLoaded(true); // Ensure this line is inside the onLoad function
+            }}
+            style={{
+              display: "block",
+              visibility: imageLoaded ? "visible" : "hidden",
+              borderRadius: "50%",
+            }}
+          />
           <br />
           <br />
           <Typography variant="h2" id="latestProductName">
@@ -41,12 +59,6 @@ export default function LatestProduct() {
   return (
     <Box>
       <Stack>
-        <Skeleton
-          variant={"circular"}
-          height={500}
-          width="50%"
-          sx={{ display: skeletonLoader }}
-        />
         <Product />
       </Stack>
     </Box>
