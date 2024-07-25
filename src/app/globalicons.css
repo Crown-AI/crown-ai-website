@@ -613,6 +613,14 @@ option {
   color: rgb(160, 114, 207);
 }
 
+.ProductCards {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
+  height: 40%;
+}
 .contactOptionsBack {
   display: none;
   position: absolute;
