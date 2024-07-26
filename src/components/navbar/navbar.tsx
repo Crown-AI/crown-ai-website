@@ -27,7 +27,7 @@ export function NavBar() {
       <section>
         <ul>
           <li>
-            <a href="/product">LATEST PRODUCT</a>
+            <a href="/product">PROJECTS</a>
           </li>
           <li>
             <a href="#">SERVICES</a>
