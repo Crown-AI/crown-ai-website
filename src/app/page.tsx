@@ -66,36 +66,38 @@ export default function HomePage() {
                 display: "flex",
                 position: "relative",
                 flexDirection: "column",
-                gap: 15,
+                gap: 2,
               }}
             >
               <Typography variant="h2">What We Do</Typography>
-              <Stack>
-                <Card
-                  variant="outlined"
-                  sx={{
-                    display: "flex",
-                    position: "relative",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    height: 130,
-                    width: 267,
-                  }}
-                >
-                  <Typography variant="h5">Web App Development</Typography>
+              <Stack
+                sx={{
+                  display: "flex",
+                  position: "relative",
+                  flexDirection: "row",
+                  gap: 2,
+                }}
+              >
+                <Card variant="outlined" className="goals">
+                  <Typography variant="h5">Web Apps</Typography>
                 </Card>
-                <Card
-                  variant="outlined"
-                  sx={{
-                    display: "flex",
-                    position: "relative",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    height: 130,
-                    width: 267,
-                  }}
-                >
-                  <Typography variant="h5">Web App Development</Typography>
+                <Card variant="outlined" className="goals">
+                  <Typography variant="h5">Mobile Apps</Typography>
+                </Card>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  position: "relative",
+                  flexDirection: "row",
+                  gap: 2,
+                }}
+              >
+                <Card variant="outlined" className="goals">
+                  <Typography variant="h5">AI Development</Typography>
+                </Card>
+                <Card className="goals" variant="outlined">
+                  <Typography variant="h5">UX/UI Design</Typography>
                 </Card>
               </Stack>
             </Stack>
