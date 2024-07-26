@@ -635,6 +635,18 @@ option {
   background-color: rgba(189, 189, 189, 0.4);
   transition: 0.2s ease-in-out;
 }
+.goals {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  width: 267px;
+  cursor: pointer;
+}
+.goals:hover {
+  background-color: rgba(192, 192, 192, 0.966);
+}
 .cardContainer {
   display: flex;
   position: relative;
