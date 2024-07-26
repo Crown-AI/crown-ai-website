@@ -50,8 +50,29 @@ export function ProductCard1() {
       </Stack>
       <br />
       <Stack>
-        <Skeleton variant="text" width={320}></Skeleton>
-        <Typography variant="h3" sx={{ display: "none" }}>
+        <Skeleton
+          variant="text"
+          width={160}
+          height={66}
+          animation="wave"
+          sx={{
+            display: imageLoaded ? "none" : "block",
+            position: "absolute",
+            top: "21%",
+            left: "8%",
+          }}
+        ></Skeleton>
+        <Typography
+          variant="h3"
+          sx={{
+            display: "flex",
+            position: "absolute",
+            top: "22%",
+            left: "9%",
+            fontFamily: "monospace",
+            opacity: imageLoaded ? 1 : 0,
+          }}
+        >
           TEWAX
         </Typography>
       </Stack>
