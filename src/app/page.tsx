@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Card, Stack, Typography } from "@mui/material";
 import "./globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
 import { useSession } from "next-auth/react";
@@ -52,7 +52,7 @@ export default function HomePage() {
           <br />
           <Stack className="others">
             <Typography variant="h1" id="title">
-              CrownAI
+              Crown-AI
             </Typography>
             <br />
             <Typography variant="h4" id="wisdom">
@@ -61,35 +61,42 @@ export default function HomePage() {
             <br />
             <hr />
             <br />
-            <Stack className="WhatWeDo">
-              <Typography variant="h1" id="whatTitle">
-                What We Do
-              </Typography>
-              <br />
-              <Stack className="values">
-                <Stack className="dos" id="api">
-                  <Typography variant="h2">API Development</Typography>
-                  <br />
-                  <Typography variant="h4">
-                    We develop APIs based on the specifications of our clients
-                  </Typography>
-                </Stack>
-                <Stack className="dos" id="web">
-                  <Typography variant="h2">Web App Development</Typography>
-                  <br />
-                  <Typography variant="h4">
-                    We develop web applications based on the specfications of
-                    our clients
-                  </Typography>
-                </Stack>
-                <Stack className="dos" id="ai">
-                  <Typography variant="h2">AI Development</Typography>
-                  <br />
-                  <Typography variant="h4">
-                    We develop AI tools using machine learning, etc. to build AI
-                    applications
-                  </Typography>
-                </Stack>
+            <Stack
+              sx={{
+                display: "flex",
+                position: "relative",
+                flexDirection: "column",
+                gap: 15,
+              }}
+            >
+              <Typography variant="h2">What We Do</Typography>
+              <Stack>
+                <Card
+                  variant="outlined"
+                  sx={{
+                    display: "flex",
+                    position: "relative",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    height: 130,
+                    width: 267,
+                  }}
+                >
+                  <Typography variant="h5">Web App Development</Typography>
+                </Card>
+                <Card
+                  variant="outlined"
+                  sx={{
+                    display: "flex",
+                    position: "relative",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    height: 130,
+                    width: 267,
+                  }}
+                >
+                  <Typography variant="h5">Web App Development</Typography>
+                </Card>
               </Stack>
             </Stack>
           </Stack>
