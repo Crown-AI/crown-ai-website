@@ -1,9 +1,9 @@
 "use client";
-import { Box, Button, Card, Stack, Typography } from "@mui/material";
+import { Box, Card, Stack, Typography } from "@mui/material";
 import "./globalicons.css";
 import { NavBar } from "@/components/navbar/navbar";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function HomePage() {
@@ -11,7 +11,7 @@ export default function HomePage() {
   const session = useSession();
   useEffect(() => {
     if (session.status === "authenticated") {
-      router.push("/auth/login");
+      redirect("/auth/login");
     } else {
       console.log("Logged in");
     }

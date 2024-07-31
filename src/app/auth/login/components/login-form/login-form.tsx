@@ -4,7 +4,6 @@ import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import email from "next-auth/providers/email";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import AICulture from "/public/Samp.png";
 import Link from "next/link";
 import { useState } from "react";
 import { NavBar } from "@/components/navbar/navbar";
@@ -34,37 +33,6 @@ export function LoginForm() {
         minHeight="100vh"
         display={"flex"}
       >
-        <nav>
-          <div className="links">
-            <Image
-              src={"/Crown.png"}
-              id="navImg"
-              alt="AI"
-              width={110}
-              height={110}
-              draggable="false"
-            ></Image>
-            <section>
-              <ul>
-                <li>
-                  <a href="#">LATEST PRODUCT</a>
-                </li>
-                <li>
-                  <a href="#">SERVICES</a>
-                </li>
-                <li>
-                  <a href="#">ABOUT US</a>
-                </li>
-                <li>
-                  <a href="#">OUR TEAM</a>
-                </li>
-                <li>
-                  <a href="#">CONTACT US</a>
-                </li>
-              </ul>
-            </section>
-          </div>
-        </nav>
         <Stack
           style={{
             backgroundColor: "rgba(72.55, 94.9, 100, 0.3)",

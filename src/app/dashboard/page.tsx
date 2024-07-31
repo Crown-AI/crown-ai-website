@@ -9,7 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import Logo from "public/Samp.png";
 import { useState, useEffect, useRef } from "react";
 import { MessageInput } from "../api/messages/route";
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";

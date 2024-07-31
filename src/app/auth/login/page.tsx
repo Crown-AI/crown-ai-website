@@ -17,7 +17,6 @@ import { Duru_Sans, Fira_Sans, Inter, Train_One } from "next/font/google";
 import { green, red } from "@mui/material/colors";
 import { Agriculture, Label, RememberMe } from "@mui/icons-material";
 import Image from "next/image";
-import AICulture from "public/Sample.png";
 import { signIn } from "next-auth/react";
 import { LoginForm } from "./components/login-form/login-form";
 export const metadata: Metadata = {
