@@ -146,6 +146,9 @@ export function LoginForm() {
                   <span>Signup</span>
                 </Button>
               </Link>
+              <Button type="button" onClick={() => signIn("google")}>
+                Sign in with google
+              </Button>
             </Stack>
           </form>
         </Stack>
