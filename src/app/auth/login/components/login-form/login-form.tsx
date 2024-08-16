@@ -146,8 +146,8 @@ export function LoginForm() {
                   <span>Signup</span>
                 </Button>
               </Link>
-              <Button type="button" onClick={() => signIn("google")}>
-                Sign in with google
+              <Button type="button" onClick={() => signIn("slack")}>
+                Sign in with slack
               </Button>
             </Stack>
           </form>
